@@ -75,7 +75,7 @@ function biz_vektor_theme_options_add_page() {
 add_action( 'admin_menu', 'biz_vektor_theme_options_add_page' );
 
 function biz_vektor_get_theme_options() {
-	return get_option( 'biz_vektor_theme_options', biz_vektor_get_default_theme_options() );
+	return biz_vektor_veryfi_option();
 }
 
 function biz_vektor_get_default_theme_options() {
@@ -406,6 +406,7 @@ function biz_vektor_print_headContact() {
 	$options = biz_vektor_get_theme_options();
 	$contact_txt = $options['contact_txt'];
 	$contact_time = nl2br($options['contact_time']);
+	$headContact = '';
 	if ($options['tel_number']) {
 		// tel_number
 		$headContact = '<div id="headContact" class="itemClose" onclick="showHide(\'headContact\');"><div id="headContactInner">'."\n";
@@ -762,4 +763,88 @@ function get_biz_vektor_name() {
 	$name = 'BizVektor';
 	$name = apply_filters( 'bizvektor_name', $name );
 	return $name;
+}
+// load the option and check data
+function biz_vektor_veryfi_option(){
+	$options = get_option( 'biz_vektor_theme_options', biz_vektor_get_default_theme_options() );
+	$default_theme_options = array(
+		'font_title' => '',
+		'font_menu' => '',
+		'gMenuDivide' => '',
+		'head_logo' => '',
+		'foot_logo' => '',
+		'contact_txt' => '',
+		'tel_number' => '',
+		'contact_time' => '',
+		'sub_sitename' => '',
+		'contact_address' => '',
+		'contact_link' => '',
+		'topTitle' => '',
+		'commonKeyWords' => '',
+		'gaID' => '',
+		'gaType' => '',
+		'topEntryTitleDisplay' => '',
+		'topSideBarDisplay' => '',
+		'top3PrDisplay' => '',
+		'postTopCount' => '',
+		'listInfoTop' => '',
+		'listInfoArchive' => '',
+		'listBlogTop' => '',
+		'listBlogArchive' => '',
+		'blogRss' => '',
+		'topContentsBottom' => '',
+		'twitter' => '',
+		'facebook' => '',
+		'fbAppId' => '',
+		'fbAdminId' => '',
+		'ogpImage' => '',
+		'ogpTagDisplay' => '',
+		'snsBtnsFront' => '',
+		'snsBtnsPage' => '',
+		'snsBtnsPost' => '',
+		'snsBtnsInfo' => '',
+		'snsBtnsHidden' => '',
+		'fbCommentsFront' => '',
+		'fbCommentsPage' => '',
+		'fbCommentsPost' => '',
+		'fbCommentsInfo' => '',
+		'fbCommentsHidden' => '',
+		'fbLikeBoxFront' => '',
+		'fbLikeBoxSide' => '',
+		'fbLikeBoxURL' => '',
+		'fbLikeBoxStream' => '',
+		'fbLikeBoxFace' => '',
+		'fbLikeBoxHeight' => '',
+		'galaTheme_style' => '',
+		'galaLogo' => '',
+		'side_child_display' => '',
+		'theme_layout' => 'content-sidebar',
+		'postLabelName' => 'Blog',
+		'infoLabelName' => 'Information',
+		'rssLabelName' => 'Blog entries',
+		'theme_style' => 'default'
+	);
+	for ( $i = 1; $i <= 5 ;){
+		$default_theme_options['slide'.$i.'link'] = '';
+		$default_theme_options['slide'.$i.'image'] = '';
+		$default_theme_options['slide'.$i.'alt'] = '';
+		$default_theme_options['slide'.$i.'display'] = '';
+		$default_theme_options['slide'.$i.'blank'] = '';
+	$i++;
+	}
+		for ( $i = 1; $i <= 3 ;){
+		$default_theme_options['pr'.$i.'_title'] = '';
+		$default_theme_options['pr'.$i.'_description'] = '';
+		$default_theme_options['pr'.$i.'_link'] = '';
+		$default_theme_options['pr'.$i.'_image'] = '';
+		$default_theme_options['pr'.$i.'_image_s'] = '';
+	$i++;
+	}
+
+	$keylist = array_keys($options);
+	foreach($keylist as $key){
+		$default_theme_options[$key] = $options[$key];
+	}
+
+	return $default_theme_options;
 }
