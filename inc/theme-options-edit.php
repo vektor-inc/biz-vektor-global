@@ -28,7 +28,6 @@ function biz_vektor_theme_options_render_page() { ?>
 		} else { ?>
 		<div id="sub-content">
 
-		<iframe frameborder="0" height="200" marginheight="0" marginwidth="0" scrolling="auto" src="http://bizvektor.com/info-admin/"></iframe>
 
 		</div>
 		<?php } ?>
@@ -109,7 +108,6 @@ function biz_vektor_theme_options_render_page() { ?>
 	}
 	?>
 	</select>
-	[ <a href="http://bizvektor.com/setting/menu/" target="_blank">&raquo; <?php _e('How to set up Menus', 'biz-vektor') ;?></a> ]
 	</td>
 	</tr>
 	<!-- Head logo -->
@@ -533,7 +531,7 @@ printf( __('However, it might have negative impact on search engine rankings if 
 <?php get_template_part('inc/theme-options-nav'); ?>
 <h3><?php _e('Slideshow Settings', 'biz-vektor'); ?></h3>
 <p><?php _e('Please enter the URL of the image to be used in the slideshow.', 'biz-vektor'); ?><br />
-<?php _e('The recommended size of the image is 950 × 250px.', 'biz-vektor'); ?><br />
+<?php _e('The recommended size of the image is 950 x 250px.', 'biz-vektor'); ?><br />
 <?php
 $topVisualLink = '<a href="'.get_admin_url().'themes.php?page=custom-header" target="_blank">'.__('Home page Main visual', 'biz-vektor').'</a>';
 printf(__('%s will be displayed if the slideshow is not set.', 'biz-vektor'),$topVisualLink); ?><br />

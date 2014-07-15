@@ -22,7 +22,7 @@
 /*-------------------------------------------*/
 /*	Header contact info (TEL & Time)
 /*-------------------------------------------*/
-/*	Home page _ blogList（RSS）
+/*	Home page _ blogList(RSS)
 /*-------------------------------------------*/
 /*	Home page _ bottom free area
 /*-------------------------------------------*/
@@ -96,7 +96,7 @@ function biz_vektor_get_default_theme_options() {
 
 /*-------------------------------------------*/
 /*	Set option default
-/*	$opstions_default = biz_vektor_get_default_theme_options(); に移行して順次廃止	// 0.11.0
+/*	$opstions_default = biz_vektor_get_default_theme_options();// 0.11.0
 /*-------------------------------------------*/
 function bizVektorOptions_default() {
 	global $bizVektorOptions_default;
@@ -357,7 +357,7 @@ function biz_vektor_gMenuDivide() {
 	$options = biz_vektor_get_theme_options();
 	// No select
 	if ($options['gMenuDivide'] == __('[ Select ]', 'biz-vektor') || ! $options['gMenuDivide'] || ($options['gMenuDivide'] == 'divide_natural') ) {
-	//　other
+	// other
 	} else {
 		$menuWidth = array(
 			'divide_4' => array(238,237),
@@ -433,7 +433,7 @@ function biz_vektor_print_headContact() {
 }
 
 /*-------------------------------------------*/
-/*	Home page _ blogList（RSS）
+/*	Home page _ blogList(RSS)
 /*-------------------------------------------*/
 function biz_vektor_blogList()	{
 	$options = biz_vektor_get_theme_options();
@@ -448,7 +448,7 @@ function biz_vektor_blogList()	{
 		$count = 0;
 		echo '<ul class="entryList">';
 		if ($xml->channel->item){
-			// WordPress ／　ameblo
+			// WordPress ameblo
 			foreach($xml->channel->item as $entry){
 			// fot ameblo PR
 			$entryTitJudge = mb_substr( $entry->title, 0, 3 );	// trim 3 charactors
@@ -724,7 +724,7 @@ class WP_Widget_contact_link extends WP_Widget {
 	function WP_Widget_contact_link() {
 		$widget_ops = array(
 			'classname' => 'WP_Widget_contact_link',
-			'description' => __( '*　It is necessary to set the Theme options page.', 'biz-vektor' ),
+			'description' => __( '* It is necessary to set the Theme options page.', 'biz-vektor' ),
 		);
 		$widget_name = __('Contact button', 'biz-vektor').' ('.get_biz_vektor_name().')';
 		$this->WP_Widget('contact_link', $widget_name, $widget_ops);

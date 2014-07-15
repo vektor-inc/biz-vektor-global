@@ -1,7 +1,8 @@
 @charset "UTF-8";
 #sideTower .sideWidget li#sideContact { border: none; }
 #sideTower .sideWidget li#sideContact a { padding: 0; }
-
+.sticky {}
+.bypostauthor {}
 /* BizVektorOptions 0.1.1.1
 /*-------------------------------------------*/
 .leadTxt, #content p.leadTxt { font-size: 2em; line-height: 150%; padding: 0; }

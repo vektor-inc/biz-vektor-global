@@ -695,9 +695,9 @@ class WP_Widget_ChildPageList extends WP_Widget {
 	function WP_Widget_childPageList() {
 		$widget_ops = array(
 			'classname' => 'WP_Widget_childPageList',
-			'description' => '表示している固定ページが属する階層のページリストを表示',
+			'description' => __('child Page lists', 'biz-vektor')
 		);
-		$this->WP_Widget('childPageList', '固定ページ子ページリスト', $widget_ops);
+		$this->WP_Widget('childPageList', __('child page list of pages', 'biz-vektor'), $widget_ops);
 	}
 
 	/** @see WP_Widget::widget */
