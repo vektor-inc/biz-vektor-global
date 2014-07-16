@@ -72,7 +72,7 @@ body     { color: #666; text-align: center;font-family:"ヒラギノ角ゴ Pro W
 body     { font-size:87.5%;line-height:130%;-webkit-text-size-adjust : 100%; }
 dt { font-weight: bold; }
 strong { font-weight: bold; }
-pre { background: #f7f7f7; color: #222; line-height: 18px; margin-bottom: 18px; padding: 1.5em; }
+pre { background: #f7f7f7; color: #222; line-height: 18px; margin-bottom: 18px; padding: 1.5em; overflow: auto; }
 sup,
 sub { height: 0; line-height: 1; position: relative; vertical-align: baseline; }
 sup { bottom: 1ex; }
@@ -593,6 +593,7 @@ box-shadow:0 2px 1px #efefef;
 #comments li.comment .comment-body	{ margin-left:50px;margin-top:10px; }
 #comments li.comment .comment-body p { margin-bottom:10px; }
 #comments li.comment .reply	{  }
+#comments li.comment pre {  }
 
 #comments #respond .required	{ color:#e50000;}
 #content #commentform p	{ margin-bottom:5px; }
