@@ -56,12 +56,12 @@ function biz_vektor_get_theme_options_default_design() {
 /*	Variable settings
 /*-------------------------------------------*/
 function biz_vektor_theme_options_default_design_validate( $input ) {
-	$output = $defaults;
+	//$output = $defaults;
 	$output['theme_plusKeyColor'] = $input['theme_plusKeyColor'];
 	$output['theme_plusKeyColorLight'] = $input['theme_plusKeyColorLight'];
 	$output['theme_plusKeyColorVeryLight'] = $input['theme_plusKeyColorVeryLight'];
 	$output['theme_plusKeyColorDark'] = $input['theme_plusKeyColorDark'];
-	return apply_filters( 'biz_vektor_theme_options_default_design_validate', $output, $input, $defaults );
+	return apply_filters( 'biz_vektor_theme_options_default_design_validate', $output, $input );
 }
 
 /*-------------------------------------------*/
