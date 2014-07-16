@@ -252,7 +252,8 @@ position:relative; line-height:114.3%;}
 #content h6 { clear:both; font-size:14px;margin:30px 0px 8px; padding:10px 0px 0px;}
 
 #content p { margin-bottom: 20px;padding:0px 5px; }
-#content blockquote { border:1px solid #ccc; background-color:#f5f5f5; padding:20px 15px 0px;margin-bottom:20px; clear:both; }
+#content blockquote,
+#content .sectionFrame { border:1px solid #ccc; background-color:#f5f5f5; padding:20px 15px 0px;margin-bottom:20px; clear:both; }
 #content strong	{ font-weight:bold; }
 #content address { margin-bottom:20px; }
 
@@ -544,7 +545,8 @@ box-shadow:0 2px 1px #efefef;
 
 #topPr .topPrOuter	{ display:block; overflow:hidden; margin-bottom:20px; padding-bottom:10px; }
 #topPr h3	{ margin:0px 0px 9px;line-height:120%;font-size:16px; padding-left:10px; }
-#topPr h3 a	{ text-decoration:none;color:#333; }
+/* a をブロック指定しないと高さが揃わない */
+#topPr h3 a	{ text-decoration:none;color:#333;display:block; overflow:hidden; }
 #topPr p a	{ text-decoration:none;line-height:16px;color:#666;}
 #topPr a:hover	{ text-decoration:underline; }
 #topPr p.topPrDescription	{ margin-bottom:0px; font-size:14px;line-height:120%; padding:0px; }

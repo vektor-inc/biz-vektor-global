@@ -82,12 +82,12 @@ jQuery.easing.quart = function (x, t, b, c, d) {
 /*-------------------------------------------*/
 /*
 /*-------------------------------------------*/
-jQuery(document).ready(function(){
-	jQuery('body :first-child').addClass('firstChild');
-	jQuery('body :last-child').addClass('lastChild');
-	jQuery('body li:nth-child(odd)').addClass('odd');
-	jQuery('body li:nth-child(even)').addClass('even');
-});
+// jQuery(document).ready(function(){
+// 	jQuery('body :first-child').addClass('firstChild');
+// 	jQuery('body :last-child').addClass('lastChild');
+// 	jQuery('body li:nth-child(odd)').addClass('odd');
+// 	jQuery('body li:nth-child(even)').addClass('even');
+// });
 /*
 ======================================================================
 	jquery.flatheights.js
@@ -99,8 +99,8 @@ jQuery(document).ready(function(){
 /*	文字の大きさが変化した時に実行する処理を追加
 /*-------------------------------------------*/
 jQuery(document).ready(function($){
-    // jQuery('.topPrTit').flatHeights();
-    jQuery('.topPrTit').flatHeights();
+    // .topPrTitには高さのpaddingを入れる事もあるので a に対して指定
+    jQuery('.topPrTit a').flatHeights();
     jQuery('.topPrDescription').flatHeights();
     jQuery('.child_page_block').flatHeights();
     jQuery('.child_page_block p').flatHeights();
