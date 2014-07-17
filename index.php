@@ -19,6 +19,7 @@ if (isset($_GET['s']) && empty($_GET['s'])) {
 		get_template_part('module_loop_post2');
 		endwhile;
 		?>
+		<?php pagination(); ?>
 		<ul class="entryList">
 		<?php
 		while ( $wp_query->have_posts() ) : $wp_query->the_post();
