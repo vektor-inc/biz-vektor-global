@@ -1,4 +1,4 @@
-<div id="comments">
+<div id="commentarea">
 <?php if ( post_password_required() ) : ?>
 <?php // No Passwords comment ?>
 </div><!-- #comments -->

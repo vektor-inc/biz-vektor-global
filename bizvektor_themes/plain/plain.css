@@ -581,21 +581,21 @@ box-shadow:0 2px 1px #efefef;
 #content .entry-utility dl.tag-links dt	{ display:inline-block; border:1px solid #e5e5e5;font-weight:lighter; margin-right:10px; padding:0px 10px; background-color:#e5e5e5; color:#999;}
 
 
-/*			#comments
+/*			#commentarea
 /*-------------------------------------------*/
-#comments { clear: both; }
-#comments ol.commentlist	{ margin:0px 0px 15px 0px;}
-#comments ol.commentlist li	{ list-style:none; }
-#comments li.comment .commentBox	{ border:4px solid #e5e5e5; padding:15px; margin-bottom:10px; }
-#comments li.comment .comment-author img	{ float:left;border:2px solid #ccc;margin-right:10px; }
-#comments li.comment .comment-author cite.fn	{ font-style:normal; line-height:120%;}
-#comments li.comment .comment-meta.commentmetadata	{ font-size:85.7%; line-height:120%;}
-#comments li.comment .comment-body	{ margin-left:50px;margin-top:10px; }
-#comments li.comment .comment-body p { margin-bottom:10px; }
-#comments li.comment .reply	{  }
-#comments li.comment pre {  }
+#commentarea { clear: both; }
+#commentarea ol.commentlist	{ margin:0px 0px 15px 0px;}
+#commentarea ol.commentlist li	{ list-style:none; }
+#commentarea li.comment .commentBox	{ border:4px solid #e5e5e5; padding:15px; margin-bottom:10px; }
+#commentarea li.comment .comment-author img	{ float:left;border:2px solid #ccc;margin-right:10px; }
+#commentarea li.comment .comment-author cite.fn	{ font-style:normal; line-height:120%;}
+#commentarea li.comment .comment-meta.commentmetadata	{ font-size:85.7%; line-height:120%;}
+#commentarea li.comment .comment-body	{ margin-left:50px;margin-top:10px; }
+#commentarea li.comment .comment-body p { margin-bottom:10px; }
+#commentarea li.comment .reply	{  }
+#commentarea li.comment pre {  }
 
-#comments #respond .required	{ color:#e50000;}
+#commentarea #respond .required	{ color:#e50000;}
 #content #commentform p	{ margin-bottom:5px; }
 #content #commentform input,
 #content #commentform textarea	{ display:block; width:95%; padding:4px; }

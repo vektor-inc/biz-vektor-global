@@ -41,7 +41,7 @@
 </div>
 <!-- [ /#post- ] -->
 
-<?php comments_template( '', true ); ?>
+<?php if ( comments_open() || get_comments_number() ) { comments_template(); } ?>
 
 <?php endwhile; // end of the loop. ?>
 

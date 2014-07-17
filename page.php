@@ -38,7 +38,7 @@
 <?php // /Child page list ?>
 
 <?php get_template_part('module_mainfoot'); ?>
-
+<?php comments_template( '', true ); ?>
 </div>
 <!-- [ /#content ] -->
 
