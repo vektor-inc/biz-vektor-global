@@ -57,10 +57,16 @@ function biz_vektor_get_theme_options_default_design() {
 /*-------------------------------------------*/
 function biz_vektor_theme_options_default_design_validate( $input ) {
 	//$output = $defaults;
-	$output['theme_plusKeyColor'] = $input['theme_plusKeyColor'];
-	$output['theme_plusKeyColorLight'] = $input['theme_plusKeyColorLight'];
-	$output['theme_plusKeyColorVeryLight'] = $input['theme_plusKeyColorVeryLight'];
-	$output['theme_plusKeyColorDark'] = $input['theme_plusKeyColorDark'];
+	$output = array();
+	$output['theme_plusKeyColor'] = '';
+	$output['theme_plusKeyColorLight'] = '';
+	$output['theme_plusKeyColorVeryLight'] = '';
+	$output['theme_plusKeyColorDark'] = '';
+	$keylist = array_keys($input);
+	foreach($keylist as $key){
+		if(isset($input[$key])) { $output[$key] = $input[$key]; }
+	}
+
 	return apply_filters( 'biz_vektor_theme_options_default_design_validate', $output, $input );
 }
 

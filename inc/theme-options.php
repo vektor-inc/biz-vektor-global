@@ -745,6 +745,7 @@ class WP_Widget_contact_link extends WP_Widget {
 
 	/** @see WP_Widget::form */
 	function form($instance) {
+		if(!isset($instance['title'])){ return; }
 		$title = esc_attr($instance['title']);
 		/*
 		?>
