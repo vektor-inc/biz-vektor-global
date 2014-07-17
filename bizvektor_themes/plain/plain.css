@@ -378,7 +378,10 @@ position:relative; line-height:114.3%;}
 #content .infoList ul li .infoTxt	{ display:block; overflow:hidden; clear:both; }
 #content .infoList ul li .infoTxt a	{ text-decoration:none; background:url(images/icon_arrow2_red.gif) left 7px no-repeat; padding-left:10px; color:#666; display:block;overflow:hidden; }
 #content .infoList ul li .infoTxt a:hover	{ color:#c00; text-decoration:underline; }
-#content .infoList ul li.tag-sticky { background:rgba(250,0,0,0.1); }
+#content .infoList ul li.sticky,
+#content .infoList ul li.tag-sticky,
+#content .infoList ul li.tag-sticky-1,
+#content .infoList ul li.tag-sticky-2 { background:rgba(250,0,0,0.1); }
 
 /*				.infoListBox
 /*-------------------------------------------*/
@@ -398,7 +401,10 @@ position:relative; line-height:114.3%;}
 #content .infoList .infoListBox div.thumbImage { width:35%;display:block; overflow:hidden;float:right;text-align:right; position:absolute;top:20px;right:0px; }
 #content .infoList .infoListBox div.thumbImage div.thumbImageInner { display:block; overflow:hidden;margin:1px; }
 #content .infoList .infoListBox div.thumbImage div.thumbImageInner img	{ width:88px;height:auto;border:1px solid #ccc; }
-#content .infoList .tag-sticky	{ background:rgba(250,0,0,0.1); }
+#content .infoList .sticky,
+#content .infoList .tag-sticky
+#content .infoList .tag-sticky-1,
+#content .infoList .tag-sticky-2	{ background:rgba(250,0,0,0.1); }
 
 
 /*			form
