@@ -3,7 +3,7 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
-<title><?php bloginfo('name'); ?></title>
+<title><?php wp_title(); ?></title>
 <meta name="description" content="<?php bloginfo('desctiption'); ?>" />
 <style type="text/css">
 body	{ color:#666; text-align:center;padding-top:200px; background-color:#f5f5f5; }

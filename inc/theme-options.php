@@ -224,6 +224,8 @@ function getHeadTitle() {
 	$headTitle = apply_filters( 'titleCustom', $headTitle );
 	return esc_html($headTitle);
 }
+add_filter( 'wp_title', 'getHeadTitle', 10, 2 );
+
 /*-------------------------------------------*/
 /*	layout
 /*-------------------------------------------*/
