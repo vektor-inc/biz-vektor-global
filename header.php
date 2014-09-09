@@ -2,7 +2,7 @@
 <!--[if IE]>
 <meta http-equiv="X-UA-Compatible" content="edge" />
 <![endif]-->
-<html xmlns:fb="http://ogp.me/ns/fb#" <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <title><?php echo getHeadTitle(); ?></title>
