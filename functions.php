@@ -328,32 +328,6 @@ function save_custom_field_metaKeyword($post_id){
 /*-------------------------------------------*/
 add_post_type_support( 'page', 'excerpt' ); // add excerpt
 
-function remove_default_page_screen_metaboxes() {
-//	remove_meta_box( 'postcustom','page','normal' );		// cutom field
-//	remove_meta_box( 'postexcerpt','page','normal' );		// excerpt
-	remove_meta_box( 'commentstatusdiv','page','normal' );	// discussion
-	remove_meta_box( 'commentsdiv','page','normal' );		// comment
-	remove_meta_box( 'trackbacksdiv','page','normal' );		// trackback
-//	remove_meta_box( 'authordiv','page','normal' );			// author
-//	remove_meta_box( 'slugdiv','page','normal' );			// slug
-//	remove_meta_box( 'revisionsdiv','page','normal' );		// revision
- }
-add_action('admin_menu','remove_default_page_screen_metaboxes');
-
-/*-------------------------------------------*/
-/*	Admin page _ post _ customize
-/*-------------------------------------------*/
-function remove_default_post_screen_metaboxes() {
-//	remove_meta_box( 'postcustom','post','normal' );			// cutom field
-//	remove_meta_box( 'postexcerpt','post','normal' );			// excerpt
-//	remove_meta_box( 'commentstatusdiv','post','normal' );		// comment
-//	remove_meta_box( 'trackbacksdiv','post','normal' );			// trackback
-//	remove_meta_box( 'slugdiv','post','normal' );				// slug
-//	remove_meta_box( 'authordiv','post','normal' );				// author
- }
- add_action('admin_menu','remove_default_post_screen_metaboxes');
-
-
 /*-------------------------------------------*/
 /*	head_description
 /*-------------------------------------------*/
@@ -414,12 +388,6 @@ function getHeadDescription() {
 /*-------------------------------------------*/
 /*	head_wp_head clean and add items
 /*-------------------------------------------*/
-
-//	Remove WordPress information
-remove_action('wp_head', 'wp_generator');
-
-//	Remove prev,next
-// remove_action('wp_head','adjacent_posts_rel_link_wp_head',10);
 
 // Add Google Web Fonts
 add_action('wp_head','bizVektorAddWebFonts');
@@ -525,11 +493,6 @@ function change_excerpt_more($post) {
 	return ' ...';
 }
 add_filter('excerpt_more', 'change_excerpt_more');
-
-/*-------------------------------------------*/
-/*	Excerpt _ remove auto mark up to p
-/*-------------------------------------------*/
-remove_filter('the_excerpt', 'wpautop');
 
 /*-------------------------------------------*/
 /*	Year Artchive list 'year' insert to inner </a>

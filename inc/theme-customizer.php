@@ -20,10 +20,6 @@ endif;
 
 add_action( 'customize_register', 'bizvektor_customize_register' );
 function bizvektor_customize_register($wp_customize) {
-	
-	// remove section
-	$wp_customize->remove_section( 'static_front_page' );	// front page
-	$wp_customize->remove_section( 'nav' );
 
 	/*	Design setting
 	/*-------------------------------------------*/
