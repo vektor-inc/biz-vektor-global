@@ -21,17 +21,6 @@ if ( is_singular() && get_option( 'thread_comments' ) )
  * as styles, scripts, and meta tags.
  */
 ?>
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-<?php
-/* 子テーマが利用されている場合は旧IEでのCSS上書き用ファイルを出力
-/* 備考:file_exists はセーフモードのサーバーで動作しないため不使用
-*/
-if (get_template_directory_uri() != get_stylesheet_directory_uri()){
-	$stylePathOldIe = get_stylesheet_directory_uri()."/style_oldie.css";
-	print '<!--[if lte IE 8]>'."\n";
-	print '<link rel="stylesheet" type="text/css" media="all" href="'.$stylePathOldIe.'" />'."\n";
-	print '<![endif]-->'."\n";
-} ?>
 <meta id="viewport" name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
 <?php wp_head(); ?>
 </head>
