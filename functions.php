@@ -222,11 +222,6 @@ endif;
 	require( dirname( __FILE__ ) . '/inc/theme-customizer.php' );
 
 /*-------------------------------------------*/
-/*	Admin admin_bar_custom
-/*-------------------------------------------*/
-	get_template_part('module_adminBarCustom');
-
-/*-------------------------------------------*/
 /*	Admin page _ Add style
 /*-------------------------------------------*/
 function bizVektor_admin_css(){
