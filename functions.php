@@ -690,37 +690,3 @@ function biz_vektor_childPageList(){
 		}
 	} // is_page
 }
-class WP_Widget_ChildPageList extends WP_Widget {
-	/** constructor */
-	function WP_Widget_childPageList() {
-		$widget_ops = array(
-			'classname' => 'WP_Widget_childPageList',
-			'description' => __('child Page lists', 'biz-vektor')
-		);
-		$this->WP_Widget('childPageList', __('child page list of pages', 'biz-vektor'), $widget_ops);
-	}
-
-	/** @see WP_Widget::widget */
-	function widget($args, $instance) {
-		extract( $args );
-		if(biz_vektor_childPageList()){
-			echo $before_widget;
-			biz_vektor_childPageList();
-			echo $after_widget;
-		}
-	}
-
-	// /** @see WP_Widget::update */
-	// function update($new_instance, $old_instance) {
-	// 	return $new_instance;
-	// }
-
-	// /** @see WP_Widget::form */
-	// function form($instance) {
-	// 	$title = esc_attr($instance['title']);
-	// }
-
-} // class WP_Widget_childPageList
-
-// register WP_Widget_childPageList widget
-add_action('widgets_init', create_function('', 'return register_widget("WP_Widget_childPageList");'));
