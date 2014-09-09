@@ -226,9 +226,9 @@ function bizVektor_admin_css(){
 	// echo '<link rel="stylesheet" type="text/css" href="'.get_template_directory_uri().'/style_BizVektor_admin.css" />';
 	$adminCssPath = get_template_directory_uri().'/css/style_bizvektor_admin.css';
 	wp_enqueue_style( 'theme', $adminCssPath , false, '2014-04-29');
-	wp_enqueue_style('bizvektor_style', get_stylesheet_uri, array(), '1.0.3');
+	wp_enqueue_style('bizvektor_style', get_stylesheet_uri(), array(), '1.0.3');
 }
-add_action('admin_head', 'bizVektor_admin_css', 11);
+add_action('wp_enqueue_scripts', 'bizVektor_admin_css', 11);
 
 /*-------------------------------------------*/
 /*	Admin page _ Add post status to body class

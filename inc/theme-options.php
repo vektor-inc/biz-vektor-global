@@ -322,7 +322,7 @@ function biz_vektor_theme_styleSetting() {
 }
 
 // [4] Print theme style css
-add_action('wp_head','biz_vektor_theme_style',100 );
+add_action('wp_enqueue_scripts','biz_vektor_theme_style',100 );
 function biz_vektor_theme_style() {
 	$options = biz_vektor_get_theme_options();
 	// Set bbiz_vektor_theme_styles
@@ -335,21 +335,7 @@ function biz_vektor_theme_style() {
 		$options['theme_style'] = $bizVektorOptions_default['theme_style'];
 	}
 	$themePath = $biz_vektor_theme_styles[$options['theme_style']]['cssPath'];
-
-	print '<!-- BizVektorStyle-->'."\n";
-	print '<link rel="stylesheet" type="text/css" media="all" href="'.$themePath.'" />'."\n";
-	print '<!-- /BizVektorStyle-->'."\n";
-
-	// wp_enqueue_style( 'theme', $themePath , false, '2013-10-19');
-
-	$themePathOldIe = $biz_vektor_theme_styles[$options['theme_style']]['cssPathOldIe'];
-
-	if ($themePathOldIe){
-		print '<!--[if lte IE 8]>'."\n";
-		print '<link rel="stylesheet" type="text/css" media="all" href="'.$themePathOldIe.'" />'."\n";
-		print '<![endif]-->'."\n";
-	}
-}
+	wp_enqueue_style('bizvektor_style_theme', $themePath, array(), '1.0.0');
 
 /*-------------------------------------------*/
 /*	Menu divide
