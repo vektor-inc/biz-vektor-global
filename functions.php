@@ -263,7 +263,7 @@ add_editor_style('editor-style.css');
 // add_action('admin_notices','original_header_menu_output');
 
 /*-------------------------------------------*/
-/*	Admin page _ Hide youkoso
+/*	Admin page _ Hide youkoso//
 /*-------------------------------------------*/
 function hide_welcome_panel() {
 	$user_id = get_current_user_id();
@@ -391,25 +391,28 @@ function getHeadDescription() {
 /*-------------------------------------------*/
 
 // Add Google Web Fonts
-add_action('wp_head','bizVektorAddWebFonts');
+add_action('wp_enqueue_scripts','bizVektorAddWebFonts');
 function bizVektorAddWebFonts(){
-	$webFonts = '<link href="http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton" rel="stylesheet" type="text/css" />'."\n";
+	wp_enqueue_style( 'bizvektoraddwebfonts', "http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton", array(), '1.0.0');
+//	$webFonts = '<link href="http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton" rel="stylesheet" type="text/css" />'."\n";
 	$webFonts = apply_filters('webFontsCustom', $webFonts );
 	echo $webFonts;
 }
 
 // Add BizVektor option css
-add_action('wp_head','bizVektorAddCommonStyle');
+add_action('wp_enqueue_scripts','bizVektorAddCommonStyle');
 function bizVektorAddCommonStyle(){
-	$optionStyle = '<link rel="stylesheet" id="bizvektor-option-css"  href="'.get_template_directory_uri().'/css/bizvektor_common_min.css?20140519" type="text/css" media="all" />'."\n";
+	wp_enqueue_style( 'bizVektorAddCommonStyle', "get_template_directory_uri().'/css/bizvektor_common_min.css?20140519", array(), '1.0.0');
+//	$optionStyle = '<link rel="stylesheet" id="bizvektor-option-css"  href="'.get_template_directory_uri().'/css/bizvektor_common_min.css?20140519" type="text/css" media="all" />'."\n";
 	$optionStyle = apply_filters('optionStyleCustom', $optionStyle );
 	echo $optionStyle;
 }
 
 // add pingback
-add_action('wp_head','bizVektorAddPingback');
+add_action('wp_enqueue_scripts','bizVektorAddPingback');
 function bizVektorAddPingback(){
-	$pingback = '<link rel="pingback" href="'.get_bloginfo( 'pingback_url' ).'" />'."\n";
+	wp_enqueue_style( 'bizVektorAddPingback', get_bloginfo( 'pingback_url' ), array(), '1.0.0');
+//	$pingback = '<link rel="pingback" href="'.get_bloginfo( 'pingback_url' ).'" />'."\n";
 	$pingback = apply_filters('pingbackCustom', $pingback );
 	echo $pingback;
 }

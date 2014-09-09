@@ -337,6 +337,8 @@ function biz_vektor_theme_style() {
 	$themePath = $biz_vektor_theme_styles[$options['theme_style']]['cssPath'];
 	wp_enqueue_style('bizvektor_style_theme', $themePath, array(), '1.0.0');
 
+}
+
 /*-------------------------------------------*/
 /*	Menu divide
 /*-------------------------------------------*/
