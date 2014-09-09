@@ -66,9 +66,37 @@
 /*	ChildPageList widget
 /*-------------------------------------------*/
 
-load_theme_textdomain('biz-vektor');
 
-add_theme_support( 'automatic-feed-links' );
+function biz_vektor_theme_setup(){
+	add_theme_support( 'automatic-feed-links' );
+
+	add_theme_support( 'custom-header' );
+
+	add_theme_support( 'custom-background', array(
+		'default-color' => 'fcfcfc',
+	) );
+
+	/*-------------------------------------------*/
+	/*	Admin page _ Eye catch
+	/*-------------------------------------------*/
+	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 200, 200, true );
+
+
+	/*-------------------------------------------*/
+	/*	Custom menu
+	/*-------------------------------------------*/
+	register_nav_menus( array( 'Header' => 'Header Navigation', ) );
+	register_nav_menus( array( 'FooterNavi' => 'Footer Navigation', ) );
+	register_nav_menus( array( 'FooterSiteMap' => 'Footer SiteMap', ) );
+
+}
+add_action( 'after_setup_theme', 'biz_vektor_theme_setup');
+
+
+
+
+load_theme_textdomain('biz-vektor');
 
 add_post_type_support( 'info', 'front-end-editor' );
 
@@ -84,13 +112,6 @@ function biz_vektor_body_next(){
 /*-------------------------------------------*/
 if ( ! isset( $content_width ) )
 	$content_width = 640;
-
-/*-------------------------------------------*/
-/*	Custom menu
-/*-------------------------------------------*/
-register_nav_menus( array( 'Header' => 'Header Navigation', ) );
-register_nav_menus( array( 'FooterNavi' => 'Footer Navigation', ) );
-register_nav_menus( array( 'FooterSiteMap' => 'Footer SiteMap', ) );
 
 /*-------------------------------------------*/
 /*	Widget
@@ -179,23 +200,9 @@ register_default_headers( array(
 		'description' => 'Johnny'
 	),
 ) );
-add_theme_support( 'custom-header' );
 if ( ! function_exists( 'admin_header_style' ) ) :
 function admin_header_style() { }
 endif;
-
-
-
-/*-------------------------------------------*/
-/*	Custom background
-/*-------------------------------------------*/
-
-function biz_vektor_setup(){
-	add_theme_support( 'custom-background', array(
-		'default-color' => 'fcfcfc',
-	) );
-}
-add_action( 'after_setup_theme', 'biz_vektor_setup' );
 
 
 /*-------------------------------------------*/
@@ -272,11 +279,6 @@ function hide_welcome_panel() {
 }
 add_action( 'load-index.php', 'hide_welcome_panel' );
 
-/*-------------------------------------------*/
-/*	Admin page _ Eye catch
-/*-------------------------------------------*/
-add_theme_support( 'post-thumbnails' );
-set_post_thumbnail_size( 200, 200, true );
 
 /*-------------------------------------------*/
 /*	Admin page _ Add custom field of keywords
@@ -394,27 +396,18 @@ function getHeadDescription() {
 add_action('wp_enqueue_scripts','bizVektorAddWebFonts');
 function bizVektorAddWebFonts(){
 	wp_enqueue_style( 'bizvektoraddwebfonts', "http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton", array(), '1.0.0');
-//	$webFonts = '<link href="http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton" rel="stylesheet" type="text/css" />'."\n";
-	$webFonts = apply_filters('webFontsCustom', $webFonts );
-	echo $webFonts;
 }
 
 // Add BizVektor option css
 add_action('wp_enqueue_scripts','bizVektorAddCommonStyle');
 function bizVektorAddCommonStyle(){
 	wp_enqueue_style( 'bizVektorAddCommonStyle', "get_template_directory_uri().'/css/bizvektor_common_min.css?20140519", array(), '1.0.0');
-//	$optionStyle = '<link rel="stylesheet" id="bizvektor-option-css"  href="'.get_template_directory_uri().'/css/bizvektor_common_min.css?20140519" type="text/css" media="all" />'."\n";
-	$optionStyle = apply_filters('optionStyleCustom', $optionStyle );
-	echo $optionStyle;
 }
 
 // add pingback
 add_action('wp_enqueue_scripts','bizVektorAddPingback');
 function bizVektorAddPingback(){
 	wp_enqueue_style( 'bizVektorAddPingback', get_bloginfo( 'pingback_url' ), array(), '1.0.0');
-//	$pingback = '<link rel="pingback" href="'.get_bloginfo( 'pingback_url' ).'" />'."\n";
-	$pingback = apply_filters('pingbackCustom', $pingback );
-	echo $pingback;
 }
 
 /*-------------------------------------------*/
