@@ -14,8 +14,6 @@
 /*-------------------------------------------*/
 /*	Slide Setting
 /*-------------------------------------------*/
-/*	SNS
-/*-------------------------------------------*/
 
 function biz_vektor_theme_options_render_page() { ?>
 	<div class="wrap" id="biz_vektor_options">
@@ -27,8 +25,6 @@ function biz_vektor_theme_options_render_page() { ?>
 		biz_vektor_activation_information();
 		} else { ?>
 		<div id="sub-content">
-
-
 		</div>
 		<?php } ?>
 		
@@ -108,6 +104,9 @@ function biz_vektor_theme_options_render_page() { ?>
 	}
 	?>
 	</select>
+	<?php if ( !function_exists( 'biz_vektor_activation' ) ) :?>
+	[ <a href="http://bizvektor.com/setting/bizvektorsetting/menu/" target="_blank">&raquo; <?php _e('How to set up Menus', 'biz-vektor') ;?></a> ]
+	<?php endif;?>
 	</td>
 	</tr>
 	<!-- Head logo -->
@@ -126,7 +125,36 @@ function biz_vektor_theme_options_render_page() { ?>
 	<?php _e('Recommended : 180-250px width', 'biz-vektor') ;?><br />
 	</td>
 	</tr>
-
+	<!-- theme-layout -->
+	<tr class="image-radio-option theme-layout">
+	<th scope="row"><?php _ex('Layout', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
+	<td>
+	<?php
+		foreach ( biz_vektor_layouts() as $layout ) { ?>
+			<div class="layout">
+			<label class="description">
+				<input type="radio" name="biz_vektor_theme_options[theme_layout]" value="<?php echo esc_attr( $layout['value'] ); ?>" <?php checked( $options['theme_layout'], $layout['value'] ); ?> />
+				<span>
+					<img src="<?php echo esc_url( $layout['thumbnail'] ); ?>" width="100" alt="" />
+				</span>
+				<div><?php echo $layout['label']; ?></div>
+			</label>
+			</div>
+			<?php
+		}
+	?>
+	<br clear="all" />
+	<?php _e('You can select 1-column from below: ', 'biz-vektor');?>
+	<ul>
+		<li>
+			<?php
+			$toppage_setting_link = '<a href="#topPage">'.__('Home page settings', 'biz-vektor').'</a>';
+			printf( __('[Top page] %s', 'biz-vektor'), $toppage_setting_link );?>
+		</li>
+		<li><?php _e('[page] Edit Page > Page Attributes > Template', 'biz-vektor') ;?></li>
+	</ul>
+	</td>
+	</tr>
 	<!-- Heading font -->
 	<tr>
 	<th><?php _ex('Heading font', 'biz-vektor theme-customizer', 'biz-vektor') ;?></th>
@@ -150,7 +178,7 @@ function biz_vektor_theme_options_render_page() { ?>
 	<?php
 	$biz_vektor_font_menus = array('serif' => _x('Serif', 'biz-vektor theme-customizer', 'biz-vektor'),'sanserif' => _x('Sanserif', 'biz-vektor theme-customizer', 'biz-vektor'),);
 	foreach( $biz_vektor_font_menus as $biz_vektor_font_menuValue => $biz_vektor_font_menuLavel) {
-		if ( $biz_vektor_font_menuValue == $options['font_menu'] ) { ?>
+		if ($biz_vektor_font_menuValue == $options['font_menu'] ) { ?>
 		<label><input type="radio" name="biz_vektor_theme_options[font_menu]" value="<?php echo $biz_vektor_font_menuValue ?>" checked> <?php echo $biz_vektor_font_menuLavel ?></label>
 		<?php } else { ?>
 		<label><input type="radio" name="biz_vektor_theme_options[font_menu]" value="<?php echo $biz_vektor_font_menuValue ?>"> <?php echo $biz_vektor_font_menuLavel ?></label>
@@ -177,6 +205,23 @@ function biz_vektor_theme_options_render_page() { ?>
 	<p>* <?php _e('This setting can not be changed from the theme customizer.', 'biz-vektor') ;?></p>
 	<td>
 	</tr>
+	<!-- Favicon -->
+	<tr>
+	<th><?php _e('Favicon Setting', 'biz-vektor') ; ?></th>
+	<td><input type="text" name="biz_vektor_theme_options[favicon]" id="favicon" value="<?php echo esc_attr( $options['favicon'] ); ?>" style="width:60%;" /> 
+	<button id="media_favicon" class="media_btn"><?php _e('Select image', 'biz-vektor') ;?></button>
+	<p>作成したicoファイルをアップロードしてください。</p>
+	</td>
+	</tr>
+
+	<!-- Ie8Warning -->
+	<tr>
+	<th>IE8警告表示</th>
+	<td><label><input type="checkbox" name="biz_vektor_theme_options[enableie8Warning]" id="ie8warning" value="true" <?php echo (isset($options['enableie8Warning']) && $options['enableie8Warning'])? 'checked': ''; ?> /> 
+	<span>Internet Explorer8への警告を表示する</span></label>
+	</td>
+	</tr>
+ 
 	</table>
 	<?php submit_button(); ?>
 </div>
@@ -303,6 +348,7 @@ function biz_vektor_theme_options_render_page() { ?>
 $i++;
 } ?>
 </div>
+<br clear="all" /><!-- [ 無いと回りこむ ] -->
 	<?php _e('* If you are unsure about the image, you can leave this field blank.', 'biz-vektor') ;?><br />
 	<span class="alert">
 	<?php _e('* You can set different image for desktop and smartphone versions of the site.', 'biz-vektor') ;?>
@@ -312,15 +358,16 @@ $i++;
 
 <?php
 /*-------------------------------------------*/
-/*	Blog
+/*	Blog and Information
 /*-------------------------------------------*/
 ?>
 <div id="postSetting" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
 <h3>
 		<?php
+		$infoLabelName = esc_html( bizVektorOptions('infoLabelName'));
 		$postLabelName = esc_html( bizVektorOptions('postLabelName'));
-		printf( __('Settings for [ %s ].', 'biz-vektor'),$postLabelName);
+		printf( __('Settings for [ %s ] and [ %s ].', 'biz-vektor'),$infoLabelName,$postLabelName);
 		?>
 </h3>
 <?php _e('* Does not appear if there are no posts.', 'biz-vektor') ;?><br />
@@ -336,7 +383,65 @@ $i++;
 	<?php _e('If there is no widget, please check &quot;Featured image&quot; at the top right of the screen from the &quot;Screen options&quot; tab.', 'biz-vektor') ;?>
 
 <table class="form-table">
-<!-- Post layout -->
+<!-- Information -->
+<tr>
+	<th><?php echo esc_html( $infoLabelName ); ?></th>
+	<td>
+		&raquo; <?php _e('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[infoLabelName]" id="infoLabelName" value="<?php echo esc_attr( $options['infoLabelName'] ); ?>" style="width:200px;" />
+	<dl>
+	<dt><?php printf(__('Display layout of &quot; %s &quot on the top page.', 'biz-vektor'), $infoLabelName ); ?></dt>
+	<dd>
+	<?php
+	$biz_vektor_listTypes = array(
+		'listType_title' => __('Title only', 'biz-vektor'),
+		'listType_set' => __('With excerpt and thumbnail', 'biz-vektor')
+	);
+	foreach( $biz_vektor_listTypes as $biz_vektor_listTypeValue => $biz_vektor_listTypeLavel) {
+		if ( $biz_vektor_listTypeValue == $options['listInfoTop'] ) { ?>
+		<label><input type="radio" name="biz_vektor_theme_options[listInfoTop]" value="<?php echo $biz_vektor_listTypeValue ?>" checked> <?php echo $biz_vektor_listTypeLavel ?></label>
+		<?php } else { ?>
+		<label><input type="radio" name="biz_vektor_theme_options[listInfoTop]" value="<?php echo $biz_vektor_listTypeValue ?>"> <?php echo $biz_vektor_listTypeLavel ?></label>
+		<?php }
+	}
+	?>
+	</dd>
+	<dt><?php printf(__('Display layout of &quot; %s &quot on the archive page.', 'biz-vektor'), $infoLabelName ); ?></dt>
+	<dd>
+	<?php
+	$biz_vektor_listTypes = array(
+		'listType_title' => __('Title only', 'biz-vektor'),
+		'listType_set' => __('With excerpt and thumbnail', 'biz-vektor')
+	);
+	foreach( $biz_vektor_listTypes as $biz_vektor_listTypeValue => $biz_vektor_listTypeLavel) {
+		if ( $biz_vektor_listTypeValue == $options['listInfoArchive'] ) { ?>
+		<label><input type="radio" name="biz_vektor_theme_options[listInfoArchive]" value="<?php echo $biz_vektor_listTypeValue ?>" checked> <?php echo $biz_vektor_listTypeLavel ?></label>
+		<?php } else { ?>
+		<label><input type="radio" name="biz_vektor_theme_options[listInfoArchive]" value="<?php echo $biz_vektor_listTypeValue ?>"> <?php echo $biz_vektor_listTypeLavel ?></label>
+		<?php }
+	}
+	?>
+	</dd>
+	</dl>
+	<dl>
+		<dt><?php printf(__('Number of %s posts to be displayed on the home page.', 'biz-vektor'),$infoLabelName);?></dt>
+		<dd><input type="text" name="biz_vektor_theme_options[infoTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['infoTopCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
+		<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?></dd>
+	</dl>
+
+	<dl>
+		<dt><?php echo $infoLabelName;?> のトップのURL</dt>
+		<dd><?php $infoTopUrl = esc_html(home_url().'/info/'); ?>
+			* 通常 <a href="<?php echo $infoTopUrl;?>" target="_blank"><?php echo $infoTopUrl;?></a> が『<?php echo $infoLabelName;?>』のトップになります。
+				<?php /*
+			<br>
+			* <?php echo $infoLabelName;?> 用のトップページを独自に設定していない場合は空欄のままで構いません。
+			<input type="text" name="biz_vektor_theme_options[infoTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['infoTopUrl'] ); ?>" style="width:80%" />	*/ ?>
+		</dd>
+	</dl>
+
+</td>
+</tr>
+<!-- Post -->
 <tr>
 	<th><?php echo esc_html( bizVektorOptions('postLabelName')); ?></th>
 	<td>
@@ -375,15 +480,22 @@ $i++;
 	?>
 	</dd>
 	</dl>
+	<!-- Post display count -->
+	<dl>
+		<dt><?php printf(__('Number of %s posts to be displayed on the home page.', 'biz-vektor'),$postLabelName);?></dt>
+		<dd><input type="text" name="biz_vektor_theme_options[postTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['postTopCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
+		<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?></dd>
+	</dl>
+	<!-- /Post display count -->
+	<dl>
+		<dt><?php echo $postLabelName;?> のトップのURL</dt>
+		<dd><?php $postTopUrl = esc_html(home_url().'/post/'); ?>
+			* <?php echo $postLabelName;?> 用のトップページを設定していない場合は空欄のままで構いません。
+			<input type="text" name="biz_vektor_theme_options[postTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['postTopUrl'] ); ?>" style="width:80%" /></dd>
+	</dl>
 </td>
 </tr>
-<!-- Post display count -->
-<tr>
-<th><?php printf(__('Number of %s posts to be displayed on the home page.', 'biz-vektor'),$postLabelName);?></th>
-<td>
-	<input type="text" name="biz_vektor_theme_options[postTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['postTopCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
-<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?></td>
-</tr>
+
 </table>
 <?php submit_button(); ?>
 
@@ -405,7 +517,7 @@ $i++;
 <p>
 <?php
 $sitetitle_link = '<a href="'.get_admin_url().'options-general.php" target="_blank">'.__('title of the site', 'biz-vektor').'</a>';
-printf( __( 'Normally, this theme will include the %s in the title tag.', 'biz-vektor' ), $sitetitle_link );?><br />
+printf( __( 'Normally, BizVektor will include the %s in the title tag.', 'biz-vektor' ), $sitetitle_link );?><br />
 <?php _e('For example, it appears in the form of <br />&lt;title&gt;page title | site title&lt;/title&gt;<br /> if using a static page.', 'biz-vektor'); ?>
 <?php
 printf( __('However, it might have negative impact on search engine rankings if the &lt;title&gt; is too long, <strong>therefore please include the most popular keywords in a summarized manner, keeping the %s as short as possible.</strong>', 'biz-vektor'),$sitetitle_link) ; ?>
@@ -461,14 +573,24 @@ printf( __('However, it might have negative impact on search engine rankings if 
 <!-- Page to be displayed below the main visual -->
 <tr>
 <th id="topEntryTitleHidden"><?php _e('Page to be displayed below the main visual', 'biz-vektor') ;?></th>
-<td><p>[ <a href="<?php echo get_admin_url(); ?>options-reading.php" target="_blank">
-	&raquo; <?php _e('Setting for the page to display just below the main visual of home page.', 'biz-vektor'); ?></a> ]</p>
-<p><?php _e('Select &quot;Recent post&quot; or &quot;page&quot;.', 'biz-vektor') ;?><br />
-<span class="alert">
-* <?php _e('Do not select the drop-down &quot;post pages&quot;.', 'biz-vektor') ;?></span><br />
-* <?php _e('If the main page content of the set page is blank, the 3PR area will be displayed just below the main visual. Therefore, if you don\'t have any particular content to use it can be left blank.', 'biz-vektor'); ?></p></td>
-<p><?php _e('Check this box if you want to display the page title below the main visual on the home page.', 'biz-vektor'); ?></p>
-<p><input type="checkbox" name="biz_vektor_theme_options[topEntryTitleDisplay]" id="topEntryTitleDisplay" value="true" <?php if ($options['topEntryTitleDisplay']) {?> checked<?php } ?>> <?php _e('Display the title', 'biz-vektor'); ?></p></td>
+<td>
+<ol>
+<li>
+まずはトップページ用の固定ページを作成してください。<br />
+[ <a href="<?php echo admin_url().'edit.php?post_type=page';?>" target="_blank">&raquo; 固定ページ</a> ]<br />
+<?php _e('If the main page content of the set page is blank, the 3PR area will be displayed just below the main visual. Therefore, if you don\'t have any particular content to use it can be left blank.', 'biz-vektor'); ?>
+</li>
+<li>次に、『設定』→『表示設定』画面より、トップページに割り当てる固定ページを設定します。<br />
+[ <a href="<?php echo admin_url().'options-reading.php';?>" target="_blank">&raquo; 表示設定</a> ]<br />
+<p><?php _e('In the pull-down of the &quot;front page&quot;, please select the page that you created for the homepage.', 'biz-vektor') ;?><br />
+<span class="alert"><?php _e('Do not select the drop-down &quot;post pages&quot;.', 'biz-vektor') ;?></span></p>
+</li>
+<li>トップページに表示する項目は<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>より、表示する項目や順番を自由に変更出来ます。
+<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>の『メインコンテンツエリア（トップページ）』ウィジェットにウィジェットアイテムをセットしてください。
+</li>
+</ol>
+</td>
+</td>
 </tr>
 <!-- Home 3PR area -->
 <tr>
@@ -489,33 +611,15 @@ printf( __('However, it might have negative impact on search engine rankings if 
 <tr>
 	<th><?php
 	$postLabelName = esc_html( bizVektorOptions('postLabelName'));
-	printf(__('Display a number of %s posts', 'biz-vektor'), $postLabelName ); ?></th>
+	printf( __('Please set from the [ Setting the %s ] section.', 'biz-vektor'),$postLabelName);
 	<td><a href="#postSetting">
 		<?php
+		$infoLabelName = esc_html( bizVektorOptions('infoLabelName'));
 		$postLabelName = esc_html( bizVektorOptions('postLabelName'));
-		printf( __('Please set from the [ Setting the %s ] section.', 'biz-vektor'),$postLabelName);
+		printf( __('Please set from the [ Setting the %s and %s ] section.', 'biz-vektor'),$infoLabelName,$postLabelName);
 		?>
 		</a>
 	</td>
-</tr>
-<!-- RSS -->
-<tr>
-	<th><?php echo esc_html( bizVektorOptions('rssLabelName')); ?>(<?php _e('RSS information display settings', 'biz-vektor'); ?>) </th>
-	<td><span style="font-size:14px;font-weight:lighter;">&raquo; <?php _e('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[rssLabelName]" id="rssLabelName" value="<?php echo esc_attr( $options['rssLabelName'] ); ?>" style="width:200px;" /></span>
-<p>
-	<?php _e('Enter the URL of the RSS feed if you are using feeds from related sites or external blog to be posted on the home page of this site.', 'biz-vektor'); ?><br />
-	<input type="text" name="biz_vektor_theme_options[blogRss]" id="blogRss" value="<?php echo esc_attr( $options['blogRss'] ); ?>" /><br />
-	<span><?php _e('ex) ', 'biz-vektor') ;?>http://www.XXXX.jp/?feed=rss2</span>
-</p>
-</td>
-</tr>
-<!-- Home bottom free area -->
-<tr>
-	<th><?php _e('Home bottom free area', 'biz-vektor'); ?></th>
-<td>
-<p><?php _e('It is displayed at the bottom of the home page.', 'biz-vektor'); ?><br />
-<textarea cols="50" rows="4" name="biz_vektor_theme_options[topContentsBottom]" id="topContentsBottom" value="" style="width:90%;"><?php echo esc_attr( $options['topContentsBottom'] ); ?></textarea></p>
-</td>
 </tr>
 </table>
 
@@ -531,7 +635,7 @@ printf( __('However, it might have negative impact on search engine rankings if 
 <?php get_template_part('inc/theme-options-nav'); ?>
 <h3><?php _e('Slideshow Settings', 'biz-vektor'); ?></h3>
 <p><?php _e('Please enter the URL of the image to be used in the slideshow.', 'biz-vektor'); ?><br />
-<?php _e('The recommended size of the image is 950 x 250px.', 'biz-vektor'); ?><br />
+<?php _e('The recommended size of the image is 950 × 250px.', 'biz-vektor'); ?><br />
 <?php
 $topVisualLink = '<a href="'.get_admin_url().'themes.php?page=custom-header" target="_blank">'.__('Home page Main visual', 'biz-vektor').'</a>';
 printf(__('%s will be displayed if the slideshow is not set.', 'biz-vektor'),$topVisualLink); ?><br />
@@ -570,70 +674,105 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 	</p>
 <?php submit_button(); ?>
 </div>
-<div class="optionNav bottomNav">
-<ul><li><a href="#wpwrap"><?php _e('Page top', 'biz-vektor'); ?></a></li></ul>
-</div>
+
 </form>
 </div><!-- [ /#main-content ] -->
 </div><!-- [ /#biz_vektor_options ] -->
 <?php
 }
 
+/*-------------------------------------------*/
+/*	入力された値の処理
+/*-------------------------------------------*/
 function biz_vektor_theme_options_validate( $input ) {
-	$output = $defaults = biz_vektor_get_default_theme_options();
-
-	$paras = array(
-		'theme_style',
-		'font_title',
-		'font_menu',
-		'gMenuDivide',
-		'head_logo',
-		'foot_logo',
-		'contact_txt',
-		'tel_number',
-		'contact_time',
-		'sub_sitename',
-		'contact_address',
-		'contact_link',
-		'topTitle',
-		'commonKeyWords',
-		'topEntryTitleDisplay',
-		'topSideBarDisplay',
-		'top3PrDisplay',
-		'postLabelName',
-		'postTopCount',
-		'listBlogTop',
-		'listBlogArchive',
-		'rssLabelName',
-		'blogRss',
-		'side_child_display',
-		'topContentsBottom'
-		);
-
-	foreach ($paras as $key => $value) {
-		$output[$value] = (isset($input[$value])) ? $input[$value] : '';
+	$output = $defaults = biz_vektor_generate_default_options();
+	$nowdata = biz_vektor_get_theme_options();
+	if(isset($_POST['bizvektor_action_mode']) && $_POST['bizvektor_action_mode'] == 'reset'){ 
+		if(isset($_POST['bizvektor_reset_check']) && isset($_POST['bizvektor_reset_key_port']) && $_POST['bizvektor_reset_key_port'] == $_POST['bizvektor_reset_key']){
+			echo "reseted";
+			return $defaults;
+		}else{
+			echo "faild";
+			return $nowdata;
+		}
 	}
 
-	$slideParas = array ('link','image','alt','display','blank');
+	// Design
+	$output['gMenuDivide']            = $input['gMenuDivide'];
+	$output['head_logo']              = $input['head_logo'];
+	$output['foot_logo']              = $input['foot_logo'];
+	$output['font_title']             = $input['font_title'];
+	$output['font_menu']              = $input['font_menu'];
+	$output['side_child_display']     = $input['side_child_display'];
+	$output['favicon']                = (preg_match("/.+\.ico$/i", $input['favicon']))? $input['favicon'] : '';
+	$output['enableie8Warning']       = (isset($input['enableie8Warning']) && $input['enableie8Warning'] == 'true')? true: false;
+
+	// Contact info
+	$output['contact_txt']            = $input['contact_txt'];
+	$output['tel_number']             = $input['tel_number'];
+	$output['contact_time']           = $input['contact_time'];
+	$output['sub_sitename']           = $input['sub_sitename'];
+	$output['contact_address']        = $input['contact_address'];
+	$output['contact_link']           = $input['contact_link'];
+
+	// 3PR
+	$output['top3PrDisplay']          = (isset($input['top3PrDisplay']) && $input['top3PrDisplay'] == 'true')?	 true : false;
+	$output['pr1_title']              = ($input['pr1_title'] == '')?			 $defaults['pr1_title'] : $input['pr1_title'] ;
+	$output['pr1_description']        = ($input['pr1_description'] == '')?	 $defaults['pr1_description'] : $input['pr1_description'] ;
+	$output['pr1_link']               = $input['pr1_link'];
+	$output['pr1_image']              = $input['pr1_image'];
+	$output['pr1_image_s']            = $input['pr1_image_s'];
+	$output['pr2_title']              = ($input['pr2_title'] == '')?			 $defaults['pr2_title'] : $input['pr2_title'] ;
+	$output['pr2_description']        = ($input['pr2_description'] == '')?	 $defaults['pr2_description'] : $input['pr2_description'] ;
+	$output['pr2_link']               = $input['pr2_link'];
+	$output['pr2_image']              = $input['pr2_image'];
+	$output['pr2_image_s']            = $input['pr2_image_s'];
+	$output['pr3_title']              = ($input['pr3_title'] == '')?			 $defaults['pr3_title'] : $input['pr3_title'] ;
+	$output['pr3_description']        = ($input['pr3_description'] == '')?	 $defaults['pr3_description'] : $input['pr3_description'] ;
+	$output['pr3_link']               = $input['pr3_link'];
+	$output['pr3_image']              = $input['pr3_image'];
+	$output['pr3_image_s']            = $input['pr3_image_s'];
+
+	// Infomation & Blog	
+	$output['postLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['postLabelName']))?	 $defaults['postLabelName'] : $input['postLabelName'] ;
+	$output['infoLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName']))?	 $defaults['infoLabelName'] : $input['infoLabelName'] ;
+	$output['listInfoTop']            = $input['listInfoTop'];
+	$output['listInfoArchive']        = $input['listInfoArchive'];
+	$output['listBlogTop']            = $input['listBlogTop'];
+	$output['listBlogArchive']        = $input['listBlogArchive'];
+	$output['infoTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['infoTopCount']))? 0 : $input['infoTopCount'];
+	$output['postTopUrl']             = $input['postTopUrl'];
+	$output['postTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['postTopCount']))? 0 : $input['postTopCount'];
+
+	// SEO 
+	$output['topTitle']               = $input['topTitle'];
+	$output['commonKeyWords']         = $input['commonKeyWords'];
+
+	// TopPage
+	$output['topSideBarDisplay']      = (isset($input['topSideBarDisplay']) && $input['topSideBarDisplay'] == 'true')? true : false;
+
+	// SlideShow
 	for ( $i = 1; $i <= 5 ;){
-		foreach ($slideParas as $key => $value) {
-			$output['slide'.$i.$value] = ( isset( $input['slide'.$i.$value] ) ) ? $input['slide'.$i.$value] : '';
-		}
+		$output['slide'.$i.'link']     = $input['slide'.$i.'link'];
+		$output['slide'.$i.'image']    = $input['slide'.$i.'image'];
+		$output['slide'.$i.'alt']      = $input['slide'.$i.'alt'];
+		$output['slide'.$i.'display']  = (isset($input['slide'.$i.'display']) && $input['slide'.$i.'display'])? "true" : '';
+		$output['slide'.$i.'blank']    = (isset($input['slide'.$i.'blank']) && $input['slide'.$i.'blank'])? "true" : '';
 	$i++;
 	}
 
-	$prParas = array ('_title','_description','_link','_image','_image_s');
-	for ( $i = 1; $i <= 3 ;){
-		foreach ($slideParas as $key => $value) {
-			$output['pr'.$i.$value] = ( isset( $input['pr'.$i.$value] ) ) ? $input['pr'.$i.$value] : '';
-		}
-	$i++;
-	}
+	if($input['theme_layout'] == ''){ $output['theme_layout'] = "content-sidebar"; }
+
+	$output['theme_style'] = ($input['theme_style'] == '') ? "rebuild" : $input['theme_style'] ;
 
 	// Theme layout must be in our array of theme layout options
 	if ( isset( $input['theme_layout'] ) && array_key_exists( $input['theme_layout'], biz_vektor_layouts() ) )
 		$output['theme_layout'] = $input['theme_layout'];
 
+	// sidebar child menu display
+	if( isset($input['side_child_display']) && $input['side_child_display'] ){ $output['side_child_display'] = $input['side_child_display']; }
+
+	if(isset($nowdata['version'])&&$nowdata['version']){ $output['version'] = $nowdata['version']; }
 	return apply_filters( 'biz_vektor_theme_options_validate', $output, $input, $defaults );
 }
 
