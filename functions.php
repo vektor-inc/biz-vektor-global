@@ -93,9 +93,6 @@ function biz_vektor_theme_setup(){
 }
 add_action( 'after_setup_theme', 'biz_vektor_theme_setup');
 
-
-
-
 load_theme_textdomain('biz-vektor');
 
 add_post_type_support( 'info', 'front-end-editor' );
