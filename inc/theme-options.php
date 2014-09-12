@@ -291,12 +291,7 @@ function biz_vektor_theme_style() {
 	// Set bbiz_vektor_theme_styles
 	global $biz_vektor_theme_styles;
 	biz_vektor_theme_styleSetting();
-	// load default
-	if ( !$options['theme_style'] ) {
-		global $bizVektorOptions_default;
-		bizVektorOptions_default();
-		$options['theme_style'] = $bizVektorOptions_default['theme_style'];
-	}
+
 	$themePath = $biz_vektor_theme_styles[$options['theme_style']]['cssPath'];
 	wp_enqueue_style('bizvektor_style_theme', $themePath, array(), '1.0.0');
 
@@ -678,8 +673,8 @@ function get_biz_vektor_name() {
 
 function biz_vektor_get_default_theme_options(){
 	$default_theme_options = array(
-		'font_title'           => 'sanserif',
-		'font_menu'            => 'sanserif',
+		'font_title'           => 'serif',
+		'font_menu'            => 'serif',
 		'gMenuDivide'          => 'divide_natural',
 		'head_logo'            => '',
 		'foot_logo'            => '',
@@ -735,7 +730,7 @@ function biz_vektor_get_default_theme_options(){
 		'theme_layout'         => 'content-sidebar',
 		'postLabelName'        => 'Blog',
 		'infoLabelName'        => 'Information',
-		'theme_style'          => 'Default',
+		'theme_style'          => 'Defaultgit ',
 		'pr1_title'            => __('Rich theme options', 'biz-vektor'),
 		'pr1_description'      => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
 		'pr1_link'             => '',
