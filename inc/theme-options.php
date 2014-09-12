@@ -735,7 +735,7 @@ function biz_vektor_get_default_theme_options(){
 		'theme_layout'         => 'content-sidebar',
 		'postLabelName'        => 'Blog',
 		'infoLabelName'        => 'Information',
-		'theme_style'          => 'rbs_std',
+		'theme_style'          => 'Default',
 		'pr1_title'            => __('Rich theme options', 'biz-vektor'),
 		'pr1_description'      => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
 		'pr1_link'             => '',
