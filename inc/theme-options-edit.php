@@ -612,6 +612,7 @@ printf( __('However, it might have negative impact on search engine rankings if 
 	<th><?php
 	$postLabelName = esc_html( bizVektorOptions('postLabelName'));
 	printf( __('Please set from the [ Setting the %s ] section.', 'biz-vektor'),$postLabelName);
+	?>
 	<td><a href="#postSetting">
 		<?php
 		$infoLabelName = esc_html( bizVektorOptions('infoLabelName'));
@@ -685,7 +686,7 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 /*	入力された値の処理
 /*-------------------------------------------*/
 function biz_vektor_theme_options_validate( $input ) {
-	$output = $defaults = biz_vektor_generate_default_options();
+	$output = $defaults = biz_vektor_get_default_theme_options();
 	$nowdata = biz_vektor_get_theme_options();
 	if(isset($_POST['bizvektor_action_mode']) && $_POST['bizvektor_action_mode'] == 'reset'){ 
 		if(isset($_POST['bizvektor_reset_check']) && isset($_POST['bizvektor_reset_key_port']) && $_POST['bizvektor_reset_key_port'] == $_POST['bizvektor_reset_key']){
@@ -698,7 +699,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	}
 
 	// Design
-	$output['gMenuDivide']            = $input['gMenuDivide'];
+	$output['gMenuDivide']            = ($input['gMenuDivide'])? $input['gMenuDivide']: $defaults['gMenuDivide'];
 	$output['head_logo']              = $input['head_logo'];
 	$output['foot_logo']              = $input['foot_logo'];
 	$output['font_title']             = $input['font_title'];

@@ -228,10 +228,13 @@ function bizVektor_admin_css(){
 	// echo '<link rel="stylesheet" type="text/css" href="'.get_template_directory_uri().'/style_BizVektor_admin.css" />';
 	$adminCssPath = get_template_directory_uri().'/css/style_bizvektor_admin.css';
 	wp_enqueue_style( 'theme', $adminCssPath , false, '2014-04-29');
+}
+add_action('admin_enqueue_scripts', 'bizVektor_admin_css', 11);
+
+function bizVektor_wp_css(){
 	wp_enqueue_style('bizvektor_style', get_stylesheet_uri(), array(), '1.0.3');
 }
-add_action('wp_enqueue_scripts', 'bizVektor_admin_css', 11);
-
+add_action('wp_enqueue_scripts', 'bizVektor_wp_css', 11);
 /*-------------------------------------------*/
 /*	Admin page _ Add post status to body class
 /*-------------------------------------------*/
@@ -265,7 +268,7 @@ add_editor_style('editor-style.css');
 // add_action('admin_notices','original_header_menu_output');
 
 /*-------------------------------------------*/
-/*	Admin page _ Hide youkoso//
+/*	Admin page _ Hide youkoso
 /*-------------------------------------------*/
 function hide_welcome_panel() {
 	$user_id = get_current_user_id();
