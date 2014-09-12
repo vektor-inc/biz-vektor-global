@@ -175,10 +175,15 @@ define( 'HEADER_TEXTCOLOR', '' );
 // Kill custom header test
 define( 'NO_HEADER_TEXT', true );
 
-define('HEADER_IMAGE', '%s/images/headers/bussines_desk_02.jpg');
+define('HEADER_IMAGE', '%s/images/headers/accelerate.jpg');
 define('HEADER_IMAGE_WIDTH', 950);
 define('HEADER_IMAGE_HEIGHT', 250);
 register_default_headers( array(
+	'accelerate' => array(
+		'url' => '%s/images/headers/accelerate.jpg',
+		'thumbnail_url' => '%s/images/headers/accelerate-thumbnail.jpg',
+		'description' => 'accelerate'
+	),
 	'bussines_desk_02' => array(
 		'url' => '%s/images/headers/bussines_desk_02.jpg',
 		'thumbnail_url' => '%s/images/headers/bussines_desk_02-thumbnail.jpg',
@@ -225,7 +230,6 @@ endif;
 /*	Admin page _ Add style
 /*-------------------------------------------*/
 function bizVektor_admin_css(){
-	// echo '<link rel="stylesheet" type="text/css" href="'.get_template_directory_uri().'/style_BizVektor_admin.css" />';
 	$adminCssPath = get_template_directory_uri().'/css/style_bizvektor_admin.css';
 	wp_enqueue_style( 'theme', $adminCssPath , false, '2014-04-29');
 }
@@ -235,6 +239,7 @@ function bizVektor_wp_css(){
 	wp_enqueue_style('bizvektor_style', get_stylesheet_uri(), array(), '1.0.3');
 }
 add_action('wp_enqueue_scripts', 'bizVektor_wp_css', 11);
+
 /*-------------------------------------------*/
 /*	Admin page _ Add post status to body class
 /*-------------------------------------------*/
@@ -258,14 +263,6 @@ add_action('admin_head-post-new.php', 'bizVektor_postStatus', 12);
 /*	Admin page _ Add editor css
 /*-------------------------------------------*/
 add_editor_style('editor-style.css');
-
-/*-------------------------------------------*/
-/*	Admin page _ Add original admin bar
-/*-------------------------------------------*/
-// function original_header_menu_output() {
-// 	get_template_part('module_adminHeader');
-// }
-// add_action('admin_notices','original_header_menu_output');
 
 /*-------------------------------------------*/
 /*	Admin page _ Hide youkoso
@@ -393,13 +390,13 @@ function getHeadDescription() {
 // Add Google Web Fonts
 add_action('wp_enqueue_scripts','bizVektorAddWebFonts');
 function bizVektorAddWebFonts(){
-	wp_enqueue_style( 'bizvektoraddwebfonts', "http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton", array(), '1.0.0');
+	wp_enqueue_style( 'bizvektoraddwebfonts', "http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton");
 }
 
 // Add BizVektor option css
 add_action('wp_enqueue_scripts','bizVektorAddCommonStyle');
 function bizVektorAddCommonStyle(){
-	wp_enqueue_style( 'bizVektorAddCommonStyle', "get_template_directory_uri().'/css/bizvektor_common_min.css?20140519", array(), '1.0.0');
+	wp_enqueue_style( 'bizVektorAddCommonStyle', get_template_directory_uri()."/css/bizvektor_common_min.css", array(), '1.0.0');
 }
 
 // add pingback

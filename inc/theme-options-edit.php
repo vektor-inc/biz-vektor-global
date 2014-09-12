@@ -202,26 +202,7 @@ function biz_vektor_theme_options_render_page() { ?>
 		<?php }
 	}
 	?>
-	<p>* <?php _e('This setting can not be changed from the theme customizer.', 'biz-vektor') ;?></p>
-	<td>
-	</tr>
-	<!-- Favicon -->
-	<tr>
-	<th><?php _e('Favicon Setting', 'biz-vektor') ; ?></th>
-	<td><input type="text" name="biz_vektor_theme_options[favicon]" id="favicon" value="<?php echo esc_attr( $options['favicon'] ); ?>" style="width:60%;" /> 
-	<button id="media_favicon" class="media_btn"><?php _e('Select image', 'biz-vektor') ;?></button>
-	<p>作成したicoファイルをアップロードしてください。</p>
-	</td>
-	</tr>
-
-	<!-- Ie8Warning -->
-	<tr>
-	<th>IE8警告表示</th>
-	<td><label><input type="checkbox" name="biz_vektor_theme_options[enableie8Warning]" id="ie8warning" value="true" <?php echo (isset($options['enableie8Warning']) && $options['enableie8Warning'])? 'checked': ''; ?> /> 
-	<span>Internet Explorer8への警告を表示する</span></label>
-	</td>
-	</tr>
- 
+	<p>* <?php _e('This setting can not be changed from the theme customizer.', 'biz-vektor') ;?></p> 
 	</table>
 	<?php submit_button(); ?>
 </div>
@@ -705,8 +686,6 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['font_title']             = $input['font_title'];
 	$output['font_menu']              = $input['font_menu'];
 	$output['side_child_display']     = $input['side_child_display'];
-	$output['favicon']                = (preg_match("/.+\.ico$/i", $input['favicon']))? $input['favicon'] : '';
-	$output['enableie8Warning']       = (isset($input['enableie8Warning']) && $input['enableie8Warning'] == 'true')? true: false;
 
 	// Contact info
 	$output['contact_txt']            = $input['contact_txt'];
