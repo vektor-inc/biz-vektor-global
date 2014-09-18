@@ -282,7 +282,7 @@ msgstr "↑ 表示するページを変更する"
 # ---------------
 # Google Analytics settings
 # ---------------
-msgid "Rich theme options"
+msgid "Rich & Powerfull theme options"
 msgstr "豊富なオプション"
 
 msgid ""
