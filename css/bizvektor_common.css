@@ -1,37 +1,31 @@
 @charset "UTF-8";
+#eradi_ie_box { background-color: #c00; padding: 2em; color: #fff; text-align: center; font-size: 114.3%; }
+#eradi_ie_box .alert_title { font-size: 150%; margin-bottom: 1em; }
+#eradi_ie_box a { color: #fff; }
+
 #sideTower .sideWidget li#sideContact { border: none; }
 #sideTower .sideWidget li#sideContact a { padding: 0; }
 
-/* BizVektorOptions 0.1.1.1
-/*-------------------------------------------*/
-.leadTxt, #content p.leadTxt { font-size: 2em; line-height: 150%; padding: 0; }
+#wpadminbar .ab-top-menu > li#wp-admin-bar-editGuide > .ab-item { background-color: #069; cursor: pointer; }
 
-/*			.qaItem
-/*-------------------------------------------*/
-#content dl.qaItem { display: block; overflow: hidden; border-bottom: 1px dotted #cccccc; padding: 0px 0px 20px; margin: 0px 0px 20px; width: 100%; }
+#wpadminbar .ab-top-menu > li#wp-admin-bar-editGuide > .ab-item:hover { background-color: #cc0; color: #fff; cursor: pointer; }
 
-#content dl.qaItem dt { margin-bottom: 15px; background: url(../images/options/qaIconQ.gif) left top no-repeat; padding-left: 32px; border: none; }
+#sideTower .ttBoxSection { padding: 15px 0 15px; }
+#sideTower .ttBox a { text-decoration: none; color: #333; }
+#sideTower .ttBox a:hover { text-decoration: underline; }
+#sideTower .ttBox .ttBoxThumb { width: 80px; }
 
-#content dl.qaItem dd { margin-bottom: 0px; background: url(../images/options/qaIconA.gif) left top no-repeat; padding-left: 32px; }
+#content .subPostListSection { display: block; overflow: hidden; position: relative; padding-bottom: 20px; }
+#content .subPostListSection ul { margin: 0; }
+#content .subPostListSection li.ttBox { display: block; overflow: hidden; position: relative; padding: 15px 0; }
+#content .subPostListSection li.ttBox h4 { margin-top: 0; }
+#content .subPostListSection li.ttBox a { text-decoration: none; color: #333; }
+#content .subPostListSection li.ttBox a:hover { text-decoration: underline; }
+#content .subPostListSection li.ttBox .ttBoxThumb { width: 80px; }
 
-/*			.flowBox
-/*-------------------------------------------*/
-#content .flowBox { padding-bottom: 40px; margin-bottom: 15px; display: block; overflow: hidden; background: url(../images/options/arrow_down.gif) center bottom no-repeat; }
-
-#content .flowBox.last { background: none; padding-bottom: 0px; margin-bottom: 0px; }
-
-#content .flowBox dl { display: block; overflow: hidden; padding: 15px 20px; border: 3px solid #e5e5e5; }
-
-#content .flowBox dl dt { border-bottom: 1px dotted #cccccc; margin-bottom: 10px; font-size: 1.2em; }
-
-#content .flowBox dl dd { margin-bottom: 0px; }
-
-#content .flowBox dl dd h4 { margin: 0px; padding: 0px; }
-
-#content .flowBox dl dd p { margin-bottom: 10px; }
-
-#content .flowBox dl dd ul { margin-bottom: 0px; }
-
+@media (min-width: 500px) { #content .subPostListSection .ttBox { width: 47%; }
+  #content .subPostListSection .ttBox:nth-child(odd) { clear: both; float: left; }
+  #content .subPostListSection .ttBox:nth-child(2n) { float: right; } }
 /*			contactform7
 /*-------------------------------------------*/
 #content .wpcf7 { margin-top: 20px; }
@@ -51,6 +45,37 @@
 #content .wpcf7 dl dt { display: block; overflow: hidden; padding: 10px 0; float: left; width: 20%; color: #666; font-weight: lighter; }
 
 #content .wpcf7 dl dd { display: block; overflow: hidden; padding: 10px; margin-bottom: 0px; }
+
+@media (min-width: 770px) { #content form span.wpcf7-form-control-wrap .wpcf7-list-item { padding-top: 2px; padding-bottom: 2px; } }
+/* BizVektorOptions 0.1.1.1
+/*-------------------------------------------*/
+.leadTxt, #content p.leadTxt { font-size: 2em; line-height: 150%; padding: 0; }
+
+/*			.qaItem
+/*-------------------------------------------*/
+#content dl.qaItem { display: block; overflow: hidden; border-bottom: 1px dotted #cccccc; padding: 0px 0px 20px; margin: 0px 0px 20px; width: 100%; }
+
+#content dl.qaItem dt { margin-bottom: 15px; background: url(../images/options/qaIconQ.gif) left top no-repeat; padding-left: 32px; border: none; }
+
+#content dl.qaItem dd { margin-bottom: 0px; background: url(../images/options/qaIconA.gif) left top no-repeat; padding-left: 32px; }
+
+/*			.flowBox
+/*-------------------------------------------*/
+#content .flowBox { padding-bottom: 30px; margin-bottom: 15px; display: block; overflow: hidden; background: url(../images/options/arrow_down.png) center bottom no-repeat; }
+
+#content .flowBox:last-child { background: none; padding-bottom: 0px; margin-bottom: 0px; }
+
+#content .flowBox dl { display: block; overflow: hidden; padding: 15px 20px; border: 3px solid #e5e5e5; }
+
+#content .flowBox dl dt { border-bottom: 1px dotted #cccccc; margin-bottom: 10px; font-size: 1.2em; }
+
+#content .flowBox dl dd { margin-bottom: 0px; }
+
+#content .flowBox dl dd h4 { margin: 0px; padding: 0px; }
+
+#content .flowBox dl dd p { margin-bottom: 10px; }
+
+#content .flowBox dl dd ul { margin-bottom: 0px; }
 
 /*
 Grunt で統合するファイル

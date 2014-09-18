@@ -56,18 +56,12 @@ function biz_vektor_get_theme_options_default_design() {
 /*	Variable settings
 /*-------------------------------------------*/
 function biz_vektor_theme_options_default_design_validate( $input ) {
-	//$output = $defaults;
-	$output = array();
-	$output['theme_plusKeyColor'] = '';
-	$output['theme_plusKeyColorLight'] = '';
-	$output['theme_plusKeyColorVeryLight'] = '';
-	$output['theme_plusKeyColorDark'] = '';
-	$keylist = array_keys($input);
-	foreach($keylist as $key){
-		if(isset($input[$key])) { $output[$key] = $input[$key]; }
-	}
-
-	return apply_filters( 'biz_vektor_theme_options_default_design_validate', $output, $input );
+	$output = $defaults;
+	$output['theme_plusKeyColor'] = $input['theme_plusKeyColor'];
+	$output['theme_plusKeyColorLight'] = $input['theme_plusKeyColorLight'];
+	$output['theme_plusKeyColorVeryLight'] = $input['theme_plusKeyColorVeryLight'];
+	$output['theme_plusKeyColorDark'] = $input['theme_plusKeyColorDark'];
+	return apply_filters( 'biz_vektor_theme_options_default_design_validate', $output, $input, $defaults );
 }
 
 /*-------------------------------------------*/
@@ -79,7 +73,7 @@ function bizvektor_default_design_customize_register($wp_customize) {
     // Add section
     $wp_customize->add_section( 'biz_vektor_default_design', array(
         'title'          => _x('Default color settings','Default color settings', 'biz-vektor'),
-        'priority'       => 1000,
+        'priority'       => 110,
     ) );
 	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColor]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
 	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorLight]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
@@ -91,12 +85,12 @@ function bizvektor_default_design_customize_register($wp_customize) {
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColor]',
 	)));
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'KeyColorLight', array(
-		'label'    => 'Keycolor(Light)',
+		'label'    => __('Keycolor(Light)', 'biz-vektor'),
 		'section'  => 'biz_vektor_default_design',
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColorLight]',
 	)));
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'KeyColorDark', array(
-		'label'    => 'Keycolor(Dark)',
+		'label'    => __('Keycolor(Dark)', 'biz-vektor'),
 		'section'  => 'biz_vektor_default_design',
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColorDark]',
 	)));
@@ -155,11 +149,7 @@ form#searchform input#searchsubmit,
 #header #headContact #headContactTel	{color:<?php echo $default_design_options['theme_plusKeyColor'] ?>;}
 
 #gMenu	{ border-top:2px solid <?php echo $default_design_options['theme_plusKeyColor'] ?>; }
-#gMenu h3.assistive-text,
-#gMenu .menu li.current_page_item a,
-#gMenu .menu li.current_page_ancestor a ,
-#gMenu .menu li.current-page-ancestor a ,
-#gMenu .menu li a:hover	{
+#gMenu h3.assistive-text {
 background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>;
 border-right:1px solid <?php echo $default_design_options['theme_plusKeyColorDark'] ?>;
 background: -webkit-gradient(linear, 0 0, 0 bottom, from(<?php echo $default_design_options['theme_plusKeyColor'] ?>), to(<?php echo $default_design_options['theme_plusKeyColorDark'] ?>));
@@ -167,6 +157,10 @@ background: -moz-linear-gradient(<?php echo $default_design_options['theme_plusK
 background: linear-gradient(<?php echo $default_design_options['theme_plusKeyColor'] ?>, <?php echo $default_design_options['theme_plusKeyColorDark'] ?>);
 -ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=<?php echo $default_design_options['theme_plusKeyColor'] ?>, EndColorStr=<?php echo $default_design_options['theme_plusKeyColorDark'] ?>)";
 }
+
+#gMenu .menu li.current_page_item > a,
+#gMenu .menu li > a:hover { background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
+
 #pageTitBnr	{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 
 #panList a	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
@@ -211,12 +205,33 @@ background: linear-gradient(<?php echo $default_design_options['theme_plusKeyCol
 .paging span.current,
 .paging a:hover	{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 
+@media (min-width: 770px) {
+#gMenu .menu > li.current_page_item > a,
+#gMenu .menu > li.current_page_ancestor > a ,
+#gMenu .menu > li.current-page-ancestor > a ,
+#gMenu .menu > li > a:hover	{
+background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>;
+border-right:1px solid <?php echo $default_design_options['theme_plusKeyColorDark'] ?>;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(<?php echo $default_design_options['theme_plusKeyColor'] ?>), to(<?php echo $default_design_options['theme_plusKeyColorDark'] ?>));
+background: -moz-linear-gradient(<?php echo $default_design_options['theme_plusKeyColor'] ?>, <?php echo $default_design_options['theme_plusKeyColorDark'] ?>);
+background: linear-gradient(<?php echo $default_design_options['theme_plusKeyColor'] ?>, <?php echo $default_design_options['theme_plusKeyColorDark'] ?>);
+-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=<?php echo $default_design_options['theme_plusKeyColor'] ?>, EndColorStr=<?php echo $default_design_options['theme_plusKeyColorDark'] ?>)";
+}
 }
 		</style>
 <!--[if lte IE 8]>
 <style type="text/css">
-#gMenu	{ border-bottom-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
-#footMenu .menu li a:hover	{ color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
+#gMenu .menu > li.current_page_item > a,
+#gMenu .menu > li.current_page_ancestor > a ,
+#gMenu .menu > li.current-page-ancestor > a ,
+#gMenu .menu > li > a:hover	{
+background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>;
+border-right:1px solid <?php echo $default_design_options['theme_plusKeyColorDark'] ?>;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(<?php echo $default_design_options['theme_plusKeyColor'] ?>), to(<?php echo $default_design_options['theme_plusKeyColorDark'] ?>));
+background: -moz-linear-gradient(<?php echo $default_design_options['theme_plusKeyColor'] ?>, <?php echo $default_design_options['theme_plusKeyColorDark'] ?>);
+background: linear-gradient(<?php echo $default_design_options['theme_plusKeyColor'] ?>, <?php echo $default_design_options['theme_plusKeyColorDark'] ?>);
+-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(StartColorStr=<?php echo $default_design_options['theme_plusKeyColor'] ?>, EndColorStr=<?php echo $default_design_options['theme_plusKeyColorDark'] ?>)";
+}
 </style>
 <![endif]-->
 
