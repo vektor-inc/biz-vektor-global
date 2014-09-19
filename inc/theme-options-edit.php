@@ -104,9 +104,6 @@ function biz_vektor_theme_options_render_page() { ?>
 	}
 	?>
 	</select>
-	<?php if ( !function_exists( 'biz_vektor_activation' ) ) :?>
-	[ <a href="http://bizvektor.com/setting/bizvektorsetting/menu/" target="_blank">&raquo; <?php _e('How to set up Menus', 'biz-vektor') ;?></a> ]
-	<?php endif;?>
 	</td>
 	</tr>
 	<!-- Head logo -->
@@ -329,7 +326,7 @@ function biz_vektor_theme_options_render_page() { ?>
 $i++;
 } ?>
 </div>
-<br clear="all" /><!-- [ 無いと回りこむ ] -->
+<br clear="all" /><!-- [rolling when none] -->
 	<?php _e('* If you are unsure about the image, you can leave this field blank.', 'biz-vektor') ;?><br />
 	<span class="alert">
 	<?php _e('* You can set different image for desktop and smartphone versions of the site.', 'biz-vektor') ;?>
@@ -410,13 +407,9 @@ $i++;
 	</dl>
 
 	<dl>
-		<dt><?php echo $infoLabelName;?> のトップのURL</dt>
+		<dt>Top URL of <?php echo $infoLabelName;?></dt>
 		<dd><?php $infoTopUrl = esc_html(home_url().'/info/'); ?>
-			* 通常 <a href="<?php echo $infoTopUrl;?>" target="_blank"><?php echo $infoTopUrl;?></a> が『<?php echo $infoLabelName;?>』のトップになります。
-				<?php /*
-			<br>
-			* <?php echo $infoLabelName;?> 用のトップページを独自に設定していない場合は空欄のままで構いません。
-			<input type="text" name="biz_vektor_theme_options[infoTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['infoTopUrl'] ); ?>" style="width:80%" />	*/ ?>
+			* Default "<?php echo $infoLabelName;?>"'s Top URL is <a href="<?php echo $infoTopUrl;?>" target="_blank"><?php echo $infoTopUrl;?></a>
 		</dd>
 	</dl>
 
@@ -469,9 +462,8 @@ $i++;
 	</dl>
 	<!-- /Post display count -->
 	<dl>
-		<dt><?php echo $postLabelName;?> のトップのURL</dt>
+		<dt>Top URL of <?php echo $postLabelName;?></dt>
 		<dd><?php $postTopUrl = esc_html(home_url().'/post/'); ?>
-			* <?php echo $postLabelName;?> 用のトップページを設定していない場合は空欄のままで構いません。
 			<input type="text" name="biz_vektor_theme_options[postTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['postTopUrl'] ); ?>" style="width:80%" /></dd>
 	</dl>
 </td>
@@ -557,17 +549,14 @@ printf( __('However, it might have negative impact on search engine rankings if 
 <td>
 <ol>
 <li>
-まずはトップページ用の固定ページを作成してください。<br />
-[ <a href="<?php echo admin_url().'edit.php?post_type=page';?>" target="_blank">&raquo; 固定ページ</a> ]<br />
+Please make a Page for Front page<br/>
+[ <a href="<?php echo admin_url().'edit.php?post_type=page';?>" target="_blank">&raquo; Page</a> ]<br />
 <?php _e('If the main page content of the set page is blank, the 3PR area will be displayed just below the main visual. Therefore, if you don\'t have any particular content to use it can be left blank.', 'biz-vektor'); ?>
 </li>
-<li>次に、『設定』→『表示設定』画面より、トップページに割り当てる固定ページを設定します。<br />
-[ <a href="<?php echo admin_url().'options-reading.php';?>" target="_blank">&raquo; 表示設定</a> ]<br />
+<li>Next, set the page of front-page. in [Setting] -> [Reading] <br/>
+[ <a href="<?php echo admin_url().'options-reading.php';?>" target="_blank">&raquo; Reading</a> ]<br />
 <p><?php _e('In the pull-down of the &quot;front page&quot;, please select the page that you created for the homepage.', 'biz-vektor') ;?><br />
 <span class="alert"><?php _e('Do not select the drop-down &quot;post pages&quot;.', 'biz-vektor') ;?></span></p>
-</li>
-<li>トップページに表示する項目は<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>より、表示する項目や順番を自由に変更出来ます。
-<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>の『メインコンテンツエリア（トップページ）』ウィジェットにウィジェットアイテムをセットしてください。
 </li>
 </ol>
 </td>
@@ -617,7 +606,7 @@ printf( __('However, it might have negative impact on search engine rankings if 
 <?php get_template_part('inc/theme-options-nav'); ?>
 <h3><?php _e('Slideshow Settings', 'biz-vektor'); ?></h3>
 <p><?php _e('Please enter the URL of the image to be used in the slideshow.', 'biz-vektor'); ?><br />
-<?php _e('The recommended size of the image is 950 × 250px.', 'biz-vektor'); ?><br />
+<?php _e('The recommended size of the image is 950 x 250px.', 'biz-vektor'); ?><br />
 <?php
 $topVisualLink = '<a href="'.get_admin_url().'themes.php?page=custom-header" target="_blank">'.__('Home page Main visual', 'biz-vektor').'</a>';
 printf(__('%s will be displayed if the slideshow is not set.', 'biz-vektor'),$topVisualLink); ?><br />
@@ -664,7 +653,7 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 }
 
 /*-------------------------------------------*/
-/*	入力された値の処理
+/* function of input value
 /*-------------------------------------------*/
 function biz_vektor_theme_options_validate( $input ) {
 	$output = $defaults = biz_vektor_get_default_theme_options();
@@ -714,15 +703,15 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['pr3_image_s']            = $input['pr3_image_s'];
 
 	// Infomation & Blog	
-	$output['postLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['postLabelName']))?	 $defaults['postLabelName'] : $input['postLabelName'] ;
-	$output['infoLabelName']          = (preg_match('/^(\s|[ 　]*)$/', $input['infoLabelName']))?	 $defaults['infoLabelName'] : $input['infoLabelName'] ;
+	$output['postLabelName']          = (!$input['postLabelName'])?	 $defaults['postLabelName'] : $input['postLabelName'] ;
+	$output['infoLabelName']          = (!$input['infoLabelName'])?	 $defaults['infoLabelName'] : $input['infoLabelName'] ;
 	$output['listInfoTop']            = $input['listInfoTop'];
 	$output['listInfoArchive']        = $input['listInfoArchive'];
 	$output['listBlogTop']            = $input['listBlogTop'];
 	$output['listBlogArchive']        = $input['listBlogArchive'];
-	$output['infoTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['infoTopCount']))? 0 : $input['infoTopCount'];
+	$output['infoTopCount']           = (!$input['infoTopCount'])? 0 : $input['infoTopCount'];
 	$output['postTopUrl']             = $input['postTopUrl'];
-	$output['postTopCount']           = (preg_match('/^(\s|[ 　]*)$/', $input['postTopCount']))? 0 : $input['postTopCount'];
+	$output['postTopCount']           = (!$input['postTopCount'])? 0 : $input['postTopCount'];
 
 	// SEO 
 	$output['topTitle']               = $input['topTitle'];
