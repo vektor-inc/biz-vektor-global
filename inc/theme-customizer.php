@@ -48,11 +48,6 @@ function bizvektor_customize_register($wp_customize) {
     $add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_font_menu';
     $wp_customize->add_setting( 'biz_vektor_theme_options[font_menu]',  $add_setting_array );
 
-
-
-
-
-
 		// Create BizVektor Theme styles Array
 		global $biz_vektor_theme_styles;
 		biz_vektor_theme_styleSetting();
@@ -298,7 +293,6 @@ function bizvektor_customize_register($wp_customize) {
 	}
 }
 
-
 function biz_vektor_customize_sanitize_theme_style( $input ){
 	global $biz_vektor_theme_styles;
 	biz_vektor_theme_styleSetting();
@@ -372,18 +366,23 @@ function biz_vektor_customize_sanitize_font_menu( $input ){
 function biz_vektor_customize_sanitize_contact_txt( $input ){
 	return esc_html( $input );
 }
+
 function biz_vektor_customize_sanitize_tel_number( $input ){
 	return esc_html( $input );
 }
+
 function biz_vektor_customize_sanitize_contact_time( $input ){
 	return esc_html( $input );
 }
+
 function biz_vektor_customize_sanitize_sub_sitename( $input ){
 	return esc_html( $input );
 }
+
 function biz_vektor_customize_sanitize_contact_address( $input ){
 	return esc_html( $input );
 }
+
 function biz_vektor_customize_sanitize_contact_link( $input ){
 	return esc_html( $input );
 }
@@ -391,9 +390,11 @@ function biz_vektor_customize_sanitize_contact_link( $input ){
 function biz_vektor_customize_sanitize_3pr_title( $input ){
 	return esc_html( $input );
 }
+
 function biz_vektor_customize_sanitize_3pr_description( $input ){
 	return esc_html( $input );
 }
+
 function biz_vektor_customize_sanitize_3pr_link( $input ){
 	return esc_html( $input );
 }
@@ -406,6 +407,7 @@ function biz_vektor_customize_sanitize_3pr_image( $input ){
 		return '';
 	}
 }
+
 function biz_vektor_customize_sanitize_3pr_image_s( $input ){
 	if(preg_match('/^http.+\.(jpg|jpeg|bmp|png|gif)$/i', $input)){
 		return $input;
