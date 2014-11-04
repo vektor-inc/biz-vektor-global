@@ -1,35 +1,53 @@
 
-== Description ==
+## == Description ==
 BizVektor theme will allow you to build a high-quality business web site.It is possible to change the color in the Theme Customizer, to switch to a completely different design.In addition, it is possible to increase the design by the plug-in.
 Official site : http://sample.bizvektor.com ( Sorry, english version is under construction. ) 
 Sample site : http://sample.bizvektor.com
 
-=== Tags ===
+## === Tags ===
 white, red, blue, black, green, orange, purple, two-columns, right-sidebar, left-sidebar, one-columns, responsive, custom-background, custom-colors, custom-header, custom-menu, editor-style,theme-options
 
 
-=== Features ===
+## === Features ===
 Specializing in the business-friendly, Change design, Supports customizer, Responsive Layout, Many theme Setting options, Child page list template, Display contact information, Page Navigation, Breadcrumb Navigation, and more!
 
 
-=== Widgets Areas ===
+## === Widgets Areas ===
 The Theme has 4 widget areas.
 You can use these area to customize the content of your website.
 
 
-== License ==
+## == License ==
 Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License version 2, see file license.txt.
 The exceptions to this license are as follows:
 The script html5.js and css3-mediaqueries.js are licensed under MIT
 Header Images are photo by theme author and are released under GPL license.
 
 
-== Author ==
+## == Author ==
 The theme built by Hidekazu Ishikawa (kurudrive) at Vektor,Inc.
 You can contact me at inquiry form.
 http://bizvektor.com/contact/
 
 
-== Changelog ==
-v1.0.3
-* Hello, world!
+## == Changelog ==
+* v1.0.3
+* * Hello, world!
+
+## == Credits ==
+
+### rollover.js
+	v09.06.16
+	(C) 2009 edo.
+	http://css-eblog.com/
+	MIT license | http://www.opensource.org/licenses/mit-license.php
+
+### footerFixed.js
+	2007 Kazuma Nishihata [to-R].
+	http://blog.webcreativepark.net
+	MIT license | http://www.opensource.org/licenses/mit-license.php
+
+### jQuery FlexSlider v1.8
+	v1.8
+	(C) 2012 WooThemes.
+	MIT license | http://www.opensource.org/licenses/mit-license.php
