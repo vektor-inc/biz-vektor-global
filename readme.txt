@@ -51,3 +51,8 @@ http://bizvektor.com/contact/
 	v1.8
 	(C) 2012 WooThemes.
 	MIT license | http://www.opensource.org/licenses/mit-license.php
+
+### Google Web Fonts Anton
+	(C) 2014 Vernon Adams.
+	https://plus.google.com/+vernonadams/about
+	SIL Open Font License, 1.1 | http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
