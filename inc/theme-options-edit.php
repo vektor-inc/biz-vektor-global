@@ -26,13 +26,15 @@ function biz_vektor_theme_options_render_page() { ?>
 		<div id="sub-content">
 		</div>
 		<?php } ?>
-		
+		<?php global $biz_vektor_options;
+		biz_vektor_get_theme_options(); ?>
 		<div id="main-content">
 		<p class="message_intro">
 	<?php $customizer_link = '<a href="'.get_admin_url().'customize.php">'.__('Theme customizer','biz-vektor').'</a>'; ?>
 	<?php _e('Thank you for using BizVektor.', 'biz-vektor');?> 
 	<?php printf(__('You can change basic design settings from %s', 'biz-vektor'),$customizer_link); ?> <br />
 	<?php _e('Here you can change social media settings.','biz-vektor'); ?>
+
 		</p>
 		<form method="post" action="options.php">
 			<?php
@@ -349,12 +351,6 @@ $i++;
 </h3>
 <?php _e('* Does not appear if there are no posts.', 'biz-vektor') ;?><br />
 <?php _e('* If the excerpt field is not empty, the content will appear in the &quot;excerpt&quot;. Otherwise, the text will be displayed in a certain number of', 'biz-vektor') ;?><br />
-<?php
-	$plugin_link = '<a href="'.get_admin_url().'plugins.php" target="_blank">'._x('Plugins page','no link', 'biz-vektor').'</a>';
-	?>
-  <?php _e('The full text will be displayed if the plug-in [WP Multibyte Patch] is not activated (Japanese version).', 'biz-vektor'); ?>
-	
-	<?php printf(__('Please enable [WP Multibyte Patch] from the %s.', 'biz-vektor'), $plugin_link ); ?><br />
 * <?php _e('<span class="alert">Featured image of the article</span> is displayed.', 'biz-vektor') ;?><br />
 	<?php _e('You can set the &quot;featured image&quot;, from the bottom right widget area of particular article edit screen.', 'biz-vektor') ;?><br />
 	<?php _e('If there is no widget, please check &quot;Featured image&quot; at the top right of the screen from the &quot;Screen options&quot; tab.', 'biz-vektor') ;?>
@@ -523,17 +519,9 @@ Please make a Page for Front page<br/>
 </tr>
 <!-- Display number of Blog -->
 <tr>
-	<th><?php
-	$postLabelName = esc_html( bizVektorOptions('postLabelName'));
-	printf( __('Please set from the [ Setting the %s ] section.', 'biz-vektor'),$postLabelName);
-	?>
+	<th><?php printf( __('Display a number of %s posts.', 'biz-vektor'),esc_html( $biz_vektor_options['postLabelName'])); ?>
 	<td><a href="#postSetting">
-		<?php
-		$infoLabelName = esc_html( bizVektorOptions('infoLabelName'));
-		$postLabelName = esc_html( bizVektorOptions('postLabelName'));
-		printf( __('Please set from the [ Setting the %s and %s ] section.', 'biz-vektor'),$infoLabelName,$postLabelName);
-		?>
-		</a>
+	<?php printf( __('Please set from the [ Setting the %s ] section.', 'biz-vektor'),esc_html( $biz_vektor_options['postLabelName'] ) ); ?></a>
 	</td>
 </tr>
 </table>
