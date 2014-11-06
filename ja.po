@@ -854,9 +854,6 @@ msgctxt "top page post count"
 msgid "posts"
 msgstr "件"
 
-msgid "If you enter &quot0&quot, this section will disappear."
-msgstr "0 にするとタイトルごと表示されなくなります。"
-
 # ######################################
 # SEO and Google Analytics Settings
 # ######################################

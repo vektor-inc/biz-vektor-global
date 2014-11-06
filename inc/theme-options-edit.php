@@ -337,7 +337,7 @@ $i++;
 
 <?php
 /*-------------------------------------------*/
-/*	Blog and Information
+/*	Blog
 /*-------------------------------------------*/
 ?>
 <div id="postSetting" class="sectionBox">
@@ -398,8 +398,7 @@ $i++;
 	<!-- Post display count -->
 	<dl>
 		<dt><?php printf(__('Number of %s posts to be displayed on the home page.', 'biz-vektor'),$postLabelName);?></dt>
-		<dd><input type="text" name="biz_vektor_theme_options[postTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['postTopCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
-		<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?></dd>
+		<dd><input type="text" name="biz_vektor_theme_options[postTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['postTopCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?></dd>
 	</dl>
 	<!-- /Post display count -->
 	<dl>
