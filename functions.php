@@ -233,7 +233,7 @@ function bizVektor_admin_css(){
 add_action('admin_enqueue_scripts', 'bizVektor_admin_css', 11);
 
 function bizVektor_wp_css(){
-	wp_enqueue_style('bizvektor_style', get_stylesheet_uri(), array(), '1.0.3');
+	wp_enqueue_style('bizvektor_style', get_stylesheet_uri(), array(), '1.0.4');
 }
 add_action('wp_enqueue_scripts', 'bizVektor_wp_css', 11);
 
