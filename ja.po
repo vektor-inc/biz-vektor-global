@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
+"Last-Translator: Kurudrive <kurudrive@gmail.com>\n"
 "Language-Team: BizVektor Translation Team <info@vektor-inc.co.jp>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -814,20 +814,6 @@ msgstr ""
 "* 『抜粋』は抜粋欄に記入があればその内容を、なければ本文文頭より一定の文字数"
 "を表示します。"
 
-msgctxt "no link"
-msgid "Plugins page"
-msgstr "プラグイン管理ページ"
-
-msgid ""
-"The full text will be displayed if the plug-in [WP Multibyte Patch] is not "
-"activated (Japanese version)."
-msgstr ""
-"<span class=\"alert\">但し、プラグイン『WP Multibyte Patch』が有効化されてい"
-"ないと全文が表示されます。</span>"
-
-msgid "Please enable [WP Multibyte Patch] from the %s."
-msgstr "%s から『WP Multibyte Patch』を有効化して下さい。"
-
 msgid ""
 "<span class=\"alert\">Featured image of the article</span> is displayed."
 msgstr ""
@@ -867,9 +853,6 @@ msgstr "トップページでの %s の表示件数"
 msgctxt "top page post count"
 msgid "posts"
 msgstr "件"
-
-msgid "If you enter &quot0&quot, this section will disappear."
-msgstr "0 にするとタイトルごと表示されなくなります。"
 
 # ######################################
 # SEO and Google Analytics Settings
@@ -1054,9 +1037,6 @@ msgstr ""
 "『フロントページの表示』で『最新の投稿』または『固定ページ』を選択して下さ"
 "い。"
 
-msgid "Do not select the drop-down &quot;post pages&quot;."
-msgstr "『投稿ページ』のプルダウンは選択しないで下さい。"
-
 msgid ""
 "If the main page content of the set page is blank, the 3PR area will be "
 "displayed just below the main visual. Therefore, if you don't have any "
@@ -1091,11 +1071,11 @@ msgstr "トップページのサイドバーを表示しない場合はチェッ
 msgid "I want to hide the sidebar"
 msgstr "サイドバーを非表示にする"
 
-msgid "Display a number of %s posts"
+msgid "Display a number of %s posts."
 msgstr "%s の表示件数"
 
 msgid "Please set from the [ Setting the %s ] section."
-msgstr "「%s の設定」</a>から設定ください。"
+msgstr "「%s の設定 」から設定ください。"
 
 # ---------------
 # RSS
