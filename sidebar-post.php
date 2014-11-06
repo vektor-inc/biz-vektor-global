@@ -12,7 +12,6 @@ else :
 	<?php wp_list_categories('title_li=&orderby=order'); ?> 
 	</ul>
 	</div>
-	safsfdasdfa
 	</div>
 	<?php 
 	if (function_exists('biz_vektor_contactBtn')) biz_vektor_contactBtn();
