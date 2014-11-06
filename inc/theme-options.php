@@ -75,7 +75,9 @@ function biz_vektor_theme_options_add_page() {
 add_action( 'admin_menu', 'biz_vektor_theme_options_add_page' );
 
 function biz_vektor_get_theme_options() {
-	return get_option('biz_vektor_theme_options');
+	global $biz_vektor_options;
+		$biz_vektor_options = get_option('biz_vektor_theme_options' );
+	return $biz_vektor_options;
 }
 
 /*-------------------------------------------*/

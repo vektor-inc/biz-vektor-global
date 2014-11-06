@@ -2,6 +2,8 @@
 <!--[if IE]>
 <meta http-equiv="X-UA-Compatible" content="edge" />
 <![endif]-->
+<?php global $biz_vektor_options;
+biz_vektor_get_theme_options(); ?>
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
@@ -84,13 +86,9 @@ if ($gMenuExist) { ?>
 </div><!-- [ /#pageTitInner ] -->
 </div>
 </div><!-- [ /#pageTitBnr ] -->
-<!-- [ #panList ] -->
-<div id="panList">
-<div id="panListInner" class="innerBox">
+
 <?php get_template_part('module_panList'); ?>
-</div>
-</div>
-<!-- [ /#panList ] -->
+
 <?php } ?>
 
 <?php if (is_front_page() && (biz_vektor_slideExist() || get_header_image()) ) { ?>
