@@ -344,7 +344,7 @@ $i++;
 		<?php
 		$infoLabelName = esc_html( bizVektorOptions('infoLabelName'));
 		$postLabelName = esc_html( bizVektorOptions('postLabelName'));
-		printf( __('Settings for [ %s ] and [ %s ].', 'biz-vektor'),$infoLabelName,$postLabelName);
+		printf( __('Settings for [ %s ].', 'biz-vektor'),$postLabelName);
 		?>
 </h3>
 <?php _e('* Does not appear if there are no posts.', 'biz-vektor') ;?><br />
@@ -360,60 +360,6 @@ $i++;
 	<?php _e('If there is no widget, please check &quot;Featured image&quot; at the top right of the screen from the &quot;Screen options&quot; tab.', 'biz-vektor') ;?>
 
 <table class="form-table">
-<!-- Information -->
-<tr>
-	<th><?php echo esc_html( $infoLabelName ); ?></th>
-	<td>
-		&raquo; <?php _e('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[infoLabelName]" id="infoLabelName" value="<?php echo esc_attr( $options['infoLabelName'] ); ?>" style="width:200px;" />
-	<dl>
-	<dt><?php printf(__('Display layout of &quot; %s &quot on the top page.', 'biz-vektor'), $infoLabelName ); ?></dt>
-	<dd>
-	<?php
-	$biz_vektor_listTypes = array(
-		'listType_title' => __('Title only', 'biz-vektor'),
-		'listType_set' => __('With excerpt and thumbnail', 'biz-vektor')
-	);
-	foreach( $biz_vektor_listTypes as $biz_vektor_listTypeValue => $biz_vektor_listTypeLavel) {
-		if ( $biz_vektor_listTypeValue == $options['listInfoTop'] ) { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[listInfoTop]" value="<?php echo $biz_vektor_listTypeValue ?>" checked> <?php echo $biz_vektor_listTypeLavel ?></label>
-		<?php } else { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[listInfoTop]" value="<?php echo $biz_vektor_listTypeValue ?>"> <?php echo $biz_vektor_listTypeLavel ?></label>
-		<?php }
-	}
-	?>
-	</dd>
-	<dt><?php printf(__('Display layout of &quot; %s &quot on the archive page.', 'biz-vektor'), $infoLabelName ); ?></dt>
-	<dd>
-	<?php
-	$biz_vektor_listTypes = array(
-		'listType_title' => __('Title only', 'biz-vektor'),
-		'listType_set' => __('With excerpt and thumbnail', 'biz-vektor')
-	);
-	foreach( $biz_vektor_listTypes as $biz_vektor_listTypeValue => $biz_vektor_listTypeLavel) {
-		if ( $biz_vektor_listTypeValue == $options['listInfoArchive'] ) { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[listInfoArchive]" value="<?php echo $biz_vektor_listTypeValue ?>" checked> <?php echo $biz_vektor_listTypeLavel ?></label>
-		<?php } else { ?>
-		<label><input type="radio" name="biz_vektor_theme_options[listInfoArchive]" value="<?php echo $biz_vektor_listTypeValue ?>"> <?php echo $biz_vektor_listTypeLavel ?></label>
-		<?php }
-	}
-	?>
-	</dd>
-	</dl>
-	<dl>
-		<dt><?php printf(__('Number of %s posts to be displayed on the home page.', 'biz-vektor'),$infoLabelName);?></dt>
-		<dd><input type="text" name="biz_vektor_theme_options[infoTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['infoTopCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?><br />
-		<?php _e('If you enter &quot0&quot, this section will disappear.', 'biz-vektor') ;?></dd>
-	</dl>
-
-	<dl>
-		<dt>Top URL of <?php echo $infoLabelName;?></dt>
-		<dd><?php $infoTopUrl = esc_html(home_url().'/info/'); ?>
-			* Default "<?php echo $infoLabelName;?>"'s Top URL is <a href="<?php echo $infoTopUrl;?>" target="_blank"><?php echo $infoTopUrl;?></a>
-		</dd>
-	</dl>
-
-</td>
-</tr>
 <!-- Post -->
 <tr>
 	<th><?php echo esc_html( bizVektorOptions('postLabelName')); ?></th>
