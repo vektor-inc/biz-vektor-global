@@ -56,7 +56,8 @@ if ( !$postType ) {
 
 <!-- [ #sideTower ] -->
 <div id="sideTower">
-<?php get_template_part('module_side_'.$postType); ?>
+<?php echo $postType; ?>
+<?php get_sidebar($postType); ?>
 </div>
 <!-- [ /#sideTower ] -->
 </div>
