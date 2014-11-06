@@ -1,7 +1,7 @@
 
 ## == Description ==
 BizVektor theme will allow you to build a high-quality business web site.It is possible to change the color in the Theme Customizer, to switch to a completely different design.In addition, it is possible to increase the design by the plug-in.
-Official site : http://bizvektor.com/en/ 
+Official site : http://bizvektor.com/en/
 Sample site : http://sample.bizvektor.com
 
 ## === Tags ===

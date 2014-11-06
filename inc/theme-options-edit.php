@@ -649,12 +649,8 @@ function biz_vektor_theme_options_validate( $input ) {
 
 	// Infomation & Blog	
 	$output['postLabelName']          = (!$input['postLabelName'])?	 $defaults['postLabelName'] : $input['postLabelName'] ;
-	$output['infoLabelName']          = (!$input['infoLabelName'])?	 $defaults['infoLabelName'] : $input['infoLabelName'] ;
-	$output['listInfoTop']            = $input['listInfoTop'];
-	$output['listInfoArchive']        = $input['listInfoArchive'];
 	$output['listBlogTop']            = $input['listBlogTop'];
 	$output['listBlogArchive']        = $input['listBlogArchive'];
-	$output['infoTopCount']           = (!$input['infoTopCount'])? 0 : $input['infoTopCount'];
 	$output['postTopUrl']             = $input['postTopUrl'];
 	$output['postTopCount']           = (!$input['postTopCount'])? 0 : $input['postTopCount'];
 
