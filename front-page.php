@@ -57,7 +57,7 @@ $post_loop = new WP_Query( array(
 	<!-- [ /#content ] -->
 
 	<!-- [ #sideTower ] -->
-	<div id="sideTower">
+	<div id="sideTower" class="sideTower">
 <?php if ( is_active_sidebar( 'common-side-top-widget-area' ) ) dynamic_sidebar( 'common-side-top-widget-area' ); ?>
 <?php
 if ( is_active_sidebar( 'top-side-widget-area' ) ) :
