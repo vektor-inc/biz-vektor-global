@@ -1,7 +1,7 @@
 
 ## == Description ==
 BizVektor theme will allow you to build a high-quality business web site.It is possible to change the color in the Theme Customizer, to switch to a completely different design.In addition, it is possible to increase the design by the plug-in.
-Official site : http://sample.bizvektor.com ( Sorry, english version is under construction. ) 
+Official site : http://bizvektor.com/en/ 
 Sample site : http://sample.bizvektor.com
 
 ## === Tags ===
@@ -27,7 +27,7 @@ Header Images are photo by theme author and are released under GPL license.
 ## == Author ==
 The theme built by Hidekazu Ishikawa (kurudrive) at Vektor,Inc.
 You can contact me at inquiry form.
-http://bizvektor.com/contact/
+http://bizvektor.com/en/
 
 
 ## == Changelog ==
