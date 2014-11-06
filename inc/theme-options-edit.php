@@ -488,25 +488,6 @@ printf( __('However, it might have negative impact on search engine rankings if 
 	&raquo; <?php _e('Slide show settings', 'biz-vektor') ;?></a> ]</li>
 </ul></td>
 </tr>
-<!-- Page to be displayed below the main visual -->
-<tr>
-<th id="topEntryTitleHidden"><?php _e('Page to be displayed below the main visual', 'biz-vektor') ;?></th>
-<td>
-<ol>
-<li>
-Please make a Page for Front page<br/>
-[ <a href="<?php echo admin_url().'edit.php?post_type=page';?>" target="_blank">&raquo; Page</a> ]<br />
-<?php _e('If the main page content of the set page is blank, the 3PR area will be displayed just below the main visual. Therefore, if you don\'t have any particular content to use it can be left blank.', 'biz-vektor'); ?>
-</li>
-<li>Next, set the page of front-page. in [Setting] -> [Reading] <br/>
-[ <a href="<?php echo admin_url().'options-reading.php';?>" target="_blank">&raquo; Reading</a> ]<br />
-<p><?php _e('In the pull-down of the &quot;front page&quot;, please select the page that you created for the homepage.', 'biz-vektor') ;?><br />
-<span class="alert"><?php _e('Do not select the drop-down &quot;post pages&quot;.', 'biz-vektor') ;?></span></p>
-</li>
-</ol>
-</td>
-</td>
-</tr>
 <!-- Home 3PR area -->
 <tr>
 <th><?php _e('Home 3PR area', 'biz-vektor'); ?></th>
