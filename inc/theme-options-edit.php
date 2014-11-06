@@ -500,8 +500,7 @@ Please make a Page for Front page<br/>
 </li>
 <li>Next, set the page of front-page. in [Setting] -> [Reading] <br/>
 [ <a href="<?php echo admin_url().'options-reading.php';?>" target="_blank">&raquo; Reading</a> ]<br />
-<p><?php _e('In the pull-down of the &quot;front page&quot;, please select the page that you created for the homepage.', 'biz-vektor') ;?><br />
-<span class="alert"><?php _e('Do not select the drop-down &quot;post pages&quot;.', 'biz-vektor') ;?></span></p>
+<p><?php _e('In the pull-down of the &quot;front page&quot;, please select the page that you created for the homepage.', 'biz-vektor') ;?></p>
 </li>
 </ol>
 </td>
