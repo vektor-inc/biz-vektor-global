@@ -33,36 +33,25 @@ function bizvektor_customize_register($wp_customize) {
         'type'           => 'option',
         'capability'     => 'edit_theme_options',
     );
-    $add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_theme_style';
-    $wp_customize->add_setting( 'biz_vektor_theme_options[theme_style]',  $add_setting_array );
     $add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_head_logo';
     $wp_customize->add_setting( 'biz_vektor_theme_options[head_logo]',  $add_setting_array );
+
     $add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_foot_logo';
     $wp_customize->add_setting( 'biz_vektor_theme_options[foot_logo]',  $add_setting_array );
+
     $add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_gMenuDivide';
     $wp_customize->add_setting( 'biz_vektor_theme_options[gMenuDivide]',  $add_setting_array );
+
     $add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_theme_layout';
     $wp_customize->add_setting( 'biz_vektor_theme_options[theme_layout]',  $add_setting_array );
+
     $add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_font_title';
     $wp_customize->add_setting( 'biz_vektor_theme_options[font_title]',  $add_setting_array );
+
     $add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_font_menu';
     $wp_customize->add_setting( 'biz_vektor_theme_options[font_menu]',  $add_setting_array );
 
-		// Create BizVektor Theme styles Array
-		global $biz_vektor_theme_styles;
-		biz_vektor_theme_styleSetting();
-		foreach( $biz_vektor_theme_styles as $biz_vektor_theme_styleKey => $biz_vektor_theme_styleValues) {
-			$biz_vektor_style_array[$biz_vektor_theme_styleKey] = $biz_vektor_theme_styleValues['label'];
-		}
 		// Create section UI
-		$wp_customize->add_control( 'theme_style',array(
-			'label'     => _x('Design', 'biz-vektor theme-customizer', 'biz-vektor'),
-			'section'   => 'biz_vektor_design',
-			'settings'  => 'biz_vektor_theme_options[theme_style]',
-			'type' => 'select',
-			'choices' => $biz_vektor_style_array,
-			'priority' => 01,
-		));
 		$wp_customize->add_control( new WP_Customize_Image_Control(
 			$wp_customize,
 			'head_logo',
@@ -241,11 +230,11 @@ function bizvektor_customize_register($wp_customize) {
     ) );
     
 	for ( $i = 1; $i <= 3 ;){
-		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_title]', 		array('default' => '','type'=> 'option','capability' => 'edit_theme_options','sanitize_callback' => 'biz_vektor_customize_sanitize_3pr_title' ) );
-		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_description]', 	array('default' => '','type'=> 'option','capability' => 'edit_theme_options','sanitize_callback' => 'biz_vektor_customize_sanitize_3pr_description' ) );
-		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_link]', 			array('default' => '','type'=> 'option','capability' => 'edit_theme_options','sanitize_callback' => 'biz_vektor_customize_sanitize_3pr_link' ) );
-		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_image]', 		array('default' => '','type'=> 'option','capability' => 'edit_theme_options','sanitize_callback' => 'biz_vektor_customize_sanitize_3pr_image' ) );
-		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_image_s]', 		array('default' => '','type'=> 'option','capability' => 'edit_theme_options','sanitize_callback' => 'biz_vektor_customize_sanitize_3pr_image_s' ) );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_title]',       array('default' => '','type'=> 'option','capability' => 'edit_theme_options','sanitize_callback' => 'biz_vektor_customize_sanitize_3pr_title' ) );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_description]', array('default' => '','type'=> 'option','capability' => 'edit_theme_options','sanitize_callback' => 'biz_vektor_customize_sanitize_3pr_description' ) );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_link]',        array('default' => '','type'=> 'option','capability' => 'edit_theme_options','sanitize_callback' => 'biz_vektor_customize_sanitize_3pr_link' ) );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_image]',       array('default' => '','type'=> 'option','capability' => 'edit_theme_options','sanitize_callback' => 'biz_vektor_customize_sanitize_3pr_image' ) );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_image_s]',     array('default' => '','type'=> 'option','capability' => 'edit_theme_options','sanitize_callback' => 'biz_vektor_customize_sanitize_3pr_image_s' ) );
 		// Create section UI
 		$wp_customize->add_control( 'pr'.$i.'_title',
 			array(
@@ -293,19 +282,6 @@ function bizvektor_customize_register($wp_customize) {
 	}
 }
 
-function biz_vektor_customize_sanitize_theme_style( $input ){
-	global $biz_vektor_theme_styles;
-	biz_vektor_theme_styleSetting();
-	foreach( $biz_vektor_theme_styles as $biz_vektor_theme_styleKey => $biz_vektor_theme_styleValues) {
-		$biz_vektor_style_array[$biz_vektor_theme_styleKey] = $biz_vektor_theme_styleValues['label'];
-	}
-	if(in_array($input, $biz_vektor_style_array)){
-		return $input;
-	}
-	else{
-		return 'default';
-	}
-}
 
 function biz_vektor_customize_sanitize_head_logo( $input ){
 	if(preg_match('/^http.+\.(jpg|jpeg|bmp|png|gif)$/i', $input)){
@@ -415,4 +391,9 @@ function biz_vektor_customize_sanitize_3pr_image_s( $input ){
 	else {
 		return '';
 	}
+}
+
+function bizvektor_customize_sanitize_color( $input ){
+	if(preg_match('/^#([0-9a-f]{6}?|[0-9a-f]{3}?)$/i',$input)){return $input;}
+	else { return false; }
 }
