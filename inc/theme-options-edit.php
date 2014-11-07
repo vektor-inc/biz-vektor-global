@@ -342,13 +342,7 @@ $i++;
 ?>
 <div id="postSetting" class="sectionBox">
 <?php get_template_part('inc/theme-options-nav'); ?>
-<h3>
-		<?php
-		$infoLabelName = esc_html( bizVektorOptions('infoLabelName'));
-		$postLabelName = esc_html( bizVektorOptions('postLabelName'));
-		printf( __('Settings for [ %s ].', 'biz-vektor'),$postLabelName);
-		?>
-</h3>
+<h3><?php printf( __('Settings for [ %s ].', 'biz-vektor'),esc_html( $biz_vektor_options['postLabelName']));?></h3>
 <?php _e('* Does not appear if there are no posts.', 'biz-vektor') ;?><br />
 <?php _e('* If the excerpt field is not empty, the content will appear in the &quot;excerpt&quot;. Otherwise, the text will be displayed in a certain number of', 'biz-vektor') ;?><br />
 * <?php _e('<span class="alert">Featured image of the article</span> is displayed.', 'biz-vektor') ;?><br />
