@@ -14,7 +14,11 @@
 	</div>
 	<?php else : ?>
 
-	<?php if (have_posts()): ?>
+	<?php
+	$options = biz_vektor_get_theme_options();
+	if(!isset($options['postTopCount'])){$options['postTopCount'] = 0;}
+	
+	if (have_posts() && $options['postTopCount']): ?>
 		<div id="topBlog" class="infoList">
 		<h2><?php echo esc_html(bizVektorOptions('postLabelName')); ?></h2>
 		<div class="rssBtn"><a href="<?php echo home_url(); ?>/feed/?post_type=post" id="blogRss" target="_blank">RSS</a></div>

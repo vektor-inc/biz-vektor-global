@@ -65,7 +65,8 @@
 /*-------------------------------------------*/
 /*	ChildPageList widget
 /*-------------------------------------------*/
-
+/*	posts pagenation setting in front-page
+/*-------------------------------------------*/
 
 function biz_vektor_theme_setup(){
 	add_theme_support( 'automatic-feed-links' );
@@ -628,4 +629,22 @@ function biz_vektor_childPageList(){
 		<?php }
 		}
 	} // is_page
+}
+
+/*-------------------------------------------*/
+/*	posts pagenation setting in front-page
+/*-------------------------------------------*/
+add_action('pre_get_posts','pre_get_posts_front_page');
+function pre_get_posts_front_page($query){
+	global $wp_query;
+	$options = biz_vektor_get_theme_options();
+	if(!isset($options['postTopCount'])){$options['postTopCount'] = 0;}
+
+		if ( is_admin() || ! $query->is_main_query() ){
+		return;
+	}
+	if ( $query->is_front_page() && !is_page()) {
+		$query->set( 'posts_per_page', $options['postTopCount'] );
+		return;
+	}
 }
