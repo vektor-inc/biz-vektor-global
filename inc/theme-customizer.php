@@ -28,28 +28,47 @@ function bizvektor_customize_register($wp_customize) {
         'priority'       => 100,
     ) );
 
-    $add_setting_array = array(
-        'default'        => '',
-        'type'           => 'option',
-        'capability'     => 'edit_theme_options',
-    );
-    $add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_head_logo';
-    $wp_customize->add_setting( 'biz_vektor_theme_options[head_logo]',  $add_setting_array );
+    $wp_customize->add_setting( 'biz_vektor_theme_options[head_logo]', array(
+        'default'        	=> '',
+        'type'           	=> 'option',
+        'capability'     	=> 'edit_theme_options',
+        'sanitize_callback' => 'biz_vektor_customize_sanitize_head_logo',
+    ) );
 
-    $add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_foot_logo';
-    $wp_customize->add_setting( 'biz_vektor_theme_options[foot_logo]',  $add_setting_array );
+    $wp_customize->add_setting( 'biz_vektor_theme_options[foot_logo]', array(
+        'default'        	=> '',
+        'type'          	=> 'option',
+        'capability'     	=> 'edit_theme_options',
+        'sanitize_callback' => 'biz_vektor_customize_sanitize_foot_logo',
+    ) );
 
-    $add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_gMenuDivide';
-    $wp_customize->add_setting( 'biz_vektor_theme_options[gMenuDivide]',  $add_setting_array );
+    $wp_customize->add_setting( 'biz_vektor_theme_options[gMenuDivide]', array(
+        'default'       	=> '',
+        'type'           	=> 'option',
+        'capability'     	=> 'edit_theme_options',
+        'sanitize_callback' => 'biz_vektor_customize_sanitize_gMenuDivide',
+    ) );
 
-    $add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_theme_layout';
-    $wp_customize->add_setting( 'biz_vektor_theme_options[theme_layout]',  $add_setting_array );
+    $wp_customize->add_setting( 'biz_vektor_theme_options[theme_layout]', array(
+        'default'        	=> '',
+        'type'           	=> 'option',
+        'capability'     	=> 'edit_theme_options',
+        'sanitize_callback' => 'biz_vektor_customize_sanitize_theme_layout',
+    ) );
 
-    $add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_font_title';
-    $wp_customize->add_setting( 'biz_vektor_theme_options[font_title]',  $add_setting_array );
+    $wp_customize->add_setting( 'biz_vektor_theme_options[font_title]', array(
+        'default'        	=> '',
+        'type'           	=> 'option',
+        'capability'     	=> 'edit_theme_options',
+        'sanitize_callback' => 'biz_vektor_customize_sanitize_font_title',
+    ) );
 
-    $add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_font_menu';
-    $wp_customize->add_setting( 'biz_vektor_theme_options[font_menu]',  $add_setting_array );
+    $wp_customize->add_setting( 'biz_vektor_theme_options[font_menu]', array(
+        'default'        	=> '',
+        'type'           	=> 'option',
+        'capability'     	=> 'edit_theme_options',
+        'sanitize_callback' => 'biz_vektor_customize_sanitize_font_menu',
+    ) );
 
 		// Create section UI
 		$wp_customize->add_control( new WP_Customize_Image_Control(
@@ -154,71 +173,95 @@ function bizvektor_customize_register($wp_customize) {
 		    'type'           => 'option',
 		    'capability'     => 'edit_theme_options',
 		);
-		$add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_contact_txt';
-		$wp_customize->add_setting( 'biz_vektor_theme_options[contact_txt]',  $add_setting_array );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[contact_txt]', array(
+		    'default'        => '',
+		    'type'           => 'option',
+		    'capability'     => 'edit_theme_options',
+		    'sanitize_callback' => 'biz_vektor_customize_sanitize_contact_txt',
+		) );
 
-		$add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_tel_number';
-		$wp_customize->add_setting( 'biz_vektor_theme_options[tel_number]',  $add_setting_array );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[tel_number]', array(
+		    'default'        => '',
+		    'type'           => 'option',
+		    'capability'     => 'edit_theme_options',
+		    'sanitize_callback' => 'biz_vektor_customize_sanitize_tel_number',
+		) );
 
-		$add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_contact_time';
-		$wp_customize->add_setting( 'biz_vektor_theme_options[contact_time]',  $add_setting_array );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[contact_time]', array(
+		    'default'        => '',
+		    'type'           => 'option',
+		    'capability'     => 'edit_theme_options',
+		    'sanitize_callback' => 'biz_vektor_customize_sanitize_contact_time',
+		) );
 
-		$add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_sub_sitename';
-		$wp_customize->add_setting( 'biz_vektor_theme_options[sub_sitename]',  $add_setting_array );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[sub_sitename]', array(
+		    'default'        => '',
+		    'type'           => 'option',
+		    'capability'     => 'edit_theme_options',
+		    'sanitize_callback' => 'biz_vektor_customize_sanitize_sub_sitename',
+		) );
 
-		$add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_contact_address';
-		$wp_customize->add_setting( 'biz_vektor_theme_options[contact_address]',  $add_setting_array );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[contact_address]', array(
+		    'default'        => '',
+		    'type'           => 'option',
+		    'capability'     => 'edit_theme_options',
+		    'sanitize_callback' => 'biz_vektor_customize_sanitize_contact_address',
+		) );
 
-		$add_setting_array['sanitize_callback'] = 'biz_vektor_customize_sanitize_contact_link';
-		$wp_customize->add_setting( 'biz_vektor_theme_options[contact_link]',  $add_setting_array );
+		$wp_customize->add_setting( 'biz_vektor_theme_options[contact_link]', array(
+		    'default'        => '',
+		    'type'           => 'option',
+		    'capability'     => 'edit_theme_options',
+		    'sanitize_callback' => 'biz_vektor_customize_sanitize_contact_link',
+		) );
 
 		$wp_customize->add_control( 'contact_txt',
 			array(
 				'label'     => _x('Message', 'biz-vektor theme-customizer', 'biz-vektor'),
-				'section'   => 'biz_vektor_contact', 
+				'section'   => 'biz_vektor_contact',
 				'settings'  => 'biz_vektor_theme_options[contact_txt]',
-				'type' => 'text',
-				'priority' => 1,
+				'type' 		=> 'text',
+				'priority' 	=> 1,
 			));
 		$wp_customize->add_control( 'tel_number',
 			array(
 				'label'     => _x('Phone number', 'biz-vektor theme-customizer', 'biz-vektor'),
-				'section'   => 'biz_vektor_contact', 
+				'section'   => 'biz_vektor_contact',
 				'settings'  => 'biz_vektor_theme_options[tel_number]',
-				'type' => 'text',
-				'priority' => 2,
+				'type' 		=> 'text',
+				'priority' 	=> 2,
 			));
 		$wp_customize->add_control( 'contact_time',
 			array(
 				'label'     => _x('Office hours', 'biz-vektor theme-customizer', 'biz-vektor'),
-				'section'   => 'biz_vektor_contact', 
+				'section'   => 'biz_vektor_contact',
 				'settings'  => 'biz_vektor_theme_options[contact_time]',
-				'type' => 'text',
-				'priority' => 3,
-			));		
+				'type' 		=> 'text',
+				'priority' 	=> 3,
+			));
 		$wp_customize->add_control( 'sub_sitename',
 			array(
 				'label'     => _x('Site / Company / Store / Service name. This is displayed in the left bottom part of the footer.', 'biz-vektor theme-customizer', 'biz-vektor'),
-				'section'   => 'biz_vektor_contact', 
+				'section'   => 'biz_vektor_contact',
 				'settings'  => 'biz_vektor_theme_options[sub_sitename]',
-				'type' => 'text',
-				'priority' => 4,
+				'type' 		=> 'text',
+				'priority' 	=> 4,
 			));
 		$wp_customize->add_control( new customize_Textarea_Control( $wp_customize,'contact_address',
 			array(
 				'label'     => _x('Company address', 'biz-vektor theme-customizer', 'biz-vektor'),
-				'section'   => 'biz_vektor_contact', 
+				'section'   => 'biz_vektor_contact',
 				'settings'  => 'biz_vektor_theme_options[contact_address]',
 				//'type' => 'textfield',
-				'priority' => 5,
+				'priority' 	=> 5,
 			)));
 		$wp_customize->add_control( 'contact_link',
 			array(
 				'label'     => _x('The contact page URL', 'biz-vektor theme-customizer', 'biz-vektor'),
-				'section'   => 'biz_vektor_contact', 
+				'section'   => 'biz_vektor_contact',
 				'settings'  => 'biz_vektor_theme_options[contact_link]',
-				'type' => 'text',
-				'priority' => 6,
+				'type'		=> 'text',
+				'priority' 	=> 6,
 			));
 
 	/*	TOP 3PR
@@ -228,7 +271,7 @@ function bizvektor_customize_register($wp_customize) {
         'title'          => __('3PR area settings', 'biz-vektor'),
         'priority'       => 102,
     ) );
-    
+
 	for ( $i = 1; $i <= 3 ;){
 		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_title]',       array('default' => '','type'=> 'option','capability' => 'edit_theme_options','sanitize_callback' => 'biz_vektor_customize_sanitize_3pr_title' ) );
 		$wp_customize->add_setting( 'biz_vektor_theme_options[pr'.$i.'_description]', array('default' => '','type'=> 'option','capability' => 'edit_theme_options','sanitize_callback' => 'biz_vektor_customize_sanitize_3pr_description' ) );
