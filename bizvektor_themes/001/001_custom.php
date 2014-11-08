@@ -75,24 +75,26 @@ function bizvektor_default_design_customize_register($wp_customize) {
         'title'          => _x('Default color settings','Default color settings', 'biz-vektor'),
         'priority'       => 110,
     ) );
+
 	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColor]',	array(
 		'default' 			=> '',
 		'type'				=> 'option',
 		'capability' 		=> 'edit_theme_options',
-		'sanitize_callback' => 'bizvektor_customize_sanitize_color',
+		'sanitize_callback' => 'maybe_hash_hex_color',
 		 ) );
 	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorLight]',	array(
 		'default' 			=> '',
 		'type'				=> 'option',
 		'capability' 		=> 'edit_theme_options',
-		'sanitize_callback' => 'bizvektor_customize_sanitize_color',
+		'sanitize_callback' => 'maybe_hash_hex_color',
 		) );
 	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorDark]',	array(
 		'default' 			=> '',
 		'type'				=> 'option',
 		'capability' 		=> 'edit_theme_options',
-		'sanitize_callback' => 'bizvektor_customize_sanitize_color',
+		'sanitize_callback' => 'maybe_hash_hex_color',
 		) );
+
 	// Create section UI
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'keyColor', array(
 		'label'    => __('Keycolor', 'biz-vektor'),

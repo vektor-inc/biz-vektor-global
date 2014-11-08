@@ -85,8 +85,9 @@ function bizvektor_calmly_customize_register($wp_customize) {
 		'type'				=> 'option',
 		'capability'		=> 'edit_theme_options',
 		'capability'		=> 'edit_theme_options',
-		'sanitize_callback'	=> 'bizvektor_customize_sanitize_color',
+		'sanitize_callback'	=> 'maybe_hash_hex_color',
 		) );
+
 	// Create section UI
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'keyColor', array(
 		'label'    => _x('Keycolor', 'Calmly color settings', 'biz-vektor'),
