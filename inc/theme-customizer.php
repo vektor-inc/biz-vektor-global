@@ -65,7 +65,7 @@ function bizvektor_customize_register($wp_customize) {
 		$wp_customize->add_control( 'head_logo_url_txt',
 			array(
 				'label'     => _x('Header logo image URL', 'biz-vektor theme-customizer', 'biz-vektor'),
-				'section'   => 'biz_vektor_design', 
+				'section'   => 'biz_vektor_design',
 				'settings'  => 'biz_vektor_theme_options[head_logo]',
 				'type' => 'text',
 				'priority' => 102,
@@ -85,7 +85,7 @@ function bizvektor_customize_register($wp_customize) {
 		$wp_customize->add_control( 'foot_logo_url_txt',
 			array(
 				'label'     => _x('Footer logo image URL', 'biz-vektor theme-customizer', 'biz-vektor'),
-				'section'   => 'biz_vektor_design', 
+				'section'   => 'biz_vektor_design',
 				'settings'  => 'biz_vektor_theme_options[foot_logo]',
 				'type' => 'text',
 				'priority' => 112,
