@@ -84,7 +84,6 @@ function bizvektor_calmly_customize_register($wp_customize) {
 		'default'			=> '',
 		'type'				=> 'option',
 		'capability'		=> 'edit_theme_options',
-		'capability'		=> 'edit_theme_options',
 		'sanitize_callback'	=> 'maybe_hash_hex_color',
 		) );
 
