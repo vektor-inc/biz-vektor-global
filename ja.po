@@ -177,6 +177,12 @@ msgctxt "BizVektor admin header menu"
 msgid "Change page order [My page order plugin]"
 msgstr "固定ページの並び替え [ My page order プラグイン]"
 
+# ############################################################################
+# html head
+# ############################################################################
+msgid "Page of %s"
+msgstr "%s ページ目"
+
 #: front-page.php:25
 msgid "Posted on"
 msgstr "投稿日"
@@ -220,9 +226,6 @@ msgstr "詳しくはこちら"
 
 msgid "Image of %s"
 msgstr "%sのイメージ"
-
-msgid "Info top （Slug:info-top）"
-msgstr "お知らせトップ（スラッグ:info-top）"
 
 msgid "Don't show contact at the bottom of the page"
 msgstr "ページ下部問い合わせなし"

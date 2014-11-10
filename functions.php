@@ -59,7 +59,7 @@
 /*-------------------------------------------*/
 /*	Archive page link ( don't erase )
 /*-------------------------------------------*/
-/*	Pasing
+/*	Paging
 /*-------------------------------------------*/
 /*	Comment out short code
 /*-------------------------------------------*/
@@ -376,6 +376,10 @@ function getHeadDescription() {
 	} else {
 		$metadescription = get_bloginfo('description');
 	}
+	global $paged;
+	if ( $paged != '0'){
+		$metadescription = '['.sprintf(__('Page of %s', 'biz-vektor' ),$paged).'] '.$metadescription;
+	}
 	$metadescription = apply_filters( 'metadescriptionCustom', $metadescription );
 	echo $metadescription;
 }
@@ -569,7 +573,7 @@ function biz_vektor_content_nav( $nav_id ) {
 }
 
 /*-------------------------------------------*/
-/*	Pasing
+/*	Paging
 /*-------------------------------------------*/
 function pagination($max_num_pages = '', $range = 1) {
 	$showitems = ($range * 2)+1;
