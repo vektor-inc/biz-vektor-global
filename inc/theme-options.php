@@ -97,7 +97,7 @@ function bizVektorOptions($optionLabel) {
 /*-------------------------------------------*/
 /*	Create title
 /*-------------------------------------------*/
-function getHeadTitle() {
+function biz_vektor_getHeadTitle() {
 	$options = biz_vektor_get_theme_options();
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
@@ -131,7 +131,7 @@ function getHeadTitle() {
 	} else if (get_post_type() === 'info') {
 		// Single
 		if (is_single()) {
-			$taxo_catelist = get_the_term_list_nolink( $post->ID, 'info-cat', '', ',', '' );
+			$taxo_catelist = biz_vektor_get_the_term_list_nolink( $post->ID, 'info-cat', '', ',', '' );
 			if (!empty($taxo_catelist)) :
 				$headTitle = get_the_title()." | ".$taxo_catelist." | ".get_bloginfo('name');
 			else :
@@ -193,7 +193,7 @@ function getHeadTitle() {
 	$headTitle = apply_filters( 'titleCustom', $headTitle );
 	return esc_html($headTitle);
 }
-add_filter( 'wp_title', 'getHeadTitle', 10, 2 );
+add_filter( 'wp_title', 'biz_vektor_getHeadTitle', 10, 2 );
 
 /*-------------------------------------------*/
 /*	layout
@@ -578,8 +578,8 @@ function biz_vektor_slideBody(){
 /*-------------------------------------------*/
 /*	Print theme_options js
 /*-------------------------------------------*/
-add_action('admin_print_scripts-appearance_page_theme_options', 'admin_theme_options_plugins');
-function admin_theme_options_plugins( $hook_suffix ) {
+add_action('admin_print_scripts-appearance_page_theme_options', 'biz_vektor_admin_theme_options_plugins');
+function biz_vektor_admin_theme_options_plugins( $hook_suffix ) {
 	wp_enqueue_media();
 	wp_register_script( 'biz_vektor-theme-options', get_template_directory_uri().'/inc/theme-options.js', array('jquery'), '20120902' );
 	wp_enqueue_script( 'jquery' );
@@ -656,7 +656,7 @@ function biz_vektor_sideChildDisplay(){
 /*-------------------------------------------*/
 /*	Contact Btn
 /*-------------------------------------------*/
-function get_biz_vektor_contactBtn(){
+function biz_vektor_get_contactBtn(){
 	$options = biz_vektor_get_theme_options();
 	if ($options['contact_link']) :
 	$contactBtn = '<ul>';
@@ -667,11 +667,8 @@ function get_biz_vektor_contactBtn(){
 	return $contactBtn;
 	endif;
 }
-function biz_vektor_contactBtn(){
-	echo get_biz_vektor_contactBtn();
-}
 
-function get_biz_vektor_name() {
+function biz_vektor_get_name() {
 	$name = 'BizVektor';
 	$name = apply_filters( 'bizvektor_name', $name );
 	return $name;

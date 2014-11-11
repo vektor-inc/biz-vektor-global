@@ -265,28 +265,28 @@ add_editor_style('editor-style.css');
 /*-------------------------------------------*/
 /*	Admin page _ Hide youkoso
 /*-------------------------------------------*/
-function hide_welcome_panel() {
+function biz_vektor_hide_welcome_panel() {
 	$user_id = get_current_user_id();
 		if ( 1 == get_user_meta( $user_id, 'show_welcome_panel', true ) )
 	update_user_meta( $user_id, 'show_welcome_panel', 0 );
 }
-add_action( 'load-index.php', 'hide_welcome_panel' );
+add_action( 'load-index.php', 'biz_vektor_hide_welcome_panel' );
 
 
 /*-------------------------------------------*/
 /*	Admin page _ Add custom field of keywords
 /*-------------------------------------------*/
-add_action('admin_menu', 'add_custom_field_metaKeyword');
-add_action('save_post', 'save_custom_field_metaKeyword');
+add_action('admin_menu', 'biz_vektor_add_custom_field_metaKeyword');
+add_action('save_post', 'biz_vektor_save_custom_field_metaKeyword');
 
-function add_custom_field_metaKeyword(){
-  if(function_exists('add_custom_field_metaKeyword')){
-	add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'page', 'normal', 'high');
-	add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'insert_custom_field_metaKeyword', 'post', 'normal', 'high');
+function biz_vektor_add_custom_field_metaKeyword(){
+  if(function_exists('biz_vektor_add_custom_field_metaKeyword')){
+	add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'biz_vektor_insert_custom_field_metaKeyword', 'page', 'normal', 'high');
+	add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'biz_vektor_insert_custom_field_metaKeyword', 'post', 'normal', 'high');
   }
 }
 
-function insert_custom_field_metaKeyword(){
+function biz_vektor_insert_custom_field_metaKeyword(){
   global $post;
   echo '<input type="hidden" name="noncename_custom_field_metaKeyword" id="noncename_custom_field_metaKeyword" value="'.wp_create_nonce(plugin_basename(__FILE__)).'" />';
   echo '<label class="hidden" for="metaKeyword">'.__('Meta Keywords', 'biz-vektor').'</label><input type="text" name="metaKeyword" size="50" value="'.get_post_meta($post->ID, 'metaKeyword', true).'" />';
@@ -296,7 +296,7 @@ function insert_custom_field_metaKeyword(){
   echo '</p>';
 }
 
-function save_custom_field_metaKeyword($post_id){
+function biz_vektor_save_custom_field_metaKeyword($post_id){
 	$metaKeyword = isset($_POST['noncename_custom_field_metaKeyword']) ? htmlspecialchars($_POST['noncename_custom_field_metaKeyword']) : null;
 	if(!wp_verify_nonce($metaKeyword, plugin_basename(__FILE__))){
 		return $post_id;
@@ -326,7 +326,7 @@ add_post_type_support( 'page', 'excerpt' ); // add excerpt
 /*-------------------------------------------*/
 /*	head_description
 /*-------------------------------------------*/
-function getHeadDescription() {
+function biz_vektor_getHeadDescription() {
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
 	if (is_home() || is_page('home') || is_front_page()) {
@@ -389,28 +389,28 @@ function getHeadDescription() {
 /*-------------------------------------------*/
 
 // Add Google Web Fonts
-add_action('wp_enqueue_scripts','bizVektorAddWebFonts');
-function bizVektorAddWebFonts(){
+add_action('wp_enqueue_scripts','biz_vektor_addWebFonts');
+function biz_vektor_addWebFonts(){
 	wp_enqueue_style( 'bizvektoraddwebfonts', "http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton");
 }
 
 // Add BizVektor option css
-add_action('wp_enqueue_scripts','bizVektorAddCommonStyle');
-function bizVektorAddCommonStyle(){
+add_action('wp_enqueue_scripts','biz_vektor_addCommonStyle');
+function biz_vektor_addCommonStyle(){
 	wp_enqueue_style( 'bizVektorAddCommonStyle', get_template_directory_uri()."/css/bizvektor_common_min.css", array(), '1.0.0');
 }
 
 // add pingback
-add_action('wp_enqueue_scripts','bizVektorAddPingback');
-function bizVektorAddPingback(){
+add_action('wp_enqueue_scripts','biz_vektor_addPingback');
+function biz_vektor_addPingback(){
 	wp_enqueue_style( 'bizVektorAddPingback', get_bloginfo( 'pingback_url' ), array(), '1.0.0');
 }
 
 /*-------------------------------------------*/
 /*	footer_wp_footer clean and add items
 /*-------------------------------------------*/
-add_action('wp_head','bizVektorAddJsScripts');
-function bizVektorAddJsScripts(){
+add_action('wp_head','biz_vektor_addJScripts');
+function biz_vektor_addJScripts(){
 	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), '20140519' );
 	wp_enqueue_script( 'biz-vektor-min-js' );
 }
@@ -428,7 +428,7 @@ add_filter( 'clean_url', 'add_defer_to_bizVektor_js', 11, 1 );
 /*-------------------------------------------*/
 /*	Term list no link
 /*-------------------------------------------*/
-function get_the_term_list_nolink( $id = 0, $taxonomy, $before = '', $sep = '', $after = '' ) {
+function biz_vektor_get_the_term_list_nolink( $id = 0, $taxonomy, $before = '', $sep = '', $after = '' ) {
 	$terms = get_the_terms( $id, $taxonomy );
 	if ( is_wp_error( $terms ) )
 		return $terms;
@@ -482,37 +482,37 @@ class description_walker extends Walker_Nav_Menu {
 /*-------------------------------------------*/
 /*	Excerpt _ change ... 
 /*-------------------------------------------*/
-function change_excerpt_more($post) {
+function biz_vektor_change_excerpt_more($post) {
 	return ' ...';
 }
-add_filter('excerpt_more', 'change_excerpt_more');
+add_filter('excerpt_more', 'biz_vektor_change_excerpt_more');
 
 /*-------------------------------------------*/
 /*	Year Artchive list 'year' insert to inner </a>
 /*-------------------------------------------*/
-function my_archives_link($html){
+function biz_vektor_my_archives_link($html){
   return preg_replace('@</a>(.+?)</li>@', '\1</a></li>', $html);
 }
-add_filter('get_archives_link', 'my_archives_link');
+add_filter('get_archives_link', 'biz_vektor_my_archives_link');
 
 /*-------------------------------------------*/
 /*	Category list 'count insert to inner </a>
 /*-------------------------------------------*/
-function my_list_categories( $output, $args ) {
+function biz_vektor_add_my_list_categories( $output, $args ) {
 	$output = preg_replace('/<\/a>\s*\((\d+)\)/',' ($1)</a>',$output);
 	return $output;
 }
-add_filter( 'wp_list_categories', 'my_list_categories', 10, 2 );
+add_filter( 'wp_list_categories', 'biz_vektor_add_my_list_categories', 10, 2 );
 
 
 /*-------------------------------------------*/
 /*	Block to delete iframe tag from TinyMCE
 /*-------------------------------------------*/
-function add_iframe($initArray) {
+function biz_vektor_add_iframe($initArray) {
 $initArray['extended_valid_elements'] = "iframe[id|class|title|style|align|frameborder|height|longdesc|marginheight|marginwidth|name|scrolling|src|width]";
 return $initArray;
 }
-add_filter('tiny_mce_before_init', 'add_iframe');
+add_filter('tiny_mce_before_init', 'biz_vektor_add_iframe');
 
 /*-------------------------------------------*/
 /*	Comment
@@ -575,7 +575,7 @@ function biz_vektor_content_nav( $nav_id ) {
 /*-------------------------------------------*/
 /*	Paging
 /*-------------------------------------------*/
-function pagination($max_num_pages = '', $range = 1) {
+function biz_vektor_pagination($max_num_pages = '', $range = 1) {
 	$showitems = ($range * 2)+1;
 
 	global $paged;
@@ -670,8 +670,8 @@ function biz_vektor_childPageList(){
 /*-------------------------------------------*/
 /*	posts pagenation setting in front-page
 /*-------------------------------------------*/
-add_action('pre_get_posts','pre_get_posts_front_page');
-function pre_get_posts_front_page($query){
+add_action('pre_get_posts','biz_vektor_pre_get_posts_front_page');
+function biz_vektor_pre_get_posts_front_page($query){
 	global $wp_query;
 	$options = biz_vektor_get_theme_options();
 	if(!isset($options['postTopCount'])){$options['postTopCount'] = 0;}

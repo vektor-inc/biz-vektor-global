@@ -34,7 +34,7 @@
 			<?php endwhile; ?>
 			</ul>
 		<?php } ?>
-		<?php pagination(); ?>
+		<?php biz_vektor_pagination(); ?>
 		</div><!-- [ /#topBlog ] -->
 	<?php endif; // $post_loop have_posts() ?>
 
@@ -51,7 +51,7 @@ if ( is_active_sidebar( 'top-side-widget-area' ) ) :
 	dynamic_sidebar( 'top-side-widget-area' );
 else :
 	// ウィジェットに設定がない場合
-	if (function_exists('biz_vektor_contactBtn')) biz_vektor_contactBtn();
+	if (function_exists('biz_vektor_get_contactBtn')) biz_vektor_get_contactBtn();
 	?>
 <?php endif; ?>
 <?php if ( is_active_sidebar( 'common-side-bottom-widget-area' ) ) dynamic_sidebar( 'common-side-bottom-widget-area' ); ?>

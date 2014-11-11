@@ -74,7 +74,7 @@ if ( !$postType ) {
 		<?php } ?>
 
 	<?php endif; // $postType == 'info' ?>
-	<?php pagination(); ?>
+	<?php biz_vektor_pagination(); ?>
 	</div><!-- [ /.infoList ] -->
 	</div>
 	<!-- [ /#content ] -->
