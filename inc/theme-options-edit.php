@@ -352,11 +352,11 @@ $i++;
 <table class="form-table">
 <!-- Post -->
 <tr>
-	<th><?php echo esc_html( bizVektorOptions('postLabelName')); ?></th>
+	<th><?php echo esc_html( $biz_vektor_options['postLabelName']); ?></th>
 	<td>
 		&raquo; <?php _e('Change the title', 'biz-vektor') ;?> <input type="text" name="biz_vektor_theme_options[postLabelName]" id="postLabelName" value="<?php echo esc_attr( $options['postLabelName'] ); ?>" style="width:200px;" />
 	<dl>
-	<dt><?php printf(__('Display layout of &quot; %s &quot on the top page.', 'biz-vektor'), $postLabelName ); ?></dt>
+	<dt><?php printf(__('Display layout of &quot; %s &quot on the top page.', 'biz-vektor'), esc_html( $biz_vektor_options['postLabelName']) ); ?></dt>
 	<dd>
 	<?php
 	$biz_vektor_listTypes = array(
@@ -372,7 +372,7 @@ $i++;
 	}
 	?>
 	</dd>
-	<dt><?php printf(__('Display layout of &quot; %s &quot on the archive page.', 'biz-vektor'), $postLabelName ); ?></dt>
+	<dt><?php printf(__('Display layout of &quot; %s &quot on the archive page.', 'biz-vektor'), esc_html( $biz_vektor_options['postLabelName']) ); ?></dt>
 	<dd>
 	<?php
 	$biz_vektor_listTypes = array(
@@ -391,12 +391,12 @@ $i++;
 	</dl>
 	<!-- Post display count -->
 	<dl>
-		<dt><?php printf(__('Number of %s posts to be displayed on the home page.', 'biz-vektor'),$postLabelName);?></dt>
+		<dt><?php printf(__('Number of %s posts to be displayed on the home page.', 'biz-vektor'),esc_html( $biz_vektor_options['postLabelName']));?></dt>
 		<dd><input type="text" name="biz_vektor_theme_options[postTopCount]" id="postTopCount" value="<?php echo esc_attr( $options['postTopCount'] ); ?>" style="width:50px;" /> <?php _ex('posts', 'top page post count', 'biz-vektor') ;?></dd>
 	</dl>
 	<!-- /Post display count -->
 	<dl>
-		<dt>Top URL of <?php echo $postLabelName;?></dt>
+		<dt>Top URL of <?php echo esc_html( $biz_vektor_options['postLabelName']);?></dt>
 		<dd><?php $postTopUrl = esc_html(home_url().'/post/'); ?>
 			<input type="text" name="biz_vektor_theme_options[postTopUrl]" id="postTopUrl" value="<?php echo esc_attr( $options['postTopUrl'] ); ?>" style="width:80%" /></dd>
 	</dl>
