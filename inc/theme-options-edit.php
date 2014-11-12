@@ -23,14 +23,14 @@ function biz_vektor_theme_options_render_page() { ?>
 		<?php if ( function_exists( 'biz_vektor_activation' ) ) {
 		biz_vektor_activation_information();
 		} else { ?>
-		<div id="sub-content">
-			<p style="padding:5px;">Thank you for using BizVektor Global Edition!<br />
-			For a more powerful and <strong>business ready</strong> theme you can download for FREE BizVektor Standard Edition.
-			<br /></p>
-			<a href="http://bizvektor.com/en/" target="_blank" title="BizVektor Standard Edition Official Website">
-				<img style="width:100%;height:auto;" src="<?php echo get_template_directory_uri() ?>/inc/images/global-banner-bizvekto-standard-ad.jpg" height="805" width="561" alt="BizVektor Standard Edition Official Website" />
+		<div id="sub-content" style="background-color: #f5f5f5;">
+			<a style="display:block;border-bottom:1px solid #ccc;" href="http://bizvektor.com/en/" target="_blank" title="BizVektor Standard Edition Official Website">
+				<img style="width:100%;height:auto;display:block;" src="<?php echo get_template_directory_uri() ?>/inc/images/global-banner-bizvekto-standard-ad.jpg" height="805" width="561" alt="BizVektor Standard Edition Official Website" />
 			</a>
-			<p style="padding:5px;">
+			<p style="padding: 20px 20px 0px 20px;text-align: center;font-size: 14px;line-height: 1.5em;margin: 0;">Thank you for using BizVektor Global Edition!<br />
+			For a more powerful and <strong>business ready</strong> theme you can download for FREE BizVektor Standard Edition.
+			</p>
+			<p style="padding: 10px 20px 20px 20px;text-align: center;font-size: 14px;line-height: 1.5em;margin: 0;">
 				With <a href="http://bizvektor.com/en/" target="_blank" title="BizVektor Standard Edition FREE download">BizVektor Standard Edition</a> you get a <strong>complete solution</strong> for your company website!
 			</p>
 		</div>
