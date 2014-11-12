@@ -24,6 +24,15 @@ function biz_vektor_theme_options_render_page() { ?>
 		biz_vektor_activation_information();
 		} else { ?>
 		<div id="sub-content">
+			<p style="padding:5px;">Thank you for using BizVektor Global Edition!<br />
+			For a more powerful and <strong>business ready</strong> theme you can download for FREE BizVektor Standard Edition.
+			<br /></p>
+			<a href="http://bizvektor.com/en/" target="_blank" title="BizVektor Standard Edition Official Website">
+				<img style="width:100%;height:auto;" src="<?php echo get_template_directory_uri() ?>/inc/images/global-banner-bizvekto-standard-ad.jpg" height="805" width="561" alt="BizVektor Standard Edition Official Website" />
+			</a>
+			<p style="padding:5px;">
+				With <a href="http://bizvektor.com/en/" target="_blank" title="BizVektor Standard Edition FREE download">BizVektor Standard Edition</a> you get a <strong>complete solution</strong> for your company website!
+			</p>
 		</div>
 		<?php } ?>
 		<?php global $biz_vektor_options;
