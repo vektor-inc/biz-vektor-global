@@ -173,19 +173,19 @@ define( 'HEADER_TEXTCOLOR', '' );
 // Kill custom header test
 define( 'NO_HEADER_TEXT', true );
 
-define('HEADER_IMAGE', '%s/images/headers/accelerate.jpg');
+define('HEADER_IMAGE', '%s/images/headers/features.jpg');
 define('HEADER_IMAGE_WIDTH', 950);
 define('HEADER_IMAGE_HEIGHT', 250);
 register_default_headers( array(
+	'features' => array(
+		'url' => '%s/images/headers/features.jpg',
+		'thumbnail_url' => '%s/images/headers/features-thumbnail.jpg',
+		'description' => 'Features'
+	),
 	'accelerate' => array(
 		'url' => '%s/images/headers/accelerate.jpg',
 		'thumbnail_url' => '%s/images/headers/accelerate-thumbnail.jpg',
 		'description' => 'accelerate'
-	),
-	'bussines_desk_02' => array(
-		'url' => '%s/images/headers/bussines_desk_02.jpg',
-		'thumbnail_url' => '%s/images/headers/bussines_desk_02-thumbnail.jpg',
-		'description' => 'Bussines desk01'
 	),
 	'bussines_desk_01' => array(
 		'url' => '%s/images/headers/bussines_desk_01.jpg',
