@@ -677,7 +677,7 @@ function biz_vektor_pre_get_posts_front_page($query){
 		if ( is_admin() || ! $query->is_main_query() ){
 		return;
 	}
-	if ( $query->is_front_page() && !is_page()) {
+	if ( !is_page() && is_front_page()) {
 		$query->set( 'posts_per_page', $options['postTopCount'] );
 		return;
 	}
