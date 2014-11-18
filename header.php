@@ -77,7 +77,7 @@ if ($gMenuExist) { ?>
 <!-- [ /#gMenu ] -->
 
 <?php } ?>
-
+<?php wp_reset_query(); ?>
 <?php if (!is_front_page()) { ?>
 <?php get_template_part('module_pageTit'); ?>
 <?php get_template_part('module_panList'); ?>
