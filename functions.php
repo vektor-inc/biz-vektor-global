@@ -91,10 +91,9 @@ function biz_vektor_theme_setup(){
 	register_nav_menus( array( 'FooterNavi' => 'Footer Navigation', ) );
 	register_nav_menus( array( 'FooterSiteMap' => 'Footer SiteMap', ) );
 
+	load_theme_textdomain('biz-vektor', false, dirname( __FILE__ ) . '/languages');
 }
 add_action( 'after_setup_theme', 'biz_vektor_theme_setup');
-
-load_theme_textdomain('biz-vektor');
 
 function biz_vektor_body_next(){
 	$body_next = '';
@@ -670,9 +669,8 @@ function biz_vektor_childPageList(){
 /*-------------------------------------------*/
 add_action('pre_get_posts','biz_vektor_pre_get_posts_front_page');
 function biz_vektor_pre_get_posts_front_page($query){
-	global $wp_query;
 	$options = biz_vektor_get_theme_options();
-	if(!isset($options['postTopCount'])){$options['postTopCount'] = 0;}
+	if(!isset($options['postTopCount'])){ $options['postTopCount'] = 0; }
 
 		if ( is_admin() || ! $query->is_main_query() ){
 		return;
