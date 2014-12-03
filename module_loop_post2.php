@@ -1,5 +1,4 @@
 <?php
-biz_vektor_hook_post_clusses_loop();
 $postType = get_post_type();
 if ($postType == 'post') {
 	$taxonomySlug = 'category';
