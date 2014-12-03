@@ -705,6 +705,7 @@ function biz_vektor_get_default_theme_options(){
 		'theme_layout'         => 'content-sidebar',
 		'postLabelName'        => 'Blog',
 		'theme_style'          => 'default',
+		'enable_google_font'   => 'true',
 		'pr1_title'            => __('Rich & Powerfull theme options', 'biz-vektor'),
 		'pr1_description'      => __('This area can be changed from the theme customizer as well as from the theme options section.', 'biz-vektor'),
 		'pr1_link'             => '',

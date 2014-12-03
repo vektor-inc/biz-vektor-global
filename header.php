@@ -8,21 +8,7 @@ biz_vektor_get_theme_options(); ?>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <title><?php wp_title(); ?></title>
-<meta name="description" content="<?php biz_vektor_getHeadDescription(); ?>" />
-<meta name="keywords" content="<?php biz_vektor_getHeadKeywords(); ?>" />
 <link rel="start" href="<?php echo site_url(); ?>" title="HOME" />
-<?php
-/* We add some JavaScript to pages with the comment form
- * to support sites with threaded comments (when in use).
- */
-if ( is_singular() && get_option( 'thread_comments' ) )
-	wp_enqueue_script( 'comment-reply' );
-/* Always have wp_head() just before the closing </head>
- * tag of your theme, or you will break many plugins, which
- * generally use this hook to add elements to <head> such
- * as styles, scripts, and meta tags.
- */
-?>
 <meta id="viewport" name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
 <?php wp_head(); ?>
 </head>

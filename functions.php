@@ -91,7 +91,7 @@ function biz_vektor_theme_setup(){
 	register_nav_menus( array( 'FooterNavi' => 'Footer Navigation', ) );
 	register_nav_menus( array( 'FooterSiteMap' => 'Footer SiteMap', ) );
 
-	load_theme_textdomain('biz-vektor', false, dirname( __FILE__ ) . '/languages');
+	load_theme_textdomain( 'biz-vektor' , get_template_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'biz_vektor_theme_setup');
 
@@ -208,18 +208,18 @@ endif;
 /*-------------------------------------------*/
 /*	Load theme options
 /*-------------------------------------------*/
-	require( dirname( __FILE__ ) . '/inc/theme-options.php' );
+	require( get_template_directory() . '/inc/theme-options.php' );
 
 /*-------------------------------------------*/
 /*	Load Setting of Default / Calmly
 /*-------------------------------------------*/
-	require( dirname( __FILE__ ) . '/bizvektor_themes/001/001_custom.php' );
-	require( dirname( __FILE__ ) . '/bizvektor_themes/002/002_custom.php' );
+	require( get_template_directory() . '/bizvektor_themes/001/001_custom.php' );
+	require( get_template_directory() . '/bizvektor_themes/002/002_custom.php' );
 
 /*-------------------------------------------*/
 /*	Load Theme customizer
 /*-------------------------------------------*/
-	require( dirname( __FILE__ ) . '/inc/theme-customizer.php' );
+	require( get_template_directory() . '/inc/theme-customizer.php' );
 
 /*-------------------------------------------*/
 /*	Admin page _ Add style
@@ -384,11 +384,26 @@ function biz_vektor_getHeadDescription() {
 /*-------------------------------------------*/
 /*	head_wp_head clean and add items
 /*-------------------------------------------*/
+function biz_vektor_slug_fonts_url(){
+	$font_families = array();
+	$options = biz_vektor_get_theme_options();
+	if(isset($options['enable_google_font']) && $options['enable_google_font'] == 'true'){
+		$font_families[] = 'Droid Sans:700';
+		$font_families[] = 'Lato:900';
+		$font_families[] = 'Anton';
+	}
+	$query_args = array(
+		'family' => urlencode( implode( '|', $font_families ) ),
+	);
+
+	$fonts_url = add_query_arg( $query_args, '//fonts.googleapis.com/css' );
+	return $fonts_url;
+}
 
 // Add Google Web Fonts
 add_action('wp_enqueue_scripts','biz_vektor_addWebFonts');
 function biz_vektor_addWebFonts(){
-	wp_enqueue_style( 'bizvektoraddwebfonts', "http://fonts.googleapis.com/css?family=Droid+Sans:700|Lato:900|Anton");
+	wp_enqueue_style( 'bizvektoraddwebfonts', biz_vektor_slug_fonts_url(), array(), null);
 }
 
 // Add BizVektor option css
@@ -580,7 +595,7 @@ function biz_vektor_pagination($max_num_pages = '', $range = 1) {
 
 	if($max_num_pages == '') {
 		global $wp_query;
-		// 最後のページ
+		// the last page
 		$max_num_pages = $wp_query->max_num_pages;
 		if(!$max_num_pages) {
 			 $max_num_pages = 1;
@@ -590,46 +605,31 @@ function biz_vektor_pagination($max_num_pages = '', $range = 1) {
 	if(1 != $max_num_pages) {
 		echo '<div class="paging">'."\n";
 
-		// Prevリンク
-		// 現在のページが２ページ目以降の場合
 		if ($paged > 1) echo '<a class="prev_link" href="'.get_pagenum_link($paged - 1).'">&laquo;</a>'."\n";
 
-		// 今のページからレンジを引いて2以上ある場合 && 最大表示アイテム数より最第ページ数が大きい場合
-		// （レンジ数のすぐ次の場合は表示する）
-		// 1...３４５
 		if ( $paged-$range >= 2 && $max_num_pages > $showitems ) echo '<a href="'.get_pagenum_link(1).'">1</a>'."\n";
-		// 今のページからレンジを引いて3以上ある場合 && 最大表示アイテム数より最第ページ数が大きい場合
 		if ( $paged-$range >= 3 && $max_num_pages > $showitems ) echo '<span class="txt_hellip">&hellip;</span>'."\n";
 
-		// レンジより前に追加する数
 		$addPrevCount = $paged+$range-$max_num_pages;
-		// レンジより後に追加する数
-		$addNextCount = -($paged-1-$range); // 今のページ数を遡ってカウントするために-1
-		// アイテムループ
+		$addNextCount = -($paged-1-$range);
 		for ($i=1; $i <= $max_num_pages; $i++) {
-			// 表示するアイテム
 			if ($paged == $i) {
 				$pageItem = '<span class="current">'.$i.'</span>'."\n";
 			} else {
 				$pageItem = '<a href="'.get_pagenum_link($i).'" class="inactive">'.$i.'</a>'."\n";
 			}
 
-			// 今のページからレンジを引いた数～今のページからレンジを足した数まで || 最大ページ数が最大表示アイテム数以下の場合
 			if ( ( $paged-$range <= $i && $i<= $paged+$range ) || $max_num_pages <= $showitems ) {
 				echo $pageItem;
-				// 今のページからレンジを引くと負数になる場合 && 今のページ+レンジ+負数をレンジに加算した数まで
 			} else if ( $paged-1-$range < 0 && $paged+$range+$addNextCount >= $i ) {
 				echo $pageItem;
-			// 今のページからレンジを足すと　最後のページよりも大きくなる場合 && 今のページ+レンジ+負数をレンジに加算した数まで
 			} else if ( $paged+$range > $max_num_pages && $paged-$range-$addPrevCount <= $i ) {
 				echo $pageItem;
 			}
 		}
 
-		// 現在のページにレンジを足しても最後のページ数より２以上小さい時 && 最大表示アイテム数より最第ページ数が大きい場合
 		if ( $paged+$range <= $max_num_pages-2 && $max_num_pages > $showitems ) echo '<span class="txt_hellip">&hellip;</span>'."\n";
 		if ( $paged+$range <= $max_num_pages-1 && $max_num_pages > $showitems ) echo '<a href="'.get_pagenum_link($max_num_pages).'">'.$max_num_pages.'</a>'."\n";
-		// Nextリンク
 		if ($paged < $max_num_pages) echo '<a class="next_link" href="'.get_pagenum_link($paged + 1).'">&raquo;</a>'."\n";
 		echo "</div>\n";
 	 }
