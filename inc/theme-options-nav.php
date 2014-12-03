@@ -4,7 +4,6 @@
     <li id="btn_contactInfo"><a href="#contactInfo"><?php echo _x( 'Contact', 'BizVektor option tab label', 'biz-vektor' ); ?></a></li>
     <li id="btn_prBox"><a href="#prBox"><?php echo _x( 'TopPR', 'BizVektor option tab label', 'biz-vektor' ); ?></a></li>
     <li id="btn_postSetting"><a href="#postSetting"><?php echo esc_html( bizVektorOptions('postLabelName')); ?></a></li>
-    <li id="btn_seoSetting"><a href="#seoSetting"><?php echo _x( 'SEO', 'BizVektor option tab label', 'biz-vektor' ); ?></a></li>
     <li id="btn_topPage"><a href="#topPage"><?php echo _x( 'Homepage', 'BizVektor option tab label', 'biz-vektor' ); ?></a></li>
     <li id="btn_slideSetting"><a href="#slideSetting"><?php echo _x( 'Slide', 'BizVektor option tab label', 'biz-vektor' ); ?></a></li>
 </ul>
