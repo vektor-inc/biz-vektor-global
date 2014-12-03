@@ -400,6 +400,12 @@ function biz_vektor_slug_fonts_url(){
 	return $fonts_url;
 }
 
+add_action('wp_enqueue_scripts','biz_vektor_comment_reply');
+function biz_vektor_comment_reply(){
+	if ( is_singular() && get_option( 'thread_comments' ) )
+		wp_enqueue_script( 'comment-reply' );
+}
+
 // Add Google Web Fonts
 add_action('wp_enqueue_scripts','biz_vektor_addWebFonts');
 function biz_vektor_addWebFonts(){
