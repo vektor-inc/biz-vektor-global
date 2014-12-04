@@ -31,7 +31,7 @@ http://bizvektor.com/en/
 
 
 ## == Changelog ==
-* v1.0.6
+* v1.0.7
 * * Hello, world!
 
 ## == Credits ==
