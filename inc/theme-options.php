@@ -85,7 +85,7 @@ function biz_vektor_get_theme_options() {
 /*-------------------------------------------*/
 function biz_vektor_Options($optionLabel) {
 	$options = biz_vektor_get_theme_options();
-	if ( $options[$optionLabel] != false ) { // If !='' that 0 true
+	if ( isset( $options[$optionLabel] ) ) { // If !='' that 0 true
 		return $options[$optionLabel];
 	} else {
 		$options_default = biz_vektor_get_default_theme_options();
