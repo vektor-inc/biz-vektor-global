@@ -3,3 +3,5 @@ sftp-config.json
 .DStore
 thumbs.db
 
+compile.bat
+config.rb
