@@ -83,7 +83,7 @@ function biz_vektor_get_theme_options() {
 /*-------------------------------------------*/
 /*	Print option
 /*-------------------------------------------*/
-function bizVektorOptions($optionLabel) {
+function biz_vektor_Options($optionLabel) {
 	$options = biz_vektor_get_theme_options();
 	if ( $options[$optionLabel] != false ) { // If !='' that 0 true
 		return $options[$optionLabel];
@@ -366,7 +366,7 @@ function biz_vektor_blogList()	{
 	if ($blogRss) {
 ?>
 	<div id="topBlog" class="infoList">
-	<h2><?php echo esc_html( bizVektorOptions('rssLabelName')); ?></h2>
+	<h2><?php echo esc_html( biz_vektor_Options('rssLabelName')); ?></h2>
 	<div class="rssBtn"><a href="<?php echo $blogRss ?>" id="blogRss" target="_blank">RSS</a></div>
 		<?php
 		$xml = simplexml_load_file($blogRss);

@@ -200,10 +200,6 @@ register_default_headers( array(
 		'description' => 'Johnny'
 	),
 ) );
-if ( ! function_exists( 'admin_header_style' ) ) :
-function admin_header_style() { }
-endif;
-
 
 /*-------------------------------------------*/
 /*	Load theme options
@@ -224,21 +220,21 @@ endif;
 /*-------------------------------------------*/
 /*	Admin page _ Add style
 /*-------------------------------------------*/
-function bizVektor_admin_css(){
+function biz_vektor_admin_css(){
 	$adminCssPath = get_template_directory_uri().'/css/style_bizvektor_admin.css';
 	wp_enqueue_style( 'theme', $adminCssPath , false, '2014-04-29');
 }
-add_action('admin_enqueue_scripts', 'bizVektor_admin_css', 11);
+add_action('admin_enqueue_scripts', 'biz_vektor_admin_css', 11);
 
-function bizVektor_wp_css(){
+function biz_vektor_wp_css(){
 	wp_enqueue_style('bizvektor_style', get_stylesheet_uri(), array(), '1.0.4');
 }
-add_action('wp_enqueue_scripts', 'bizVektor_wp_css', 11);
+add_action('wp_enqueue_scripts', 'biz_vektor_wp_css', 11);
 
 /*-------------------------------------------*/
 /*	Admin page _ Add post status to body class
 /*-------------------------------------------*/
-function bizVektor_postStatus(){
+function biz_vektor_postStatus(){
 		$classes = get_post_status(); ?>
 		<script type="text/javascript" charset="utf-8">
 		function postStatusColor(){
@@ -251,8 +247,8 @@ function bizVektor_postStatus(){
 		</script>
 <?php
 }
-add_action('admin_head-post.php', 'bizVektor_postStatus', 12);
-add_action('admin_head-post-new.php', 'bizVektor_postStatus', 12);
+add_action('admin_head-post.php', 'biz_vektor_postStatus', 12);
+add_action('admin_head-post-new.php', 'biz_vektor_postStatus', 12);
 
 function biz_vektor_slug_post_classes( $classes, $class, $post_id ) {
 	$options = biz_vektor_get_theme_options();
@@ -428,13 +424,13 @@ function biz_vektor_addWebFonts(){
 // Add BizVektor option css
 add_action('wp_enqueue_scripts','biz_vektor_addCommonStyle');
 function biz_vektor_addCommonStyle(){
-	wp_enqueue_style( 'bizVektorAddCommonStyle', get_template_directory_uri()."/css/bizvektor_common_min.css", array(), '1.0.0');
+	wp_enqueue_style( 'biz_vektorAddCommonStyle', get_template_directory_uri()."/css/bizvektor_common_min.css", array(), '1.0.0');
 }
 
 // add pingback
 add_action('wp_enqueue_scripts','biz_vektor_addPingback');
 function biz_vektor_addPingback(){
-	wp_enqueue_style( 'bizVektorAddPingback', get_bloginfo( 'pingback_url' ), array(), '1.0.0');
+	wp_enqueue_style( 'biz_vektorAddPingback', get_bloginfo( 'pingback_url' ), array(), '1.0.0');
 }
 
 /*-------------------------------------------*/
@@ -445,7 +441,7 @@ function biz_vektor_addJScripts(){
 	wp_register_script( 'biz-vektor-min-js' , get_template_directory_uri().'/js/biz-vektor-min.js', array('jquery'), '20140519' );
 	wp_enqueue_script( 'biz-vektor-min-js' );
 }
-function add_defer_to_bizVektor_js( $url )
+function add_defer_to_biz_vektor_js( $url )
 {
 	if ( FALSE === strpos( $url, 'biz-vektor/js' ) or FALSE === strpos( $url, '.js' ) )
 	{ // not our file
@@ -454,7 +450,7 @@ function add_defer_to_bizVektor_js( $url )
 	// Must be a ', not "!
 	return "$url' defer='defer";
 }
-add_filter( 'clean_url', 'add_defer_to_bizVektor_js', 11, 1 );
+add_filter( 'clean_url', 'add_defer_to_biz_vektor_js', 11, 1 );
 
 /*-------------------------------------------*/
 /*	Term list no link

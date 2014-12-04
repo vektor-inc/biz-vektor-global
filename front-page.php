@@ -20,7 +20,7 @@
 	
 	if (have_posts() && $options['postTopCount']): ?>
 		<div id="topBlog" class="infoList">
-		<h2><?php echo esc_html(bizVektorOptions('postLabelName')); ?></h2>
+		<h2><?php echo esc_html(biz_vektor_Options('postLabelName')); ?></h2>
 		<div class="rssBtn"><a href="<?php echo home_url(); ?>/feed/?post_type=post" id="blogRss" target="_blank">RSS</a></div>
 
 		<?php if ( $biz_vektor_options['listBlogTop'] == 'listType_set' ) { ?>

@@ -12,7 +12,7 @@
 	<!-- [ post ] -->
 	<?php query_posts("showposts=-0"); ?>
 	<?php if(have_posts()): ?>
-	<h5><?php echo esc_html(bizVektorOptions('postLabelName')); ?></h5>
+	<h5><?php echo esc_html(biz_vektor_Options('postLabelName')); ?></h5>
 	<ul class="linkList">
 	<?php wp_list_categories('title_li='); ?> 
 	</ul>
