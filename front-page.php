@@ -24,7 +24,6 @@
 		<div class="rssBtn"><a href="<?php echo home_url(); ?>/feed/?post_type=post" id="blogRss" target="_blank">RSS</a></div>
 
 		<?php if ( $biz_vektor_options['listBlogTop'] == 'listType_set' ) { ?>
-			<?php biz_vektor_hook_post_clusses_loop(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php get_template_part('module_loop_post2'); ?>
 			<?php endwhile ?>

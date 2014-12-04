@@ -255,17 +255,17 @@ add_action('admin_head-post.php', 'bizVektor_postStatus', 12);
 add_action('admin_head-post-new.php', 'bizVektor_postStatus', 12);
 
 function biz_vektor_slug_post_classes( $classes, $class, $post_id ) {
-    if ( 0 == get_comments_number( $post_id ) ) {
-        $classes[] = 'infoListBox';
-        $classes[] = 'ttBox';
-    }
- 
-    return $classes;
+	$options = biz_vektor_get_theme_options();
+	if(( is_front_page() && $options['listBlogTop']      == 'listType_set' ) || 
+		( is_archive()    && $options['listBlogArchive']  == 'listType_set' )) {
+	   if ( 0 == get_comments_number( $post_id ) ) {
+			$classes[] = 'infoListBox';
+			$classes[] = 'ttBox';
+	   }
+	}
+   return $classes;
 }
-
-function biz_vektor_hook_post_clusses_loop(){
-	add_filter( 'post_class', 'biz_vektor_slug_post_classes', 10, 3 );
-}
+add_filter( 'post_class', 'biz_vektor_slug_post_classes', 10, 3 );
 
 /*-------------------------------------------*/
 /*	Admin page _ Add editor css
