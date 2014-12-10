@@ -646,6 +646,7 @@ function biz_vektor_get_name() {
 }
 
 function biz_vektor_get_default_theme_options(){
+	// default options 
 	$default_theme_options = array(
 		'font_title'           => 'serif',
 		'font_menu'            => 'serif',
@@ -692,7 +693,44 @@ function biz_vektor_get_default_theme_options(){
 		'pr3_link'             => '',
 		'pr3_image'            => get_template_directory_uri().'/images/samples/pr_image_demo_3.jpg',
 		'pr3_image_s'          => get_template_directory_uri().'/images/samples/pr_image_demo_sq_3.jpg',
-		'version'              => '1.0.4'
+		'version'              => "g1.0.8",
+		'SNSuse'               => false
+
+		/// this is option of Standard Ed
+		'global_font'          => 'Open+Sans',
+		'postRelatedCount'     => '6',
+		'infoTopCount'         => '5',
+		'gaID'                 => '',
+		'gaType'               => 'gaType_normal',
+		'infoLabelName'        => __('Information', 'biz-vektor'),
+		'infoTopUrl'           => home_url().'/info/',
+		'listInfoTop'          => 'listType_set',
+		'listInfoArchive'      => 'listType_set',
+		'ad_conent_moretag'    => '',
+		'ad_conent_after'      => '',
+		'ad_related_after'     => '',
+		'twitter'              => '',
+		'facebook'             => '',
+		'fbAppId'              => '',
+		'fbAdminId'            => '',
+		'ogpImage'             => '',
+		'ogpTagDisplay'        => 'ogp_on',
+		'snsBtnsFront'         => '',
+		'snsBtnsPage'          => '',
+		'snsBtnsPost'          => '',
+		'snsBtnsInfo'          => '',
+		'snsBtnsHidden'        => '',
+		'fbCommentsFront'      => '',
+		'fbCommentsPage'       => '',
+		'fbCommentsPost'       => '',
+		'fbCommentsInfo'       => '',
+		'fbCommentsHidden'     => '',
+		'fbLikeBoxFront'       => '',
+		'fbLikeBoxSide'        => '',
+		'fbLikeBoxURL'         => '',
+		'fbLikeBoxStream'      => '',
+		'fbLikeBoxFace'        => '',
+		'fbLikeBoxHeight'      => '',
 	);
 	for ( $i = 1; $i <= 5 ;){
 		$default_theme_options['slide'.$i.'link'] = '';
