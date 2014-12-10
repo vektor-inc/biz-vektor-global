@@ -106,6 +106,9 @@ function biz_vektor_theme_options_render_page() { ?>
 		'divide_6' => _x('6', 'biz-vektor theme-customizer', 'biz-vektor'),
 		'divide_7' => _x('7', 'biz-vektor theme-customizer', 'biz-vektor')
 	);
+	if( $options['gMenuDivide'] == ''){
+		$options['gMenuDivide'] = 'divide_natural';
+	}
 	foreach( $biz_vektor_gMenuDivides as $biz_vektor_gMenuDivideKey => $biz_vektor_gMenuDivideValue) {
 		if ( $biz_vektor_gMenuDivideKey == $options['gMenuDivide'] ) {
 			print ('<option value="'.$biz_vektor_gMenuDivideKey.'" selected>'.$biz_vektor_gMenuDivideValue.'</option>');
@@ -532,7 +535,8 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 /* function of input value
 /*-------------------------------------------*/
 function biz_vektor_theme_options_validate( $input ) {
-	$output = $defaults = biz_vektor_get_theme_options();
+	$defaults = biz_vektor_get_theme_options();
+	$output = biz_bektor_option_validate();
 	
 	if(isset($_POST['bizvektor_action_mode']) && $_POST['bizvektor_action_mode'] == 'reset'){ 
 		if(isset($_POST['bizvektor_reset_check']) && isset($_POST['bizvektor_reset_key_port']) && $_POST['bizvektor_reset_key_port'] == $_POST['bizvektor_reset_key']){

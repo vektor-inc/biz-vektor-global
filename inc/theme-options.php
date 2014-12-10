@@ -171,15 +171,15 @@ add_filter( 'wp_title', 'biz_vektor_getHeadTitle', 10, 2 );
 /*-------------------------------------------*/
 function biz_vektor_layouts() {
 	$layout_options = array(
-		'content-sidebar' => array(
-			'value' => 'content-sidebar',
-			'label' => __('Right sidebar', 'biz-vektor'),
-			'thumbnail' => get_template_directory_uri() . '/inc/images/content-sidebar.png',
-		),
 		'sidebar-content' => array(
 			'value' => 'sidebar-content',
 			'label' => __('Left sidebar', 'biz-vektor'),
 			'thumbnail' => get_template_directory_uri() . '/inc/images/sidebar-content.png',
+		),
+		'content-sidebar' => array(
+			'value' => 'content-sidebar',
+			'label' => __('Right sidebar', 'biz-vektor'),
+			'thumbnail' => get_template_directory_uri() . '/inc/images/content-sidebar.png',
 		),
 	);
 	return apply_filters( 'biz_vektor_layouts', $layout_options );
@@ -741,4 +741,27 @@ function biz_vektor_get_default_theme_options(){
 	$i++;
 	}
 	return $default_theme_options;
+}
+
+
+/*-------------------------------------------*/
+/*	
+/*	@return array(options)
+/*-------------------------------------------*/
+function biz_bektor_option_validate(){
+	$option = get_option('biz_vektor_theme_options');
+	$default = biz_vektor_get_default_theme_options();
+
+	if($option && is_array($option)){
+		$keys = array_keys($option);
+		foreach($keys as $key){
+			if( !isset($option[$key]) && $key != 'version'){
+				$option[$key] = $default[$key];
+			}
+		}
+	}
+	else {
+		$option = $default;
+	}
+	return $option;
 }
