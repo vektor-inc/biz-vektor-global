@@ -532,15 +532,15 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 /* function of input value
 /*-------------------------------------------*/
 function biz_vektor_theme_options_validate( $input ) {
-	$output = $defaults = biz_vektor_get_default_theme_options();
-	$nowdata = biz_vektor_get_theme_options();
+	$output = $defaults = biz_vektor_get_theme_options();
+	
 	if(isset($_POST['bizvektor_action_mode']) && $_POST['bizvektor_action_mode'] == 'reset'){ 
 		if(isset($_POST['bizvektor_reset_check']) && isset($_POST['bizvektor_reset_key_port']) && $_POST['bizvektor_reset_key_port'] == $_POST['bizvektor_reset_key']){
 			echo "reseted";
 			return $defaults;
 		}else{
 			echo "faild";
-			return $nowdata;
+			return $output;
 		}
 	}
 
@@ -610,7 +610,6 @@ function biz_vektor_theme_options_validate( $input ) {
 	// sidebar child menu display
 	if( isset($input['side_child_display']) && $input['side_child_display'] ){ $output['side_child_display'] = $input['side_child_display']; }
 
-	if(isset($nowdata['version'])&&$nowdata['version']){ $output['version'] = $nowdata['version']; }
 	return apply_filters( 'biz_vektor_theme_options_validate', $output, $input, $defaults );
 }
 
