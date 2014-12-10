@@ -1,6 +1,8 @@
 /*-------------------------------------------*/
 /*  編集ガイド
 /*-------------------------------------------*/
+/*	YOUTUBEのレスポンシブ対応
+/*-------------------------------------------*/
 /*	SNSアイテム関連
 /*-------------------------------------------*/
 /*	rollover.js
@@ -13,26 +15,49 @@
 /*-------------------------------------------*/
 
 jQuery('#wp-admin-bar-editGuide .ab-item').click(function(){
-			if (!jQuery(this).hasClass('close')){
-				var txt = jQuery(this).html();
-				jQuery(this).html(txt.replace(/OPEN/,'CLOSE')).addClass('close');
-				jQuery('.adminEdit').each(function(i){
-					jQuery(this).hide();
-				});
-				jQuery('.edit-link').each(function(i){
-					jQuery(this).hide();
-				});
-			} else {
-				var txt2 = jQuery(this).html();
-				jQuery(this).html(txt2.replace(/CLOSE/,'OPEN')).removeClass('close');
-				jQuery('.adminEdit').each(function(i){
-					jQuery(this).show();
-				});
-				jQuery('.edit-link').each(function(i){
-					jQuery(this).show();
-				});
-			}
+	if (!jQuery(this).hasClass('close')){
+		var txt = jQuery(this).html();
+		jQuery(this).html(txt.replace(/OPEN/,'CLOSE')).addClass('close');
+		jQuery('.adminEdit').each(function(i){
+			jQuery(this).hide();
+		});
+		jQuery('.edit-link').each(function(i){
+			jQuery(this).hide();
+		});
+	} else {
+		var txt2 = jQuery(this).html();
+		jQuery(this).html(txt2.replace(/CLOSE/,'OPEN')).removeClass('close');
+		jQuery('.adminEdit').each(function(i){
+			jQuery(this).show();
+		});
+		jQuery('.edit-link').each(function(i){
+			jQuery(this).show();
+		});
+	}
 });
+
+/*-------------------------------------------*/
+/*	YOUTUBEのレスポンシブ対応
+/*-------------------------------------------*/
+jQuery('iframe').each(function(i){
+	var iframeUrl = jQuery(this).attr("src");
+	if(!iframeUrl){return;}
+	// iframeのURLの中に youtube が存在する位置を検索する
+	idx = iframeUrl.indexOf("youtube");
+	// 見つからなかった場合には -1 が返される
+	if(idx != -1) {
+	    console.log(iframeUrl);
+	    // youtube が含まれていたらそのクラスを返す
+	    jQuery(this).addClass('iframeYoutube').css({"max-width":"100%"});
+	    var iframeWidth = jQuery(this).attr("width");
+	    var iframeHeight = jQuery(this).attr("height");
+	    var iframeRate = iframeHeight / iframeWidth;
+	    var nowIframeWidth = jQuery(this).width();
+	    var newIframeHeight = nowIframeWidth * iframeRate;
+	    jQuery(this).css({"max-width":"100%","height":newIframeHeight});
+	}
+});
+
 
 /*-------------------------------------------*/
 /*	SNSアイテム関連
@@ -43,8 +68,7 @@ jQuery(window).resize(function(){
 });
 // When load page / window resize
 function likeBoxReSize(){
-	var i = number;
-	jQuery('.fb-like-box').each(function(i){
+	jQuery('.fb-like-box').each(function(){
 		var element = jQuery(this).parent().width();
 		jQuery(this).attr('data-width',element);
 		jQuery(this).children('span:first').css({"width":element});
@@ -57,8 +81,7 @@ jQuery(window).resize(function(){
 });
 // When load page / window resize
 function fbCommentReSize(){
-	var i = number;
-	jQuery('.fb-comments').each(function(i){
+	jQuery('.fb-comments').each(function(){
 		var element = jQuery(this).parent().width();
 		jQuery(this).attr('data-width',element);
 		jQuery(this).children('span:first').css({"width":element});
@@ -110,15 +133,6 @@ window.onload = function(){
 		initRollovers();
 	}
 }
-
-// jQuery(document).ready(function(){
-// 	jQuery('a img.imgover').hover(function(){
-// 		jQuery(this).attr('src').replace('/\.gif/', '/_on\.gif/');
-// 		jQuery(this).attr('src').replace('/\.png', '/_on\.png/');
-// 		jQuery(this).attr('src').replace('/\.jpg', '/_on\.jpg/');
-// 		//jQuery(this).remove();
-// 	});
-// });
 
 /*-------------------------------------------*/
 /*	ページ内するするスクロール
