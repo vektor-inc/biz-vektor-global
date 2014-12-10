@@ -211,6 +211,7 @@ register_default_headers( array(
 /*-------------------------------------------*/
 	require( get_template_directory() . '/bizvektor_themes/001/001_custom.php' );
 	require( get_template_directory() . '/bizvektor_themes/002/002_custom.php' );
+	require( get_template_directory() . '/bizvektor_themes/003/003_custom.php' );
 
 /*-------------------------------------------*/
 /*	Load Theme customizer

@@ -1,7 +1,9 @@
+*sftp-config.json
+node_modules/
 .sass-cache/
-sftp-config.json
-.DStore
-thumbs.db
-
-compile.bat
+.DS_Store
+Thumbs.db
+_notes/
+*~
 config.rb
+compile.bat

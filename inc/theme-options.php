@@ -241,6 +241,11 @@ get_template_part('inc/theme-options-edit');
 function biz_vektor_theme_styleSetting() {
 	global $biz_vektor_theme_styles;
 	$biz_vektor_theme_styles = array(
+		'rebuild' => array(
+			'label' => 'Rebuild',
+			'cssPath' => get_template_directory_uri().'/bizvektor_themes/003/css/003.css',
+			'cssPathOldIe' => get_template_directory_uri().'/bizvektor_themes/003/css/003_oldie.css',
+			),
 		'calmly' => array(
 			'label' => 'Calmly',
 			'cssPath' => get_template_directory_uri().'/bizvektor_themes/002/002.css',
