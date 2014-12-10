@@ -694,7 +694,7 @@ function biz_vektor_get_default_theme_options(){
 		'pr3_image'            => get_template_directory_uri().'/images/samples/pr_image_demo_3.jpg',
 		'pr3_image_s'          => get_template_directory_uri().'/images/samples/pr_image_demo_sq_3.jpg',
 		'version'              => "g1.0.8",
-		'SNSuse'               => false
+		'SNSuse'               => false,
 
 		/// this is option of Standard Ed
 		'global_font'          => 'Open+Sans',
