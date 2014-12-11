@@ -75,41 +75,27 @@ function bizvektor_default_design_customize_register($wp_customize) {
         'title'          => _x('Default color settings','Default color settings', 'biz-vektor'),
         'priority'       => 110,
     ) );
-
-	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColor]',	array(
-		'default' 			=> '',
-		'type'				=> 'option',
-		'capability' 		=> 'edit_theme_options',
-		'sanitize_callback' => 'maybe_hash_hex_color',
-		 ) );
-	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorLight]',	array(
-		'default' 			=> '',
-		'type'				=> 'option',
-		'capability' 		=> 'edit_theme_options',
-		'sanitize_callback' => 'maybe_hash_hex_color',
-		) );
-	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorDark]',	array(
-		'default' 			=> '',
-		'type'				=> 'option',
-		'capability' 		=> 'edit_theme_options',
-		'sanitize_callback' => 'maybe_hash_hex_color',
-		) );
-
+	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColor]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
+	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorLight]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
+	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorDark]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
 	// Create section UI
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'keyColor', array(
 		'label'    => __('Keycolor', 'biz-vektor'),
 		'section'  => 'biz_vektor_default_design',
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColor]',
+		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	)));
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'KeyColorLight', array(
 		'label'    => __('Keycolor(Light)', 'biz-vektor'),
 		'section'  => 'biz_vektor_default_design',
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColorLight]',
+		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	)));
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'KeyColorDark', array(
 		'label'    => __('Keycolor(Dark)', 'biz-vektor'),
 		'section'  => 'biz_vektor_default_design',
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColorDark]',
+		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	)));
 	}
 }
@@ -129,8 +115,8 @@ function themePlusSettingNavi_default_design(){
 /*-------------------------------------------*/
 /*	Print head
 /*-------------------------------------------*/
-add_action( 'wp_head','default_design_WpHead', 150);
-function default_design_WpHead(){
+add_action( 'wp_head','biz_vektor_default_design_WpHead', 150);
+function biz_vektor_default_design_WpHead(){
 	if (is_bizvektor_default_design()){
 		$default_design_options = biz_vektor_get_theme_options_default_design();
 		if( !isset($default_design_options['theme_plusKeyColor']) || $default_design_options['theme_plusKeyColor'] == '' ) $default_design_options['theme_plusKeyColor'] = '#c30000';
@@ -202,10 +188,10 @@ background: linear-gradient(<?php echo $default_design_options['theme_plusKeyCol
 #content .mainFootContact .mainFootBt a			{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 #content .mainFootContact .mainFootBt a:hover	{ background-color:<?php echo $default_design_options['theme_plusKeyColorLight'] ?>; }
 
-#sideTower .localHead	{ border-top-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
-#sideTower li.sideBnr#sideContact a		{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
-#sideTower li.sideBnr#sideContact a:hover	{ background-color:<?php echo $default_design_options['theme_plusKeyColorLight'] ?>; }
-#sideTower .sideWidget h4	{ border-left-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
+.sideTower .localHead	{ border-top-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
+.sideTower li.sideBnr#sideContact a		{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
+.sideTower li.sideBnr#sideContact a:hover	{ background-color:<?php echo $default_design_options['theme_plusKeyColorLight'] ?>; }
+.sideTower .sideWidget h4	{ border-left-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 
 #pagetop a	{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>; }
 #footMenu	{ background-color:<?php echo $default_design_options['theme_plusKeyColor'] ?>;border-top-color:<?php echo $default_design_options['theme_plusKeyColorDark'] ?>; }
@@ -224,6 +210,7 @@ background: linear-gradient(<?php echo $default_design_options['theme_plusKeyCol
 
 @media (min-width: 770px) {
 #gMenu .menu > li.current_page_item > a,
+#gMenu .menu > li.current-menu-item > a,
 #gMenu .menu > li.current_page_ancestor > a ,
 #gMenu .menu > li.current-page-ancestor > a ,
 #gMenu .menu > li > a:hover	{
@@ -239,6 +226,7 @@ background: linear-gradient(<?php echo $default_design_options['theme_plusKeyCol
 <!--[if lte IE 8]>
 <style type="text/css">
 #gMenu .menu > li.current_page_item > a,
+#gMenu .menu > li.current_menu_item > a,
 #gMenu .menu > li.current_page_ancestor > a ,
 #gMenu .menu > li.current-page-ancestor > a ,
 #gMenu .menu > li > a:hover	{
