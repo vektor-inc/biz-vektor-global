@@ -286,7 +286,7 @@ add_action('wp_head','biz_vektor_gMenuDivide',170 );
 function biz_vektor_gMenuDivide() {
 	$options = biz_vektor_get_theme_options();
 	// No select
-	if ($options['gMenuDivide'] == __('[ Select ]', 'biz-vektor') || ! $options['gMenuDivide'] || ($options['gMenuDivide'] == 'divide_natural') ) {
+	if ($options['gMenuDivide'] == __('[ Select ]', 'biz-vektor') || ! $options['gMenuDivide'] || ($options['gMenuDivide'] == 'divide_natural' || apply_filters('biz_vektor_gNenuDvide_disable', false)) ) {
 	// other
 	} else {
 		$menuWidth = array(

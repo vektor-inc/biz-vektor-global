@@ -34,7 +34,7 @@ function is_rebuild(){
 }
 
 if (is_rebuild()){
-	get_template_part( get_template_directory() . '/bizvektor_themes/003/functions_003.php' );
+	require locate_template( '/bizvektor_themes/003/functions_003.php' );
 }
 
 /*-------------------------------------------*/

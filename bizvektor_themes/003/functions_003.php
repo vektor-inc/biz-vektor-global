@@ -25,9 +25,7 @@ function rebuild_head_contact_custom($headContact){
 	);
 	$gMenu = wp_nav_menu( $args ) ;
 
-	// メニューがセットされていたら実行
 	if ($gMenu || $gMenuHtml) {
-	// ナビのHTMLを一旦変数に格納
 	$gMenuHtml .= '
 	<!-- [ #gMenu ] -->
 	<div id="gMenu">
@@ -37,7 +35,6 @@ function rebuild_head_contact_custom($headContact){
 		<a href="#content" title="'.__('Skip menu', 'biz-vektor').'">'.__('Skip menu', 'biz-vektor').'</a>
 	</div>'."\n";
 
-	// メニューがセットされていたら実行
 	// if ($headSubMenu) {
 	// 	$gMenuHtml .= '<div class="headSubMenu">'."\n";
 	// 	$gMenuHtml .= $headSubMenu;
@@ -55,7 +52,7 @@ function rebuild_head_contact_custom($headContact){
 }
 
 /*-------------------------------------------*/
-/*  元のグローバルメニューは空にする
+/*  make empty the original globalmenu
 /*-------------------------------------------*/
 add_filter('bizvektor_gMenuHtml','rebuild_gMenu_custom');
 function rebuild_gMenu_custom(){
@@ -64,6 +61,9 @@ function rebuild_gMenu_custom(){
 }
 
 /*-------------------------------------------*/
-/*  メニューの横幅指定を一旦無効化
+/*  disable width of globalmenu
 /*-------------------------------------------*/
-remove_action('wp_head','biz_vektor_gMenuDivide',170);
+add_filter('biz_vektor_gNenuDvide_disable', 'reguild_disable_gMenu');
+function reguild_disable_gMenu(){
+	return true;
+}
