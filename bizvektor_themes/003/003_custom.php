@@ -62,29 +62,26 @@ function bizvektor_rebuild_customize_register($wp_customize) {
     ) );
 
 	$wp_customize->add_setting( 'biz_vektor_theme_options_rebuild[theme_plusKeyColor]',
-		array('rebuild' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
+		array('rebuild' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'maybe_hash_hex_color') );
 	$wp_customize->add_setting( 'biz_vektor_theme_options_rebuild[theme_plusKeyColorLight]',
-		array('rebuild' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
+		array('rebuild' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'maybe_hash_hex_color') );
 	$wp_customize->add_setting( 'biz_vektor_theme_options_rebuild[theme_plusKeyColorVeryLight]',
-		array('rebuild' => '','type'=> 'option','capability' => 'edit_theme_options', ) );
+		array('rebuild' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'maybe_hash_hex_color') );
 	// Create section UI
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'keyColor', array(
 		'label'    => __('Keycolor', 'biz-vektor'),
 		'section'  => 'biz_vektor_rebuild',
 		'settings' => 'biz_vektor_theme_options_rebuild[theme_plusKeyColor]',
-		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	)));
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'KeyColorLight', array(
 		'label'    => __('Keycolor(Light)', 'biz-vektor'),
 		'section'  => 'biz_vektor_rebuild',
 		'settings' => 'biz_vektor_theme_options_rebuild[theme_plusKeyColorLight]',
-		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	)));
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'KeyColorVeryLight', array(
 		'label'    => __('Keycolor(VeryLight)', 'biz-vektor'),
 		'section'  => 'biz_vektor_rebuild',
 		'settings' => 'biz_vektor_theme_options_rebuild[theme_plusKeyColorVeryLight]',
-		'sanitize_callback'	=> 'maybe_hash_hex_color',
 	)));
 	}
 }
