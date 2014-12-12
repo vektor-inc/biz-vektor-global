@@ -701,7 +701,12 @@ function biz_vektor_get_default_theme_options(){
 		'version'              => "g1.0.8",
 		'SNSuse'               => false,
 
-		/// this is option of Standard Ed
+		/// this is option of Standard Edition
+		/*
+		If these options don't exist that,
+		If install "Global Edition" to "Standard Edition" already installed website,
+		Disappear many Standard Edition's setting items.
+		*/
 		'global_font'          => 'Open+Sans',
 		'postRelatedCount'     => '6',
 		'infoTopCount'         => '5',
