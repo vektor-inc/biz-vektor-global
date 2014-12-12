@@ -42,6 +42,9 @@
 /*-------------------------------------------*/
 /*	Contact widget
 /*-------------------------------------------*/
+/*	Global Version Font size fix
+/*-------------------------------------------*/
+
 
 function biz_vektor_theme_options_init() {
 	if ( false === biz_vektor_get_theme_options() )
@@ -774,4 +777,22 @@ function biz_bektor_option_validate(){
 		$option = $default;
 	}
 	return $option;
+}
+
+/*-------------------------------------------*/
+/*	Global Version Font size fix
+/*-------------------------------------------*/
+
+function displays_global_css() { ?>
+		<style type="text/css">
+		/*-------------------------------------------*/
+		/*	default global version style
+		/*-------------------------------------------*/
+		body { font-size: 1.05em; }
+		.sideTower .localSection li ul li { font-size: 0.9em; }
+		</style>
+	<?php
+}
+if ( 'ja' != get_locale() ) {
+	add_action( 'wp_head','displays_global_css');
 }
