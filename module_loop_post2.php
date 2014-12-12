@@ -22,7 +22,7 @@ $taxo_catelist = get_the_term_list( $post->ID, $taxonomySlug, ' ','','');
 	<p class="entryMeta">
 	<span class="infoDate"><?php echo esc_html( get_the_date() ); ?></span><span class="infoCate"><?php echo $taxo_catelist; ?></span>
 	</p>
-	<p><?php the_excerpt(); ?></p>
+	<?php the_excerpt(); ?>
 	<div class="moreLink"><a href="<?php the_permalink(); ?>"><?php _e('Read more', 'biz-vektor'); ?></a></div>
 	</div><!-- [ /.entryTxtBox ] -->
 	
