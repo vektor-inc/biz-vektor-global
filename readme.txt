@@ -30,7 +30,12 @@ You can contact me at inquiry form.
 http://bizvektor.com/en/
 
 
+
 ## == Changelog ==
+* v1.1.0
+* * Bug fix of cooperation to Standard edition
+* * Add new design skin!!
+
 * v1.0.8
 * * Hello, world!
 
