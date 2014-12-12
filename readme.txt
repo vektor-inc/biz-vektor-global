@@ -33,8 +33,9 @@ http://bizvektor.com/en/
 
 ## == Changelog ==
 * v1.1.0
-* * Bug fix of cooperation to Standard edition
-* * Add new design skin!!
+* * [ Bug fix ] Cooperation to Standard edition.
+* * [ Bug fix ] Editor style link broken.
+* * [ Add ] New design skin!!
 
 * v1.0.8
 * * Hello, world!
