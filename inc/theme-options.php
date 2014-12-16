@@ -761,7 +761,7 @@ function biz_vektor_get_default_theme_options(){
 /*	
 /*	@return array(options)
 /*-------------------------------------------*/
-function biz_bektor_option_validate(){
+function biz_vektor_option_validate(){
 	$option = get_option('biz_vektor_theme_options');
 	$default = biz_vektor_get_default_theme_options();
 

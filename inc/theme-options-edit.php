@@ -536,7 +536,7 @@ $slideBlank = 'slide'.$i.'blank'; ?>
 /*-------------------------------------------*/
 function biz_vektor_theme_options_validate( $input ) {
 	$defaults = biz_vektor_get_theme_options();
-	$output = biz_bektor_option_validate();
+	$output = biz_vektor_option_validate();
 	
 	if(isset($_POST['bizvektor_action_mode']) && $_POST['bizvektor_action_mode'] == 'reset'){ 
 		if(isset($_POST['bizvektor_reset_check']) && isset($_POST['bizvektor_reset_key_port']) && $_POST['bizvektor_reset_key_port'] == $_POST['bizvektor_reset_key']){
