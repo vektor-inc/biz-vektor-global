@@ -1,4 +1,8 @@
 <?php
+
+$theme_opt = wp_get_theme('biz-vektor');
+define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)$/i', '$1', $theme_opt->Version));
+
 /*-------------------------------------------*/
 /*	Set content width
 /* 	(Auto set up to media max with.)
@@ -207,7 +211,7 @@ register_default_headers( array(
 	require( get_template_directory() . '/inc/theme-options.php' );
 
 /*-------------------------------------------*/
-/*	Load Setting of Default / Calmly
+/*	Load Setting of Default / Calmly / rebuild
 /*-------------------------------------------*/
 	require( get_template_directory() . '/bizvektor_themes/001/001_custom.php' );
 	require( get_template_directory() . '/bizvektor_themes/002/002_custom.php' );
@@ -320,19 +324,20 @@ add_post_type_support( 'page', 'excerpt' ); // add excerpt
 /*-------------------------------------------*/
 /*	head_description
 /*-------------------------------------------*/
-function biz_vektor_getHeadDescription() {
+function getHeadDescription() {
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
-	if (is_home() || is_page('home') || is_front_page()) {
+	if (is_home() || is_front_page() ) {
 		if ( isset($post->post_excerpt) && $post->post_excerpt ) {
-			$metadescription = $post->post_excerpt;
+			$metadescription = get_the_excerpt();
 		} else {
 			$metadescription = get_bloginfo( 'description' );
 		}
 	} else if (is_category() || is_tax()) {
-		$metadescription = $post->category_description;
-		if ( ! $metadescription ) {
+		if ( ! $post->description ) {
 			$metadescription = sprintf(__('About %s', 'biz-vektor'),single_cat_title()).get_bloginfo('name').' '.get_bloginfo('description');
+		} else {
+			$metadescription = esc_html( $post->description );
 		}
 	} else if (is_tag()) {
 		$metadescription = strip_tags(tag_description());
@@ -419,6 +424,15 @@ function biz_vektor_addCommonStyle(){
 add_action('wp_enqueue_scripts','biz_vektor_addPingback');
 function biz_vektor_addPingback(){
 	wp_enqueue_style( 'biz_vektorAddPingback', get_bloginfo( 'pingback_url' ), array(), '1.0.0');
+}
+
+//html5 shiv
+add_action( 'wp_enqueue_scripts', 'biz_vektor_load_scripts_html5shiv' );
+
+if ( ! function_exists( 'biz_vektor_load_scripts_html5shiv' ) ) {
+	function biz_vektor_load_scripts_html5shiv() {
+		wp_enqueue_script( 'html5shiv', '//html5shiv.googlecode.com/svn/trunk/html5.js', array(), null );
+	}
 }
 
 /*-------------------------------------------*/
