@@ -50,7 +50,7 @@ if ( !$postType ) {
 
 	$options = biz_vektor_get_theme_options();
 
-	if  (file_exists(get_template_directory( ).'/module_loop_'.$post_type.'.php')): ?>
+	if  (file_exists(get_stylesheet_directory( ).'/module_loop_'.$post_type.'.php')): ?>
 		
 		<?php while ( have_posts() ) : the_post(); ?>
 		
