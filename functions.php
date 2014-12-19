@@ -115,7 +115,7 @@ if ( ! isset( $content_width ) )
 /*-------------------------------------------*/
 /*	Widget
 /*-------------------------------------------*/
-function biz_vektor_widgets_init() {
+function biz_vektor_widgetarea_init() {
 	register_sidebar( array(
 		'name' => __( 'Sidebar(Front page only)', 'biz-vektor' ),
 		'id' => 'top-side-widget-area',
@@ -162,7 +162,7 @@ function biz_vektor_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 }
-add_action( 'widgets_init', 'biz_vektor_widgets_init' );
+add_action( 'widgets_init', 'biz_vektor_widgetarea_init' );
 
 
 /*-------------------------------------------*/
@@ -697,3 +697,40 @@ function biz_vektor_pre_get_posts_front_page($query){
 		return;
 	}
 }
+
+/*-------------------------------------------*/
+/*	HomePage _ add action filters
+/*-------------------------------------------*/
+function biz_vektor_contentMain_before(){
+	do_action('biz_vektor_contentMain_before');
+}
+function biz_vektor_contentMain_after(){
+	do_action('biz_vektor_contentMain_after');
+}
+function biz_vektor_sideTower_after(){
+	do_action('biz_vektor_sideTower_after');
+}
+/*-------------------------------------------*/
+/*	Archive _ loop custom filters
+/*-------------------------------------------*/
+function biz_vektor_archive_loop(){
+	do_action('biz_vektor_archive_loop');
+}
+function is_biz_vektor_archive_loop(){
+	return apply_filters('is_biz_vektor_archive_loop', false);
+}
+function is_biz_vektor_extra_single(){
+	return apply_filters('is_biz_vektor_single_loop', false);
+}
+function biz_vektor_extra_single(){
+	do_action('biz_vektor_extra_single');
+}
+
+/*-------------------------------------------*/
+/*	Aceept favicon upload
+/*-------------------------------------------*/
+function biz_vektor_mine_types($a) {
+    $a['ico'] = 'image/x-icon';
+    return $a;
+}
+add_filter('upload_mimes', 'biz_vektor_mine_types');
