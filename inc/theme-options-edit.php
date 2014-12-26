@@ -555,7 +555,7 @@ function biz_vektor_theme_options_validate( $input ) {
 	$output['font_title']             = $input['font_title'];
 	$output['font_menu']              = $input['font_menu'];
 	$output['side_child_display']     = $input['side_child_display'];
-	$output['enable_google_font']     = $input['enable_google_font'];
+	$output['enable_google_font']     = (isset($input['enable_google_font']))? true : false;
 
 	// Contact info
 	$output['contact_txt']            = $input['contact_txt'];
