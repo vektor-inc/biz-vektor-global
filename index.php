@@ -1,5 +1,14 @@
-<?php get_header(); ?>
-<?php $postType = get_post_type();
+<?php
+/**
+ * BizVektor index.php
+ *
+ * @package BizVektor
+ * @version 1.6.0
+ */
+
+ get_header();
+ $postType = get_post_type();
+
 if ( !$postType ) {
   global $wp_query;
   if ($wp_query->query_vars['post_type']) {
@@ -36,9 +45,11 @@ if ( !$postType ) {
 /*-------------------------------------------*/
 	if ( is_category() || is_tax() || is_tag() ) {
 		$category_description = term_description();
+		$page 				  = get_query_var( 'paged', 0 );
+		if ( ! empty( $category_description ) && $page == 0 ) {
+			echo '<div class="archive-meta">' . $category_description . '</div>';
+		}
 	}
-	if ( ! empty( $category_description ) ) 
-		echo '<div class="archive-meta">' . $category_description . '</div>';
 	?>
 	<?php
 /*-------------------------------------------*/
@@ -50,13 +61,21 @@ if ( !$postType ) {
 
 	$options = biz_vektor_get_theme_options();
 
-	if  (file_exists(get_stylesheet_directory( ).'/module_loop_'.$post_type.'.php')): ?>
+	if (is_biz_vektor_archive_loop()) : ?>
+
+		<?php biz_vektor_archive_loop(); ?>
+
+	<?php elseif ( apply_filters( 'biz_vektor_index_loop_hack', false ) ): ?>
+
+		<?php ///--- doing extra function ---/// ?>
+
+	<?php elseif (file_exists(get_template_directory( ).'/module_loop_'.$post_type.'.php')): ?>
 		
 		<?php while ( have_posts() ) : the_post(); ?>
 		
 			<?php get_template_part('module_loop_'.$post_type); ?>
 		
-		<?php endwhile; ?>	
+		<?php endwhile; ?>
 
 	<?php else : ?>
 
@@ -84,6 +103,7 @@ if ( !$postType ) {
 <?php get_sidebar($postType); ?>
 </div>
 <!-- [ /#sideTower ] -->
+<?php biz_vektor_sideTower_after();?>
 </div>
 <!-- [ /#container ] -->
 

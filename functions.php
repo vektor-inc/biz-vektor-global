@@ -1,4 +1,8 @@
 <?php
+
+$theme_opt = wp_get_theme('biz-vektor');
+define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)$/i', '$1', $theme_opt->Version));
+
 /*-------------------------------------------*/
 /*	Set content width
 /* 	(Auto set up to media max with.)
@@ -111,7 +115,7 @@ if ( ! isset( $content_width ) )
 /*-------------------------------------------*/
 /*	Widget
 /*-------------------------------------------*/
-function biz_vektor_widgets_init() {
+function biz_vektor_widgetarea_init() {
 	register_sidebar( array(
 		'name' => __( 'Sidebar(Front page only)', 'biz-vektor' ),
 		'id' => 'top-side-widget-area',
@@ -158,7 +162,7 @@ function biz_vektor_widgets_init() {
 		'after_title' => '</h3>',
 	) );
 }
-add_action( 'widgets_init', 'biz_vektor_widgets_init' );
+add_action( 'widgets_init', 'biz_vektor_widgetarea_init' );
 
 
 /*-------------------------------------------*/
@@ -207,7 +211,7 @@ register_default_headers( array(
 	require( get_template_directory() . '/inc/theme-options.php' );
 
 /*-------------------------------------------*/
-/*	Load Setting of Default / Calmly
+/*	Load Setting of Default / Calmly / rebuild
 /*-------------------------------------------*/
 	require( get_template_directory() . '/bizvektor_themes/001/001_custom.php' );
 	require( get_template_directory() . '/bizvektor_themes/002/002_custom.php' );
@@ -225,12 +229,12 @@ function biz_vektor_admin_css(){
 	$adminCssPath = get_template_directory_uri().'/css/style_bizvektor_admin.css';
 	wp_enqueue_style( 'theme', $adminCssPath , false, '2014-04-29');
 }
-add_action('admin_enqueue_scripts', 'biz_vektor_admin_css', 11);
+add_action('admin_enqueue_scripts', 'biz_vektor_admin_css', 1);
 
 function biz_vektor_wp_css(){
 	wp_enqueue_style('bizvektor_style', get_stylesheet_uri(), array(), '1.0.4');
 }
-add_action('wp_enqueue_scripts', 'biz_vektor_wp_css', 11);
+add_action('wp_enqueue_scripts', 'biz_vektor_wp_css', 1);
 
 /*-------------------------------------------*/
 /*	Admin page _ Add post status to body class
@@ -320,19 +324,20 @@ add_post_type_support( 'page', 'excerpt' ); // add excerpt
 /*-------------------------------------------*/
 /*	head_description
 /*-------------------------------------------*/
-function biz_vektor_getHeadDescription() {
+function getHeadDescription() {
 	global $wp_query;
 	$post = $wp_query->get_queried_object();
-	if (is_home() || is_page('home') || is_front_page()) {
+	if (is_home() || is_front_page() ) {
 		if ( isset($post->post_excerpt) && $post->post_excerpt ) {
-			$metadescription = $post->post_excerpt;
+			$metadescription = get_the_excerpt();
 		} else {
 			$metadescription = get_bloginfo( 'description' );
 		}
 	} else if (is_category() || is_tax()) {
-		$metadescription = $post->category_description;
-		if ( ! $metadescription ) {
+		if ( ! $post->description ) {
 			$metadescription = sprintf(__('About %s', 'biz-vektor'),single_cat_title()).get_bloginfo('name').' '.get_bloginfo('description');
+		} else {
+			$metadescription = esc_html( $post->description );
 		}
 	} else if (is_tag()) {
 		$metadescription = strip_tags(tag_description());
@@ -419,6 +424,15 @@ function biz_vektor_addCommonStyle(){
 add_action('wp_enqueue_scripts','biz_vektor_addPingback');
 function biz_vektor_addPingback(){
 	wp_enqueue_style( 'biz_vektorAddPingback', get_bloginfo( 'pingback_url' ), array(), '1.0.0');
+}
+
+//html5 shiv
+add_action( 'wp_enqueue_scripts', 'biz_vektor_load_scripts_html5shiv' );
+
+if ( ! function_exists( 'biz_vektor_load_scripts_html5shiv' ) ) {
+	function biz_vektor_load_scripts_html5shiv() {
+		wp_enqueue_script( 'html5shiv', '//html5shiv.googlecode.com/svn/trunk/html5.js', array(), null );
+	}
 }
 
 /*-------------------------------------------*/
@@ -683,3 +697,40 @@ function biz_vektor_pre_get_posts_front_page($query){
 		return;
 	}
 }
+
+/*-------------------------------------------*/
+/*	HomePage _ add action filters
+/*-------------------------------------------*/
+function biz_vektor_contentMain_before(){
+	do_action('biz_vektor_contentMain_before');
+}
+function biz_vektor_contentMain_after(){
+	do_action('biz_vektor_contentMain_after');
+}
+function biz_vektor_sideTower_after(){
+	do_action('biz_vektor_sideTower_after');
+}
+/*-------------------------------------------*/
+/*	Archive _ loop custom filters
+/*-------------------------------------------*/
+function biz_vektor_archive_loop(){
+	do_action('biz_vektor_archive_loop');
+}
+function is_biz_vektor_archive_loop(){
+	return apply_filters('is_biz_vektor_archive_loop', false);
+}
+function is_biz_vektor_extra_single(){
+	return apply_filters('is_biz_vektor_single_loop', false);
+}
+function biz_vektor_extra_single(){
+	do_action('biz_vektor_extra_single');
+}
+
+/*-------------------------------------------*/
+/*	Aceept favicon upload
+/*-------------------------------------------*/
+function biz_vektor_mine_types($a) {
+    $a['ico'] = 'image/x-icon';
+    return $a;
+}
+add_filter('upload_mimes', 'biz_vektor_mine_types');
