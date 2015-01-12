@@ -2,7 +2,7 @@
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 	<!-- [ #content ] -->
-	<div id="content">
+	<div id="content" class="content">
 
 	<?php get_template_part('module_topPR'); ?>
 
