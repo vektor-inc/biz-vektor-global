@@ -73,7 +73,7 @@ if ( !apply_filters('biz_vektor_extra_main_content', false) ):
 
 	<?php get_template_part('module_topPR'); ?>
 	<?php if ( function_exists( 'biz_vektor_topSpecial' ) ): biz_vektor_topSpecial(); endif; ?>
-	<?php get_template_part('module_top_list_info'); ?>
+	<?php //get_template_part('module_top_list_info'); ?>
 	<?php get_template_part('module_top_list_post'); ?>
 <?php endif; ?>
 
