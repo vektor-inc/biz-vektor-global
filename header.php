@@ -9,7 +9,7 @@ biz_vektor_get_theme_options(); ?>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <title><?php wp_title(); ?></title>
 <link rel="start" href="<?php echo site_url(); ?>" title="HOME" />
-<meta id="viewport" name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
 <?php wp_head(); ?>
 </head>
 
