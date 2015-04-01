@@ -27,8 +27,6 @@ define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)
 /*-------------------------------------------*/
 /*	Admin page _ Add editor css
 /*-------------------------------------------*/
-/*	Admin page _ Hide youkoso
-/*-------------------------------------------*/
 /*	Admin page _ Eye catch
 /*-------------------------------------------*/
 /*	Admin page _ Add custom field of keywords
@@ -259,16 +257,6 @@ add_action('admin_head-post-new.php', 'biz_vektor_postStatus', 12);
 /*	Admin page _ Add editor css
 /*-------------------------------------------*/
 add_editor_style('css/editor-style.css');
-
-/*-------------------------------------------*/
-/*	Admin page _ Hide youkoso
-/*-------------------------------------------*/
-function biz_vektor_hide_welcome_panel() {
-	$user_id = get_current_user_id();
-		if ( 1 == get_user_meta( $user_id, 'show_welcome_panel', true ) )
-	update_user_meta( $user_id, 'show_welcome_panel', 0 );
-}
-add_action( 'load-index.php', 'biz_vektor_hide_welcome_panel' );
 
 
 /*-------------------------------------------*/
