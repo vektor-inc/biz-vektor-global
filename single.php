@@ -3,16 +3,16 @@
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 	<!-- [ #content ] -->
-	<div id="content">
+	<div id="content" class="content">
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 <!-- [ #post- ] -->
 <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<h1 class="entryPostTitle"><?php the_title(); ?><?php edit_post_link(__('Edit', 'biz-vektor'), ' <span class="edit-link edit-item">[ ', ' ]' ); ?></h1>
+	<h1 class="entryPostTitle"><?php the_title(); ?><?php edit_post_link(__('Edit', 'bizvektor-global-edition'), ' <span class="edit-link edit-item">[ ', ' ]' ); ?></h1>
 	<div class="entry-meta">
-		<?php _e('Posted on', 'biz-vektor'); ?> : <?php echo esc_html( get_the_date() ); ?>
+		<?php _e('Posted on', 'bizvektor-global-edition'); ?> : <?php echo esc_html( get_the_date() ); ?>
 		<?php if (get_post_type() == 'post') :?> | 
-			<?php _e('Category', 'biz-vektor'); ?> : <?php the_category(', ') ?>
+			<?php _e('Category', 'bizvektor-global-edition'); ?> : <?php the_category(', ') ?>
 		<?php endif; ?>
 	</div>
 	<!-- .entry-meta -->
@@ -26,7 +26,7 @@
 				if ( $tags_list ):
 			?>
 			<dl class="tag-links">
-			<?php printf( __('<dt>Tags</dt><dd>%1$s</dd>', 'biz-vektor'), $tags_list ); ?>
+			<?php printf( __('<dt>Tags</dt><dd>%1$s</dd>', 'bizvektor-global-edition'), $tags_list ); ?>
 			</dl>
 			<?php endif; ?>
 		</div>

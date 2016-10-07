@@ -14,9 +14,9 @@ footer	{ border-top:1px solid #e5e5e5; box-shadow:0px -1px 0px #fff; padding-top
 <body>
 
 <!-- [ #content ] -->
-<div id="content">
+<div id="content" class="content">
 <h1><?php bloginfo('name'); ?></h1>
-<p><?php _e('Maintenance in progress.', 'biz-vektor'); ?></p>
+<p><?php _e('Maintenance in progress.', 'bizvektor-global-edition'); ?></p>
 </div>
 <!-- [ /#content ] -->
 <footer>

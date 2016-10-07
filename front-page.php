@@ -1,62 +1,90 @@
-<?php get_header(); ?>
+<?php
+/**
+ * BizVektor Front-Page.php
+ *
+ * @package BizVektor
+ * @version 1.6.0
+ */
+
+ get_header();
+  ?>
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 	<!-- [ #content ] -->
-	<div id="content">
+	<div id="content" class="content">
+	<?php biz_vektor_contentMain_before();?>
+	<div id="content-main">
+
+<?php
+if ( !apply_filters('biz_vektor_extra_main_content', false) ):
+
+	// page content
+	if ( have_posts()) : the_post();
+		if (get_post_type() === 'page') :
+			$topFreeContent = NULL;
+			$topFreeContent = get_the_content();
+			if ($topFreeContent) : ?>
+				<div id="topFreeArea">
+					<?php the_content(); ?>
+					<?php wp_link_pages( array( 'before' => '<div class="page-link">' . 'Pages:', 'after' => '</div>' ) ); ?>
+				</div>
+			<?php endif; // $topFreeContent ?>
+		<?php endif; // get_post_type() === 'page' ?>
+		<?php if ( current_user_can('edit_theme_options') ) { ?>
+			<div class="adminEdit">
+				<p class="caption">
+				<?php _e('* In admin [Settings] &raquo; [Display Settings], if the front page is not set to a [page], nothing is displayed in this area.', 'bizvektor-global-edition'); ?><br />
+				<?php _e('* If empty, the body of a page that you set as the front page does not display anything.', 'bizvektor-global-edition'); ?><br />
+				<?php // _e('* If you have set a specific page as the front page, pagination does not appear at the bottom.', 'bizvektor-global-edition'); ?>
+				</p>
+				<span class="linkBtn linkBtnS linkBtnAdmin" style="float:left;margin-right:10px;"><?php edit_post_link( __('Edit', 'bizvektor-global-edition') ); ?></span>
+
+				<span style="float:left;margin-right:10px;"><a href="<?php echo site_url(); ?>/wp-admin/themes.php?page=theme_options#topPage" class="btn btnS btnAdmin">
+					<?php _e('Title display settings', 'bizvektor-global-edition'); ?>
+				</a></span>
+				<span><a href="<?php echo site_url(); ?>/wp-admin/options-reading.php" class="btn btnS btnAdmin">
+					<?php _e('Change the page to be displayed', 'bizvektor-global-edition'); ?>
+				</a></span>
+
+			</div>
+		<?php } // login ?>
+
+	<?php endif; // have_posts() ?>
 
 	<?php get_template_part('module_topPR'); ?>
+	<?php if ( function_exists( 'biz_vektor_topSpecial' ) ): biz_vektor_topSpecial(); endif; ?>
+	<?php //get_template_part('module_top_list_info'); ?>
+	<?php get_template_part('module_top_list_post'); ?>
+<?php endif; ?>
 
-	<?php if (get_post_type() === 'page') : ?>
-	<div id="topFreeArea">
-		<h2><?php the_title(); ?></h2>
-		<?php the_content(); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="page-link">' . 'Pages:', 'after' => '</div>' ) ); ?>
+<?php do_action( 'biz_vektor_fbLikeBoxDisplay'); ?>
+<?php do_action( 'biz_vektor_snsBtns' ); ?>
+<?php do_action( 'biz_vektor_fbComments'); ?>
+
 	</div>
-	<?php else : ?>
-
-	<?php
-	$options = biz_vektor_get_theme_options();
-	if(!isset($options['postTopCount'])){$options['postTopCount'] = 0;}
-	
-	if (have_posts() && $options['postTopCount']): ?>
-		<div id="topBlog" class="infoList">
-		<h2><?php echo esc_html($biz_vektor_options['postLabelName']); ?></h2>
-		<div class="rssBtn"><a href="<?php echo home_url(); ?>/feed/?post_type=post" id="blogRss" target="_blank">RSS</a></div>
-
-		<?php if ( $biz_vektor_options['listBlogTop'] == 'listType_set' ) { ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part('module_loop_post2'); ?>
-			<?php endwhile ?>
-		<?php } else { ?>
-			<ul class="entryList">
-			<?php while ( have_posts() ) : the_post();?>
-				<?php get_template_part('module_loop_post'); ?>
-			<?php endwhile; ?>
-			</ul>
-		<?php } ?>
-		<?php biz_vektor_pagination(); ?>
-		</div><!-- [ /#topBlog ] -->
-	<?php endif; // $post_loop have_posts() ?>
-
-	<?php endif; // get_post_type() === 'page' ?>
-
+	<!-- #content-main -->
+	<?php biz_vektor_contentMain_after();?>
 	</div>
 	<!-- [ /#content ] -->
 
+<?php $option = biz_vektor_get_theme_options(); if( !$option['topSideBarDisplay'] ): ?>
 	<!-- [ #sideTower ] -->
 	<div id="sideTower" class="sideTower">
-<?php if ( is_active_sidebar( 'common-side-top-widget-area' ) ) dynamic_sidebar( 'common-side-top-widget-area' ); ?>
 <?php
+if ( is_active_sidebar( 'common-side-top-widget-area' ) ) dynamic_sidebar( 'common-side-top-widget-area' );
 if ( is_active_sidebar( 'top-side-widget-area' ) ) :
 	dynamic_sidebar( 'top-side-widget-area' );
 else :
 	// ウィジェットに設定がない場合
-	if (function_exists('biz_vektor_get_contactBtn')) biz_vektor_get_contactBtn();
-	?>
-<?php endif; ?>
-<?php if ( is_active_sidebar( 'common-side-bottom-widget-area' ) ) dynamic_sidebar( 'common-side-bottom-widget-area' ); ?>
+	if (function_exists('biz_vektor_contactBtn')) biz_vektor_contactBtn();
+	if (function_exists('biz_vektor_snsBnrs')) biz_vektor_snsBnrs();
+endif;
+if ( is_active_sidebar( 'common-side-bottom-widget-area' ) ) dynamic_sidebar( 'common-side-bottom-widget-area' );
+?>
 	</div>
 	<!-- [ /#sideTower ] -->
+	<?php biz_vektor_sideTower_after();?>
+<?php endif; ?>
 </div>
 <!-- [ /#container ] -->
 

@@ -3,7 +3,7 @@
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 <!-- [ #content ] -->
-<div id="content" class="wide">
+<div id="content" class="content wide">
 
 	<?php if ( have_posts() ) : ?>
 	<ul class="linkList">
@@ -13,7 +13,7 @@
 	</ul>
 	<?php biz_vektor_content_nav( 'nav-below' ); ?>
 	<?php else : ?>
-		<p><?php _e('Sorry, but nothing matched your search terms. Please try again with different keywords.', 'biz-vektor'); ?></p>
+		<p><?php _e('Sorry, but nothing matched your search terms. Please try again with different keywords.', 'bizvektor-global-edition'); ?></p>
 	<?php endif; ?>
 <br />
 	<div class="error404">

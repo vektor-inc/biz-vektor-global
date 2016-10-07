@@ -7,9 +7,8 @@ biz_vektor_get_theme_options(); ?>
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
-<title><?php wp_title(); ?></title>
 <link rel="start" href="<?php echo site_url(); ?>" title="HOME" />
-<meta id="viewport" name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
 <?php wp_head(); ?>
 </head>
 
@@ -61,7 +60,7 @@ $gMenuHtml = '
 <div id="gMenuInner" class="innerBox">
 <h3 class="assistive-text"><span>MENU</span></h3>
 <div class="skip-link screen-reader-text">
-	<a href="#content" title="'.__('Skip menu', 'biz-vektor').'">'.__('Skip menu', 'biz-vektor').'</a>
+	<a href="#content" title="'.__('Skip menu', 'bizvektor-global-edition').'">'.__('Skip menu', 'bizvektor-global-edition').'</a>
 </div>'."\n";
 $gMenuHtml .= $gMenu."\n";
 $gMenuHtml .= '</div><!-- [ /#gMenuInner ] -->

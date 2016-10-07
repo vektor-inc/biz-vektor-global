@@ -1,5 +1,14 @@
-<?php get_header(); ?>
-<?php $postType = get_post_type();
+<?php
+/**
+ * BizVektor index.php
+ *
+ * @package BizVektor
+ * @version 1.6.0
+ */
+
+ get_header();
+ $postType = get_post_type();
+
 if ( !$postType ) {
   global $wp_query;
   if ($wp_query->query_vars['post_type']) {
@@ -9,20 +18,20 @@ if ( !$postType ) {
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 	<!-- [ #content ] -->
-	<div id="content">
+	<div id="content" class="content">
 	<?php
 /*-------------------------------------------*/
 /*	Archive title
 /*-------------------------------------------*/
 	if ( is_year()) {
 		// $archiveTitle = get_the_date('Y');
-		$archiveTitle = sprintf( __( 'Yearly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) ) );
+		$archiveTitle = sprintf( __( 'Yearly Archives: %s', 'bizvektor-global-edition' ), get_the_date( _x( 'Y', 'yearly archives date format', 'bizvektor-global-edition' ) ) );
 	} else if ( is_month() ) {
-		$archiveTitle = sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ) ) );
+		$archiveTitle = sprintf( __( 'Monthly Archives: %s', 'bizvektor-global-edition' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'bizvektor-global-edition' ) ) );
 	} else if ( is_category() || is_tax() ) {
 		$archiveTitle = single_term_title( '',false);
 	} else if ( is_tag() ) {
-		$archiveTitle = __('Tags : ', 'biz-vektor').single_term_title( '',false);
+		$archiveTitle = __('Tags : ', 'bizvektor-global-edition').single_term_title( '',false);
 	} else if ( is_author() ) {
 		$userObj = get_queried_object();
 		$archiveTitle = $userObj->display_name;
@@ -36,9 +45,11 @@ if ( !$postType ) {
 /*-------------------------------------------*/
 	if ( is_category() || is_tax() || is_tag() ) {
 		$category_description = term_description();
+		$page 				  = get_query_var( 'paged', 0 );
+		if ( ! empty( $category_description ) && $page == 0 ) {
+			echo '<div class="archive-meta">' . $category_description . '</div>';
+		}
 	}
-	if ( ! empty( $category_description ) ) 
-		echo '<div class="archive-meta">' . $category_description . '</div>';
 	?>
 	<?php
 /*-------------------------------------------*/
@@ -50,13 +61,21 @@ if ( !$postType ) {
 
 	$options = biz_vektor_get_theme_options();
 
-	if  (file_exists(get_template_directory( ).'/module_loop_'.$post_type.'.php')): ?>
+	if (is_biz_vektor_archive_loop()) : ?>
+
+		<?php biz_vektor_archive_loop(); ?>
+
+	<?php elseif ( apply_filters( 'biz_vektor_index_loop_hack', false ) ): ?>
+
+		<?php ///--- doing extra function ---/// ?>
+
+	<?php elseif (file_exists(get_template_directory( ).'/module_loop_'.$post_type.'.php')): ?>
 		
 		<?php while ( have_posts() ) : the_post(); ?>
 		
 			<?php get_template_part('module_loop_'.$post_type); ?>
 		
-		<?php endwhile; ?>	
+		<?php endwhile; ?>
 
 	<?php else : ?>
 
@@ -84,6 +103,7 @@ if ( !$postType ) {
 <?php get_sidebar($postType); ?>
 </div>
 <!-- [ /#sideTower ] -->
+<?php biz_vektor_sideTower_after();?>
 </div>
 <!-- [ /#container ] -->
 

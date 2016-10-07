@@ -76,14 +76,14 @@ function biz_vektor_calmly_customize_register($wp_customize) {
 	if (is_calmly()){
     // Add section
     $wp_customize->add_section( 'biz_vektor_calmly', array(
-        'title'          => __('Calmly Setting', 'biz-vektor'),
+        'title'          => __('Calmly Setting', 'bizvektor-global-edition'),
         'priority'       => 110,
     ) );
 
 	$wp_customize->add_setting( 'biz_vektor_theme_options_calmly[theme_plusKeyColor]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'maybe_hash_hex_color') );
 	// Create section UI
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'keyColor', array(
-		'label'    => _x('Keycolor', 'Calmly color settings', 'biz-vektor'),
+		'label'    => _x('Keycolor', 'Calmly color settings', 'bizvektor-global-edition'),
 		'section'  => 'biz_vektor_calmly',
 		'settings' => 'biz_vektor_theme_options_calmly[theme_plusKeyColor]',
 	)));
@@ -97,7 +97,7 @@ add_filter('themePlusSettingNavi','biz_vektor_themePlusSettingNaviCalmly');
 function biz_vektor_themePlusSettingNaviCalmly(){
 	global $themePlusSettingNavi;
 	if (is_calmly()){
-		$themePlusSettingNavi = '<p>[ <a href="'.get_admin_url().'customize.php">&raquo; '.__('Set the color from theme customizer', 'biz-vektor').'</a> ]</p>';
+		$themePlusSettingNavi = '<p>[ <a href="'.get_admin_url().'customize.php">&raquo; '.__('Set the color from theme customizer', 'bizvektor-global-edition').'</a> ]</p>';
 	}
 	return $themePlusSettingNavi;
 }

@@ -3,7 +3,7 @@
 <!-- [ #container ] -->
 <div id="container" class="innerBox">
 	<!-- [ #content ] -->
-	<div id="content" class="wide">
+	<div id="content" class="content wide">
 
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
@@ -46,7 +46,7 @@
 						</div><!-- .entry-attachment -->
 						<div class="entry-caption"><?php if ( !empty( $post->post_excerpt ) ) the_excerpt(); ?></div>
 
-<?php the_content( __('Read more', 'biz-vektor').'<span class="meta-nav">&rarr;</span>' ); ?>
+<?php the_content( __('Read more', 'bizvektor-global-edition').'<span class="meta-nav">&rarr;</span>' ); ?>
 <?php wp_link_pages( array( 'before' => '<div class="page-link">' . 'Pages:', 'after' => '</div>' ) ); ?>
 
 					</div><!-- .entry-content -->

@@ -72,7 +72,7 @@ function bizvektor_default_design_customize_register($wp_customize) {
 	if (is_bizvektor_default_design()){
     // Add section
     $wp_customize->add_section( 'biz_vektor_default_design', array(
-        'title'          => _x('Default color settings','Default color settings', 'biz-vektor'),
+        'title'          => _x('Default color settings','Default color settings', 'bizvektor-global-edition'),
         'priority'       => 110,
     ) );
 	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColor]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'maybe_hash_hex_color') );
@@ -80,17 +80,17 @@ function bizvektor_default_design_customize_register($wp_customize) {
 	$wp_customize->add_setting( 'biz_vektor_theme_options_default_design[theme_plusKeyColorDark]',	array('default' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'maybe_hash_hex_color') );
 	// Create section UI
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'keyColor', array(
-		'label'    => __('Keycolor', 'biz-vektor'),
+		'label'    => __('Keycolor', 'bizvektor-global-edition'),
 		'section'  => 'biz_vektor_default_design',
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColor]',
 	)));
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'KeyColorLight', array(
-		'label'    => __('Keycolor(Light)', 'biz-vektor'),
+		'label'    => __('Keycolor(Light)', 'bizvektor-global-edition'),
 		'section'  => 'biz_vektor_default_design',
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColorLight]',
 	)));
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'KeyColorDark', array(
-		'label'    => __('Keycolor(Dark)', 'biz-vektor'),
+		'label'    => __('Keycolor(Dark)', 'bizvektor-global-edition'),
 		'section'  => 'biz_vektor_default_design',
 		'settings' => 'biz_vektor_theme_options_default_design[theme_plusKeyColorDark]',
 	)));
@@ -104,7 +104,7 @@ add_filter('themePlusSettingNavi','themePlusSettingNavi_default_design');
 function themePlusSettingNavi_default_design(){
 	global $themePlusSettingNavi;
 	if (is_bizvektor_default_design()){
-		$themePlusSettingNavi = '<p>[ <a href="'.get_admin_url().'customize.php">&raquo; '.__('Set the color from theme customizer', 'biz-vektor').'</a> ]</p>';
+		$themePlusSettingNavi = '<p>[ <a href="'.get_admin_url().'customize.php">&raquo; '.__('Set the color from theme customizer', 'bizvektor-global-edition').'</a> ]</p>';
 	}
 	return $themePlusSettingNavi;
 }
