@@ -420,15 +420,6 @@ function biz_vektor_addPingback(){
 	wp_enqueue_style( 'biz_vektorAddPingback', get_bloginfo( 'pingback_url' ), array(), '1.0.0');
 }
 
-//html5 shiv
-add_action( 'wp_enqueue_scripts', 'biz_vektor_load_scripts_html5shiv' );
-
-if ( ! function_exists( 'biz_vektor_load_scripts_html5shiv' ) ) {
-	function biz_vektor_load_scripts_html5shiv() {
-		wp_enqueue_script( 'html5shiv', '//html5shiv.googlecode.com/svn/trunk/html5.js', array(), null );
-	}
-}
-
 /*-------------------------------------------*/
 /*	footer_wp_footer clean and add items
 /*-------------------------------------------*/
