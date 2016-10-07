@@ -57,7 +57,7 @@
 	<div id="siteBottom">
 	<div id="siteBottomInner" class="innerBox">
 	<div id="copy">Copyright &copy; <a href="<?php echo home_url( '/' ); ?>" rel="home"><?php echo bloginfo( 'name' ); ?></a> All Rights Reserved.</div>
-	<div id="powerd">Powered by <a href="https://ja.wordpress.org/">WordPress</a> &amp; <a href="http://bizvektor.com/en/" target="_blank" title="<?php _e('Free WordPress Theme BizVektor for business', 'biz-vektor'); ?>" >BizVektor Theme</a> by Vektor,Inc. technology.</div>
+	<div id="powerd">Powered by <a href="https://ja.wordpress.org/">WordPress</a> &amp; <a href="http://bizvektor.com/en/" target="_blank" title="<?php _e('Free WordPress Theme BizVektor for business', 'bizvektor-global-edition'); ?>" >BizVektor Theme</a> by Vektor,Inc. technology.</div>
 	</div>
 	</div>
 	<!-- [ /#siteBottom ] -->

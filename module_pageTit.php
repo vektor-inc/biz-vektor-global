@@ -43,9 +43,9 @@ if ( is_category() || is_tag() || is_tax() || is_home() || is_author() || is_arc
 } else if (is_page() || is_attachment()) {
 	$pageTitle = get_the_title();
 } else if (is_search()) {
-	$pageTitle = sprintf(__('Search Results for : %s', 'biz-vektor'),get_search_query());
+	$pageTitle = sprintf(__('Search Results for : %s', 'bizvektor-global-edition'),get_search_query());
 } else if (is_404()){
-	$pageTitle = __('Not found', 'biz-vektor');
+	$pageTitle = __('Not found', 'bizvektor-global-edition');
 }
 $pageTitle = apply_filters( 'biz_vektor_pageTitCustom', $pageTitle );
 

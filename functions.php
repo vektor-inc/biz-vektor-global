@@ -1,6 +1,6 @@
 <?php
 
-$theme_opt = wp_get_theme('biz-vektor');
+$theme_opt = wp_get_theme('bizvektor-global-edition');
 define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)$/i', '$1', $theme_opt->Version));
 
 /*-------------------------------------------*/
@@ -99,7 +99,7 @@ function biz_vektor_theme_setup(){
 	register_nav_menus( array( 'FooterNavi' => 'Footer Navigation', ) );
 	register_nav_menus( array( 'FooterSiteMap' => 'Footer SiteMap', ) );
 
-	load_theme_textdomain( 'biz-vektor' , get_template_directory() . '/languages' );
+	load_theme_textdomain( 'bizvektor-global-edition' , get_template_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'biz_vektor_theme_setup');
 
@@ -121,45 +121,45 @@ if ( ! isset( $content_width ) )
 /*-------------------------------------------*/
 function biz_vektor_widgetarea_init() {
 	register_sidebar( array(
-		'name' => __( 'Sidebar(Front page only)', 'biz-vektor' ),
+		'name' => __( 'Sidebar(Front page only)', 'bizvektor-global-edition' ),
 		'id' => 'top-side-widget-area',
-		'description' => __( 'This widget area appears on the front page only.', 'biz-vektor' ),
+		'description' => __( 'This widget area appears on the front page only.', 'bizvektor-global-edition' ),
 		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
 	) );
 	register_sidebar( array(
-		'name' => __( 'Sidebar(Post content only)', 'biz-vektor' ),
+		'name' => __( 'Sidebar(Post content only)', 'bizvektor-global-edition' ),
 		'id' => 'post-widget-area',
-		'description' => __( 'This widget area appears only on the post content pages.', 'biz-vektor' ),
+		'description' => __( 'This widget area appears only on the post content pages.', 'bizvektor-global-edition' ),
 		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
 	) );
 	register_sidebar( array(
-		'name' => __( 'Sidebar(Page content only)', 'biz-vektor' ),
+		'name' => __( 'Sidebar(Page content only)', 'bizvektor-global-edition' ),
 		'id' => 'page-widget-area',
-		'description' => __( 'This widget area appears only on the page content pages.', 'biz-vektor' ),
+		'description' => __( 'This widget area appears only on the page content pages.', 'bizvektor-global-edition' ),
 		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
 	) );
 	register_sidebar( array(
-		'name' => __( 'Sidebar(Common top)', 'biz-vektor' ),
+		'name' => __( 'Sidebar(Common top)', 'bizvektor-global-edition' ),
 		'id' => 'common-side-top-widget-area',
-		'description' => __( 'This widget area appears at top of sidebar.', 'biz-vektor' ),
+		'description' => __( 'This widget area appears at top of sidebar.', 'bizvektor-global-edition' ),
 		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
 		'after_title' => '</h3>',
 	) );
 	register_sidebar( array(
-		'name' => __( 'Sidebar(Common bottom)', 'biz-vektor' ),
+		'name' => __( 'Sidebar(Common bottom)', 'bizvektor-global-edition' ),
 		'id' => 'common-side-bottom-widget-area',
-		'description' => __( 'This widget area appears at bottom of sidebar.', 'biz-vektor' ),
+		'description' => __( 'This widget area appears at bottom of sidebar.', 'bizvektor-global-edition' ),
 		'before_widget' => '<div class="sideWidget" id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="localHead">',
@@ -273,18 +273,18 @@ add_action('save_post', 'biz_vektor_save_custom_field_metaKeyword');
 
 function biz_vektor_add_custom_field_metaKeyword(){
   if(function_exists('biz_vektor_add_custom_field_metaKeyword')){
-	add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'biz_vektor_insert_custom_field_metaKeyword', 'page', 'normal', 'high');
-	add_meta_box('div1', __('Meta Keywords', 'biz-vektor'), 'biz_vektor_insert_custom_field_metaKeyword', 'post', 'normal', 'high');
+	add_meta_box('div1', __('Meta Keywords', 'bizvektor-global-edition'), 'biz_vektor_insert_custom_field_metaKeyword', 'page', 'normal', 'high');
+	add_meta_box('div1', __('Meta Keywords', 'bizvektor-global-edition'), 'biz_vektor_insert_custom_field_metaKeyword', 'post', 'normal', 'high');
   }
 }
 
 function biz_vektor_insert_custom_field_metaKeyword(){
   global $post;
   echo '<input type="hidden" name="noncename_custom_field_metaKeyword" id="noncename_custom_field_metaKeyword" value="'.wp_create_nonce(plugin_basename(__FILE__)).'" />';
-  echo '<label class="hidden" for="metaKeyword">'.__('Meta Keywords', 'biz-vektor').'</label><input type="text" name="metaKeyword" size="50" value="'.get_post_meta($post->ID, 'metaKeyword', true).'" />';
-  echo '<p>'.__('To distinguish between individual keywords, please enter a , delimiter (optional).', 'biz-vektor').'<br />';
-  $theme_option_seo_link = '<a href="'.get_admin_url().'/themes.php?page=theme_options#seoSetting" target="_blank">'._x('','link to seo setting', 'biz-vektor').'</a>';
-  sprintf(__('* keywords common to the entire site can be set from %s.', 'biz-vektor'),$theme_option_seo_link);
+  echo '<label class="hidden" for="metaKeyword">'.__('Meta Keywords', 'bizvektor-global-edition').'</label><input type="text" name="metaKeyword" size="50" value="'.get_post_meta($post->ID, 'metaKeyword', true).'" />';
+  echo '<p>'.__('To distinguish between individual keywords, please enter a , delimiter (optional).', 'bizvektor-global-edition').'<br />';
+  $theme_option_seo_link = '<a href="'.get_admin_url().'/themes.php?page=theme_options#seoSetting" target="_blank">'._x('SEO Setting','link to seo setting', 'bizvektor-global-edition').'</a>';
+  sprintf(__('* keywords common to the entire site can be set from %s.', 'bizvektor-global-edition'),$theme_option_seo_link);
   echo '</p>';
 }
 
@@ -329,7 +329,7 @@ function getHeadDescription() {
 		}
 	} else if (is_category() || is_tax()) {
 		if ( ! $post->description ) {
-			$metadescription = sprintf(__('About %s', 'biz-vektor'),single_cat_title()).get_bloginfo('name').' '.get_bloginfo('description');
+			$metadescription = sprintf(__('About %s', 'bizvektor-global-edition'),single_cat_title()).get_bloginfo('name').' '.get_bloginfo('description');
 		} else {
 			$metadescription = esc_html( $post->description );
 		}
@@ -337,24 +337,24 @@ function getHeadDescription() {
 		$metadescription = strip_tags(tag_description());
 		$metadescription = str_replace(array("\r\n","\r","\n"), '', $metadescription);  // delete br
 		if ( ! $metadescription ) {
-			$metadescription = sprintf(__('About %s', 'biz-vektor'),single_tag_title()).get_bloginfo('name').' '.get_bloginfo('description');
+			$metadescription = sprintf(__('About %s', 'bizvektor-global-edition'),single_tag_title()).get_bloginfo('name').' '.get_bloginfo('description');
 		}
 	} else if (is_archive()) {
 		if (is_year()){
-			$description_date = get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) );
-			$metadescription = sprintf(_x('Article of %s.','Yearly archive description', 'biz-vektor'), $description_date );
+			$description_date = get_the_date( _x( 'Y', 'yearly archives date format', 'bizvektor-global-edition' ) );
+			$metadescription = sprintf(_x('Article of %s.','Yearly archive description', 'bizvektor-global-edition'), $description_date );
 			$metadescription .= ' '.get_bloginfo('name').' '.get_bloginfo('description');
 		} else if (is_month()){
-			$description_date = get_the_date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ) );
-			$metadescription = sprintf(_x('Article of %s.','Archive description', 'biz-vektor'),$description_date );
+			$description_date = get_the_date( _x( 'F Y', 'monthly archives date format', 'bizvektor-global-edition' ) );
+			$metadescription = sprintf(_x('Article of %s.','Archive description', 'bizvektor-global-edition'),$description_date );
 			$metadescription .= ' '.get_bloginfo('name').' '.get_bloginfo('description');
 		} else if (is_author()) {
 			$userObj = get_queried_object();
-			$metadescription = sprintf(_x('Article of %s.','Archive description', 'biz-vektor'),esc_html($userObj->display_name) );
+			$metadescription = sprintf(_x('Article of %s.','Archive description', 'bizvektor-global-edition'),esc_html($userObj->display_name) );
 			$metadescription .= ' '.get_bloginfo('name').' '.get_bloginfo('description');
 		} else {
 			$postType = get_post_type();
-			$metadescription = sprintf(_x('Article of %s.','Archive description', 'biz-vektor'),esc_html(get_post_type_object($postType)->labels->name) );
+			$metadescription = sprintf(_x('Article of %s.','Archive description', 'bizvektor-global-edition'),esc_html(get_post_type_object($postType)->labels->name) );
 			$metadescription .= ' '.get_bloginfo('name').' '.get_bloginfo('description');
 		}
 	} else if (is_page() || is_single()) {
@@ -371,7 +371,7 @@ function getHeadDescription() {
 	}
 	global $paged;
 	if ( $paged != '0'){
-		$metadescription = '['.sprintf(__('Page of %s', 'biz-vektor' ),$paged).'] '.$metadescription;
+		$metadescription = '['.sprintf(__('Page of %s', 'bizvektor-global-edition' ),$paged).'] '.$metadescription;
 	}
 	$metadescription = apply_filters( 'metadescriptionCustom', $metadescription );
 	echo $metadescription;
@@ -544,7 +544,7 @@ function biz_vektor_comment( $comment, $args, $depth ) {
 			<?php printf(sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
 		</div><!-- .comment-author .vcard -->
 		<?php if ( $comment->comment_approved == '0' ) : ?>
-			<em><?php _e('Your comment is awaiting approval.', 'biz-vektor'); ?></em>
+			<em><?php _e('Your comment is awaiting approval.', 'bizvektor-global-edition'); ?></em>
 			<br />
 		<?php endif; ?>
 
@@ -554,7 +554,7 @@ function biz_vektor_comment( $comment, $args, $depth ) {
 
 		<div class="comment-body"><?php comment_text(); ?></div>
 		<div class="linkBtn linkBtnS">
-		<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __('Reply', 'biz-vektor'), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+		<?php comment_reply_link( array_merge( $args, array( 'reply_text' => __('Reply', 'bizvektor-global-edition'), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 		</div><!-- .reply -->
 	</div><!-- #comment-##  -->
 
@@ -564,7 +564,7 @@ function biz_vektor_comment( $comment, $args, $depth ) {
 		case 'trackback' :
 	?>
 	<li class="post pingback">
-		<p>Pingback: <?php comment_author_link(); ?> <?php edit_comment_link( __('Edit', 'biz-vektor'), '<span class="edit-link">(', ')</span>' ); ?>
+		<p>Pingback: <?php comment_author_link(); ?> <?php edit_comment_link( __('Edit', 'bizvektor-global-edition'), '<span class="edit-link">(', ')</span>' ); ?>
 	<?php
 			break;
 	endswitch;
@@ -578,9 +578,9 @@ function biz_vektor_content_nav( $nav_id ) {
 	global $wp_query;
 	if ( $wp_query->max_num_pages > 1 ) : ?>
 		<div id="<?php echo $nav_id; ?>">
-			<h4 class="assistive-text"><?php _e('Navigation', 'biz-vektor'); ?></h4>
-			<div class="nav-previous"><?php next_posts_link(__('<span class="meta-nav">&larr;</span> Older post', 'biz-vektor')); ?></div>
-			<div class="nav-next"><?php previous_posts_link(__('New post <span class="meta-nav">&rarr;</span>', 'biz-vektor')); ?></div>
+			<h4 class="assistive-text"><?php _e('Navigation', 'bizvektor-global-edition'); ?></h4>
+			<div class="nav-previous"><?php next_posts_link(__('<span class="meta-nav">&larr;</span> Older post', 'bizvektor-global-edition')); ?></div>
+			<div class="nav-next"><?php previous_posts_link(__('New post <span class="meta-nav">&rarr;</span>', 'bizvektor-global-edition')); ?></div>
 		</div><!-- #nav -->
 	<?php endif;
 	wp_reset_query();

@@ -49,9 +49,9 @@ if (have_posts()) :
 	<?php } ?>
 	<div class="childText">
 	<p><a href="<?php the_permalink(); ?>"><?php the_excerpt(); ?></a></p>
-	<div class="moreLink"><a href="<?php the_permalink(); ?>"><?php echo _x( 'Read more', 'Link to page', 'biz-vektor' ); ?></a></div>
+	<div class="moreLink"><a href="<?php the_permalink(); ?>"><?php echo _x( 'Read more', 'Link to page', 'bizvektor-global-edition' ); ?></a></div>
 	</div>
-	<?php edit_post_link(__('Edit', 'biz-vektor'),'<span class="linkBtn linkBtnS linkBtnAdmin adminEdit">','</span>'); ?>
+	<?php edit_post_link(__('Edit', 'bizvektor-global-edition'),'<span class="linkBtn linkBtnS linkBtnAdmin adminEdit">','</span>'); ?>
 </div>
 </div>
 <!-- /.child_page_block -->

@@ -25,13 +25,13 @@ if ( !$postType ) {
 /*-------------------------------------------*/
 	if ( is_year()) {
 		// $archiveTitle = get_the_date('Y');
-		$archiveTitle = sprintf( __( 'Yearly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) ) );
+		$archiveTitle = sprintf( __( 'Yearly Archives: %s', 'bizvektor-global-edition' ), get_the_date( _x( 'Y', 'yearly archives date format', 'bizvektor-global-edition' ) ) );
 	} else if ( is_month() ) {
-		$archiveTitle = sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ) ) );
+		$archiveTitle = sprintf( __( 'Monthly Archives: %s', 'bizvektor-global-edition' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'bizvektor-global-edition' ) ) );
 	} else if ( is_category() || is_tax() ) {
 		$archiveTitle = single_term_title( '',false);
 	} else if ( is_tag() ) {
-		$archiveTitle = __('Tags : ', 'biz-vektor').single_term_title( '',false);
+		$archiveTitle = __('Tags : ', 'bizvektor-global-edition').single_term_title( '',false);
 	} else if ( is_author() ) {
 		$userObj = get_queried_object();
 		$archiveTitle = $userObj->display_name;

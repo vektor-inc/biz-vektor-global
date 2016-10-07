@@ -29,7 +29,7 @@ if ( isset($biz_vektor_options['top3PrDisplay']) && !$biz_vektor_options['top3Pr
 			<?php if ( isset( $biz_vektor_options['pr1_link'] ) && ! empty( $biz_vektor_options['pr1_link'] ) ) { ?>
 			<a href="<?php echo esc_url($biz_vektor_options['pr1_link']) ?>">
 			<?php } ?>
-				<img src="<?php echo$biz_vektor_options['pr1_image'] ?>" alt="<?php printf(__( 'Image of %s', 'biz-vektor' ),$biz_vektor_options['pr1_title']) ; ?>" class="imageWide" />
+				<img src="<?php echo$biz_vektor_options['pr1_image'] ?>" alt="<?php printf(__( 'Image of %s', 'bizvektor-global-edition' ),$biz_vektor_options['pr1_title']) ; ?>" class="imageWide" />
 				<img src="<?php echo $biz_vektor_options['pr1_image_s'] ?>" alt="" class="imageSmall" />
 			<?php if ( isset( $biz_vektor_options['pr1_link'] ) && ! empty( $biz_vektor_options['pr1_link'] ) ) { ?>
 			</a>
@@ -53,7 +53,7 @@ if ( isset($biz_vektor_options['top3PrDisplay']) && !$biz_vektor_options['top3Pr
 			<?php if ( isset( $biz_vektor_options['pr1_link'] ) && ! empty( $biz_vektor_options['pr1_link'] ) ) { ?>
 				<div class="moreLink">
 					<a href="<?php echo esc_url($biz_vektor_options['pr1_link']) ?>">
-						<?php echo _x( 'Read more', 'Link to page', 'biz-vektor' ); ?>
+						<?php echo _x( 'Read more', 'Link to page', 'bizvektor-global-edition' ); ?>
 					</a>
 				</div>
 			<?php } ?>
@@ -85,7 +85,7 @@ if ( isset($biz_vektor_options['top3PrDisplay']) && !$biz_vektor_options['top3Pr
 			<?php if ( isset( $biz_vektor_options['pr2_link'] ) && ! empty( $biz_vektor_options['pr2_link'] ) ) { ?>
 			<a href="<?php echo esc_url($biz_vektor_options['pr2_link']) ?>">
 			<?php } ?>
-				<img src="<?php echo $biz_vektor_options['pr2_image'] ?>" alt="<?php printf(__( 'Image of %s', 'biz-vektor' ),$biz_vektor_options['pr2_title']) ; ?>" class="imageWide" />
+				<img src="<?php echo $biz_vektor_options['pr2_image'] ?>" alt="<?php printf(__( 'Image of %s', 'bizvektor-global-edition' ),$biz_vektor_options['pr2_title']) ; ?>" class="imageWide" />
 				<img src="<?php echo $biz_vektor_options['pr2_image_s'] ?>" alt="" class="imageSmall" />
 			<?php if ( isset( $biz_vektor_options['pr2_link'] ) && ! empty( $biz_vektor_options['pr2_link'] ) ) { ?>
 			</a>
@@ -109,7 +109,7 @@ if ( isset($biz_vektor_options['top3PrDisplay']) && !$biz_vektor_options['top3Pr
 			<?php if ( isset( $biz_vektor_options['pr2_link'] ) && ! empty( $biz_vektor_options['pr2_link'] ) ) { ?>
 				<div class="moreLink">
 					<a href="<?php echo esc_url($biz_vektor_options['pr2_link']) ?>">
-						<?php echo _x( 'Read more', 'Link to page', 'biz-vektor' ); ?>
+						<?php echo _x( 'Read more', 'Link to page', 'bizvektor-global-edition' ); ?>
 					</a>
 				</div>
 			<?php } ?>
@@ -141,7 +141,7 @@ if ( isset($biz_vektor_options['top3PrDisplay']) && !$biz_vektor_options['top3Pr
 			<?php if ( isset( $biz_vektor_options['pr3_link'] ) && ! empty( $biz_vektor_options['pr3_link'] ) ) { ?>
 			<a href="<?php echo esc_url($biz_vektor_options['pr3_link']) ?>">
 			<?php } ?>
-				<img src="<?php echo $biz_vektor_options['pr3_image'] ?>" alt="<?php printf(__( 'Image of %s', 'biz-vektor' ),$biz_vektor_options['pr3_title']) ; ?>" class="imageWide" />
+				<img src="<?php echo $biz_vektor_options['pr3_image'] ?>" alt="<?php printf(__( 'Image of %s', 'bizvektor-global-edition' ),$biz_vektor_options['pr3_title']) ; ?>" class="imageWide" />
 				<img src="<?php echo $biz_vektor_options['pr3_image_s'] ?>" alt="" class="imageSmall" />
 			<?php if ( isset( $biz_vektor_options['pr3_link'] ) && ! empty( $biz_vektor_options['pr3_link'] ) ) { ?>
 			</a>
@@ -165,7 +165,7 @@ if ( isset($biz_vektor_options['top3PrDisplay']) && !$biz_vektor_options['top3Pr
 			<?php if ( isset( $biz_vektor_options['pr3_link'] ) && ! empty( $biz_vektor_options['pr3_link'] ) ) { ?>
 				<div class="moreLink">
 					<a href="<?php echo esc_url($biz_vektor_options['pr3_link']) ?>">
-						<?php echo _x( 'Read more', 'Link to page', 'biz-vektor' ); ?>
+						<?php echo _x( 'Read more', 'Link to page', 'bizvektor-global-edition' ); ?>
 					</a>
 				</div>
 			<?php } ?>
@@ -179,6 +179,6 @@ if ( isset($biz_vektor_options['top3PrDisplay']) && !$biz_vektor_options['top3Pr
 <?php } ?>
 <?php if ( is_user_logged_in() == TRUE && current_user_can('edit_theme_options') ) { ?>
 <div class="adminEdit">
-<a href="<?php echo site_url(); ?>/wp-admin/themes.php?page=theme_options#prBox" class="btn btnS btnAdmin"><?php _e('Edit', 'biz-vektor');?></a>
+<a href="<?php echo site_url(); ?>/wp-admin/themes.php?page=theme_options#prBox" class="btn btnS btnAdmin"><?php _e('Edit', 'bizvektor-global-edition');?></a>
 </div>
 <?php } ?>

@@ -25,9 +25,9 @@ $panListHtml .= '<li id="panHome"><a href="'. home_url() .'">HOME</a> &raquo; </
 
 // 404
 if ( is_404() ){
-	$panListHtml .= "<li>".__('Not found', 'biz-vektor')."</li>";
+	$panListHtml .= "<li>".__('Not found', 'bizvektor-global-edition')."</li>";
 } else if ( is_search() ) {
-	$panListHtml .= "<li>".sprintf(__('Search Results for : %s', 'biz-vektor'),get_search_query())."</li>";
+	$panListHtml .= "<li>".sprintf(__('Search Results for : %s', 'bizvektor-global-edition'),get_search_query())."</li>";
 
 // post home
 } else if ( is_home() ){
@@ -152,9 +152,9 @@ if ( is_404() ){
 			$panListHtml .= '<li><a href="'.home_url().'/'.$postType.'">'.$postTypeName.'</a> &raquo; </li>';
 		}
 		if (is_year()){
-			$panListHtml .= "<li>".sprintf( __( 'Yearly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'Y', 'yearly archives date format', 'biz-vektor' ) ) )."</li>";
+			$panListHtml .= "<li>".sprintf( __( 'Yearly Archives: %s', 'bizvektor-global-edition' ), get_the_date( _x( 'Y', 'yearly archives date format', 'bizvektor-global-edition' ) ) )."</li>";
 		} else if (is_month()){
-			$panListHtml .= "<li>".sprintf( __( 'Monthly Archives: %s', 'biz-vektor' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'biz-vektor' ) ) )."</li>";
+			$panListHtml .= "<li>".sprintf( __( 'Monthly Archives: %s', 'bizvektor-global-edition' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'bizvektor-global-edition' ) ) )."</li>";
 		}
 	} else {
 		if(!isset($postTyeName)){

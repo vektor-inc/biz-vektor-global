@@ -12,7 +12,7 @@ if ($options['contact_link'] || $options['tel_number']) :?>
 $options = biz_vektor_get_theme_options();
 if ($options['contact_link']) :?>
 <div class="mainFootBt"><a href="<?php echo $options['contact_link'] ?>">
-	<img src="<?php echo get_template_directory_uri(); ?>/images/<?php _e('bt_contact.png', 'biz-vektor'); ?>" alt="<?php _e('Contact us by e-mail', 'biz-vektor'); ?>" /></a>
+	<img src="<?php echo get_template_directory_uri(); ?>/images/<?php _e('bt_contact.png', 'bizvektor-global-edition'); ?>" alt="<?php _e('Contact us by e-mail', 'bizvektor-global-edition'); ?>" /></a>
 </div> 
 <?php endif; ?>
 </div> 

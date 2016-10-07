@@ -40,7 +40,7 @@ $post_loop = new WP_Query( array(
 $postTopUrl = (isset($biz_vektor_options['postTopUrl']))? $biz_vektor_options['postTopUrl'] : '';
 if ($postTopUrl) {
 	echo '<div class="moreLink right"><a href="'.esc_url($postTopUrl).'">';
-	printf( __( '%s List page', 'biz-vektor' ), esc_html($biz_vektor_options['postLabelName']) );
+	printf( __( '%s List page', 'bizvektor-global-edition' ), esc_html($biz_vektor_options['postLabelName']) );
 	echo '</a></div>';
 } ?>
 	</div><!-- [ /#topBlog ] -->

@@ -60,7 +60,7 @@ $gMenuHtml = '
 <div id="gMenuInner" class="innerBox">
 <h3 class="assistive-text"><span>MENU</span></h3>
 <div class="skip-link screen-reader-text">
-	<a href="#content" title="'.__('Skip menu', 'biz-vektor').'">'.__('Skip menu', 'biz-vektor').'</a>
+	<a href="#content" title="'.__('Skip menu', 'bizvektor-global-edition').'">'.__('Skip menu', 'bizvektor-global-edition').'</a>
 </div>'."\n";
 $gMenuHtml .= $gMenu."\n";
 $gMenuHtml .= '</div><!-- [ /#gMenuInner ] -->

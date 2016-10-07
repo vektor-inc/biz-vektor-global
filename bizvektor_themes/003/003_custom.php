@@ -44,7 +44,7 @@ add_filter('themePlusSettingNavi','themePlusSettingNavi_rebuild');
 function themePlusSettingNavi_rebuild(){
 	global $themePlusSettingNavi;
 	if (is_rebuild()){
-		$themePlusSettingNavi = '<p>[ <a href="'.get_admin_url().'customize.php">&raquo; '.__('Set the color from theme customizer', 'biz-vektor').'</a> ]</p>';
+		$themePlusSettingNavi = '<p>[ <a href="'.get_admin_url().'customize.php">&raquo; '.__('Set the color from theme customizer', 'bizvektor-global-edition').'</a> ]</p>';
 	}
 	return $themePlusSettingNavi;
 }
@@ -57,7 +57,7 @@ function bizvektor_rebuild_customize_register($wp_customize) {
 	if (is_rebuild()){
     // Add section
     $wp_customize->add_section( 'biz_vektor_rebuild', array(
-        'title'          => __('Rebuild color setting', 'biz-vektor'),
+        'title'          => __('Rebuild color setting', 'bizvektor-global-edition'),
         'priority'       => 110,
     ) );
 
@@ -69,17 +69,17 @@ function bizvektor_rebuild_customize_register($wp_customize) {
 		array('rebuild' => '','type'=> 'option','capability' => 'edit_theme_options', 'sanitize_callback'	=> 'maybe_hash_hex_color') );
 	// Create section UI
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'keyColor', array(
-		'label'    => __('Keycolor', 'biz-vektor'),
+		'label'    => __('Keycolor', 'bizvektor-global-edition'),
 		'section'  => 'biz_vektor_rebuild',
 		'settings' => 'biz_vektor_theme_options_rebuild[theme_plusKeyColor]',
 	)));
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'KeyColorLight', array(
-		'label'    => __('Keycolor(Light)', 'biz-vektor'),
+		'label'    => __('Keycolor(Light)', 'bizvektor-global-edition'),
 		'section'  => 'biz_vektor_rebuild',
 		'settings' => 'biz_vektor_theme_options_rebuild[theme_plusKeyColorLight]',
 	)));
 	$wp_customize->add_control( new WP_Customize_Color_Control($wp_customize, 'KeyColorVeryLight', array(
-		'label'    => __('Keycolor(VeryLight)', 'biz-vektor'),
+		'label'    => __('Keycolor(VeryLight)', 'bizvektor-global-edition'),
 		'section'  => 'biz_vektor_rebuild',
 		'settings' => 'biz_vektor_theme_options_rebuild[theme_plusKeyColorVeryLight]',
 	)));

@@ -11,7 +11,7 @@
 	<?php wp_link_pages( array( 'before' => '<div class="page-link">' . 'Pages:', 'after' => '</div>' ) ); ?>
 </div><!-- .entry-content -->
 
-<?php edit_post_link(__('Edit', 'biz-vektor'),'<div class="adminEdit"><span class="linkBtn linkBtnS linkBtnAdmin">','</span></div>'); ?>
+<?php edit_post_link(__('Edit', 'bizvektor-global-edition'),'<div class="adminEdit"><span class="linkBtn linkBtnS linkBtnAdmin">','</span></div>'); ?>
 
 <?php endwhile; ?>
 

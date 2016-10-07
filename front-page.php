@@ -14,6 +14,7 @@
 	<div id="content" class="content">
 	<?php biz_vektor_contentMain_before();?>
 	<div id="content-main">
+
 <?php
 if ( !apply_filters('biz_vektor_extra_main_content', false) ):
 
@@ -29,22 +30,23 @@ if ( !apply_filters('biz_vektor_extra_main_content', false) ):
 				</div>
 			<?php endif; // $topFreeContent ?>
 		<?php endif; // get_post_type() === 'page' ?>
-
+<?php echo __('Stop Edit', 'bizvektor-global-edition');?>
 		<?php if ( current_user_can('edit_theme_options') ) { ?>
 			<div class="adminEdit">
 				<p class="caption">
-				<?php _e('* In admin [Settings] &raquo; [Display Settings], if the front page is not set to a [page], nothing is displayed in this area.', 'biz-vektor'); ?><br />
-				<?php _e('* If empty, the body of a page that you set as the front page does not display anything.', 'biz-vektor'); ?><br />
-				<?php // _e('* If you have set a specific page as the front page, pagination does not appear at the bottom.', 'biz-vektor'); ?>
+				<?php _e('* In admin [Settings] &raquo; [Display Settings], if the front page is not set to a [page], nothing is displayed in this area.', 'bizvektor-global-edition'); ?><br />
+				<?php _e('* If empty, the body of a page that you set as the front page does not display anything.', 'bizvektor-global-edition'); ?><br />
+				<?php // _e('* If you have set a specific page as the front page, pagination does not appear at the bottom.', 'bizvektor-global-edition'); ?>
 				</p>
-				<span class="linkBtn linkBtnS linkBtnAdmin" style="float:left;margin-right:10px;"><?php edit_post_link( __('Edit', 'biz-vektor') ); ?></span>
+				<span class="linkBtn linkBtnS linkBtnAdmin" style="float:left;margin-right:10px;"><?php edit_post_link( __('Edit', 'bizvektor-global-edition') ); ?></span>
 
 				<span style="float:left;margin-right:10px;"><a href="<?php echo site_url(); ?>/wp-admin/themes.php?page=theme_options#topPage" class="btn btnS btnAdmin">
-					<?php _e('Title display settings', 'biz-vektor'); ?>
+					<?php _e('Title display settings', 'bizvektor-global-edition'); ?>
 				</a></span>
 				<span><a href="<?php echo site_url(); ?>/wp-admin/options-reading.php" class="btn btnS btnAdmin">
-					<?php _e('Change the page to be displayed', 'biz-vektor'); ?>
+					<?php _e('Change the page to be displayed', 'bizvektor-global-edition'); ?>
 				</a></span>
+
 			</div>
 		<?php } // login ?>
 
