@@ -7,7 +7,6 @@ biz_vektor_get_theme_options(); ?>
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
-<title><?php wp_title(); ?></title>
 <link rel="start" href="<?php echo site_url(); ?>" title="HOME" />
 <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1">
 <?php wp_head(); ?>

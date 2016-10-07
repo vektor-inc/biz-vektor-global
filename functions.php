@@ -71,6 +71,12 @@ define('BizVektor_Theme_Version', preg_replace('/^Version[ :;]*(\d+\.\d+\.\d+.*)
 /*-------------------------------------------*/
 
 function biz_vektor_theme_setup(){
+
+	/*-------------------------------------------*/
+	/*  Title tag
+	/*-------------------------------------------*/
+	add_theme_support( 'title-tag' );
+
 	add_theme_support( 'automatic-feed-links' );
 
 	add_theme_support( 'custom-header' );
