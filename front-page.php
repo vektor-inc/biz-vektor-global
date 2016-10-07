@@ -17,57 +17,36 @@
 <?php
 if ( !apply_filters('biz_vektor_extra_main_content', false) ):
 
-	/*-------------------------------------------*/
-	/*	No use main content widget
-	/*-------------------------------------------*/
-
-	// Widget guide message
-	if ( is_user_logged_in() == TRUE ) {
-	global $user_level;
-	get_currentuserinfo();
-		if (10 <= $user_level) { ?>
-			<div class="adminEdit sectionFrame">
-			<p>トップページに表示する項目は<a href="<?php echo admin_url().'customize.php';?>">テーマカスタマイザー画面</a>あるいは<a href="<?php echo admin_url().'widgets.php';?>" target="_blank">ウィジェット編集画面</a>より、表示する項目や順番を自由に変更出来ます。<br />
-			『メインコンテンツエリア（トップページ）』ウィジェットにウィジェットアイテムをセットしてください。</p>
-			</div>
-		<?php }
-	}
-
 	// page content
 	if ( have_posts()) : the_post();
 		if (get_post_type() === 'page') :
 			$topFreeContent = NULL;
 			$topFreeContent = get_the_content();
 			if ($topFreeContent) : ?>
-	<div id="topFreeArea">
-		<?php the_content(); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="page-link">' . 'Pages:', 'after' => '</div>' ) ); ?>
-	</div>
-	<?php endif; // $topFreeContent ?>
-	<?php endif; // get_post_type() === 'page' ?>
+				<div id="topFreeArea">
+					<?php the_content(); ?>
+					<?php wp_link_pages( array( 'before' => '<div class="page-link">' . 'Pages:', 'after' => '</div>' ) ); ?>
+				</div>
+			<?php endif; // $topFreeContent ?>
+		<?php endif; // get_post_type() === 'page' ?>
 
-	<?php if ( is_user_logged_in() == TRUE ) {
-	global $user_level;
-	get_currentuserinfo(); ?>
-		<div class="adminEdit">
-			<?php if (10 <= $user_level) { ?>
-			<p class="caption">
-			<?php _e('* In admin [Settings] &raquo; [Display Settings], if the front page is not set to a [page], nothing is displayed in this area.', 'biz-vektor'); ?><br />
-			<?php _e('* If empty, the body of a page that you set as the front page does not display anything.', 'biz-vektor'); ?><br />
-			<?php // _e('* If you have set a specific page as the front page, pagination does not appear at the bottom.', 'biz-vektor'); ?>
-			</p>
-			<?php } ?>
-			<span class="linkBtn linkBtnS linkBtnAdmin" style="float:left;margin-right:10px;"><?php edit_post_link( __('Edit', 'biz-vektor') ); ?></span>
-			<?php if (10 <= $user_level) { ?>
-			<span style="float:left;margin-right:10px;"><a href="<?php echo site_url(); ?>/wp-admin/themes.php?page=theme_options#topPage" class="btn btnS btnAdmin">
-				<?php _e('Title display settings', 'biz-vektor'); ?>
-			</a></span>
-			<span><a href="<?php echo site_url(); ?>/wp-admin/options-reading.php" class="btn btnS btnAdmin">
-				<?php _e('Change the page to be displayed', 'biz-vektor'); ?>
-			</a></span>
-			<?php } ?>
-		</div>
-	<?php } // login ?>
+		<?php if ( current_user_can('edit_theme_options') ) { ?>
+			<div class="adminEdit">
+				<p class="caption">
+				<?php _e('* In admin [Settings] &raquo; [Display Settings], if the front page is not set to a [page], nothing is displayed in this area.', 'biz-vektor'); ?><br />
+				<?php _e('* If empty, the body of a page that you set as the front page does not display anything.', 'biz-vektor'); ?><br />
+				<?php // _e('* If you have set a specific page as the front page, pagination does not appear at the bottom.', 'biz-vektor'); ?>
+				</p>
+				<span class="linkBtn linkBtnS linkBtnAdmin" style="float:left;margin-right:10px;"><?php edit_post_link( __('Edit', 'biz-vektor') ); ?></span>
+
+				<span style="float:left;margin-right:10px;"><a href="<?php echo site_url(); ?>/wp-admin/themes.php?page=theme_options#topPage" class="btn btnS btnAdmin">
+					<?php _e('Title display settings', 'biz-vektor'); ?>
+				</a></span>
+				<span><a href="<?php echo site_url(); ?>/wp-admin/options-reading.php" class="btn btnS btnAdmin">
+					<?php _e('Change the page to be displayed', 'biz-vektor'); ?>
+				</a></span>
+			</div>
+		<?php } // login ?>
 
 	<?php endif; // have_posts() ?>
 
