@@ -30,7 +30,6 @@ if ( !apply_filters('biz_vektor_extra_main_content', false) ):
 				</div>
 			<?php endif; // $topFreeContent ?>
 		<?php endif; // get_post_type() === 'page' ?>
-<?php echo __('Stop Edit', 'bizvektor-global-edition');?>
 		<?php if ( current_user_can('edit_theme_options') ) { ?>
 			<div class="adminEdit">
 				<p class="caption">

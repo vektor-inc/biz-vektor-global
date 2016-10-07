@@ -20,22 +20,29 @@ function biz_vektor_theme_options_render_page() { ?>
 		<h2><?php printf( __( '%s Theme Options', 'bizvektor-global-edition' ), wp_get_theme() ); ?></h2>
 		<?php settings_errors(); ?>
 
+		<?php
+		$biz_vektor_url = '//bizvektor.com/';
+		$biz_vektor_url = ( get_locale() == 'ja' ) ? $biz_vektor_url : $biz_vektor_url.'en/';
+		?>
+
 		<?php if ( function_exists( 'biz_vektor_activation' ) ) {
 		biz_vektor_activation_information();
 		} else { ?>
 		<div id="sub-content" style="background-color: #f5f5f5;">
-			<a style="display:block;border-bottom:1px solid #ccc;" href="http://bizvektor.com/en/" target="_blank" title="BizVektor Standard Edition Official Website">
+			<a style="display:block;border-bottom:1px solid #ccc;" href="<?php echo $biz_vektor_url; ?>" target="_blank" title="BizVektor Standard Edition Official Website">
 				<img style="width:100%;height:auto;display:block;" src="<?php echo get_template_directory_uri() ?>/inc/images/global-banner-bizvekto-standard-ad.jpg" height="805" width="561" alt="BizVektor Standard Edition Official Website" />
 			</a>
-			<p style="padding: 20px 20px 0px 20px;font-size: 14px;line-height: 1.5em;margin: 0;">Thank you for using BizVektor Global Edition!<br />
-			For a more powerful and <strong>business ready</strong> theme you can download for FREE BizVektor Standard Edition.
-			</p>
-			<p style="padding: 10px 20px 20px 20px;font-size: 14px;line-height: 1.5em;margin: 0;">
-				With <a href="http://bizvektor.com/en/" target="_blank" title="BizVektor Standard Edition FREE download">BizVektor Standard Edition</a> you get a <strong>complete solution</strong> for your company website!
+			<p style="padding: 20px;font-size: 14px;line-height: 1.5em;margin: 0;">
+			<?php _e('Thank you for using BizVektor Global Edition!','bizvektor-global-edition' );?><br />
+			<?php 
+			$biz_vektor_std = '<a href="'.$biz_vektor_url.'" target="_blank">'.__('BizVektor Standard Edition(Free)','bizvektor-global-edition').'</a>';
+			printf(__( 'This "Global Edition" is virtually BizVektor "Light version". You can get more powerful function theme %s.','bizvektor-global-edition'), $biz_vektor_std );
+
+			// printf(__('For a more powerful and <strong>business ready</strong> theme you can download for FREE %s.', 'bizvektor-global-edition' ), $biz_vektor_std );
+			?>
 			</p>
 		</div>
 		<?php } ?>
-
 		<?php global $biz_vektor_options;
 		biz_vektor_get_theme_options(); ?>
 		<div id="main-content">
@@ -47,8 +54,9 @@ function biz_vektor_theme_options_render_page() { ?>
 
 		</p>
 <div>
-<?php _e('This "Global Edition" is virtually BizVektor "Light version". You can get more powerful function theme BizVektor (Standard) for free.','bizvektor-global-edition');
-?>
+
+
+
 </div>
 		<form method="post" action="options.php">
 			<?php

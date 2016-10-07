@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WordPress Blank Pot v1.0.0\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2016-10-07 17:45+0900\n"
+"POT-Creation-Date: 2016-10-07 18:36+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Kurudrive <kurudrive@gmail.com>\n"
 "Language-Team: Your Team <translations@example.com>\n"
@@ -47,33 +47,29 @@ msgstr ""
 msgid "Free WordPress Theme BizVektor for business"
 msgstr ""
 
-#: front-page.php:33
-msgid "Stop Edit"
-msgstr ""
-
-#: front-page.php:37
+#: front-page.php:36
 msgid ""
 "* In admin [Settings] &raquo; [Display Settings], if the front page is not "
 "set to a [page], nothing is displayed in this area."
 msgstr ""
 
-#: front-page.php:38
+#: front-page.php:37
 msgid ""
 "* If empty, the body of a page that you set as the front page does not "
 "display anything."
 msgstr ""
 
-#: front-page.php:41 functions.php:567 module_loop_post.php:18
+#: front-page.php:40 functions.php:567 module_loop_post.php:18
 #: module_loop_post2.php:20 module_topPR.php:182 page-parent.php:54
 #: page.php:14 single.php:11 inc/theme-options.php:436
 msgid "Edit"
 msgstr ""
 
-#: front-page.php:44
+#: front-page.php:43
 msgid "Title display settings"
 msgstr ""
 
-#: front-page.php:47
+#: front-page.php:46
 msgid "Change the page to be displayed"
 msgstr ""
 
@@ -308,7 +304,7 @@ msgctxt "biz-vektor theme-customizer"
 msgid "Design settings"
 msgstr ""
 
-#: inc/theme-customizer.php:78 inc/theme-options-edit.php:129
+#: inc/theme-customizer.php:78 inc/theme-options-edit.php:138
 msgctxt "biz-vektor theme-customizer"
 msgid "Header logo image"
 msgstr ""
@@ -318,7 +314,7 @@ msgctxt "biz-vektor theme-customizer"
 msgid "Header logo image URL"
 msgstr ""
 
-#: inc/theme-customizer.php:98 inc/theme-options-edit.php:137
+#: inc/theme-customizer.php:98 inc/theme-options-edit.php:146
 msgctxt "biz-vektor theme-customizer"
 msgid "Footer logo image"
 msgstr ""
@@ -328,80 +324,80 @@ msgctxt "biz-vektor theme-customizer"
 msgid "Footer logo image URL"
 msgstr ""
 
-#: inc/theme-customizer.php:114 inc/theme-options-edit.php:107
+#: inc/theme-customizer.php:114 inc/theme-options-edit.php:116
 msgctxt "biz-vektor theme-customizer"
 msgid "Not specified (left-justified)"
 msgstr ""
 
-#: inc/theme-customizer.php:115 inc/theme-options-edit.php:108
+#: inc/theme-customizer.php:115 inc/theme-options-edit.php:117
 msgctxt "biz-vektor theme-customizer"
 msgid "4"
 msgstr ""
 
-#: inc/theme-customizer.php:116 inc/theme-options-edit.php:109
+#: inc/theme-customizer.php:116 inc/theme-options-edit.php:118
 msgctxt "biz-vektor theme-customizer"
 msgid "5"
 msgstr ""
 
-#: inc/theme-customizer.php:117 inc/theme-options-edit.php:110
+#: inc/theme-customizer.php:117 inc/theme-options-edit.php:119
 msgctxt "biz-vektor theme-customizer"
 msgid "6"
 msgstr ""
 
-#: inc/theme-customizer.php:118 inc/theme-options-edit.php:111
+#: inc/theme-customizer.php:118 inc/theme-options-edit.php:120
 msgctxt "biz-vektor theme-customizer"
 msgid "7"
 msgstr ""
 
-#: inc/theme-customizer.php:120 inc/theme-options-edit.php:101
+#: inc/theme-customizer.php:120 inc/theme-options-edit.php:110
 msgctxt "biz-vektor theme-customizer"
 msgid "Number of header menus"
 msgstr ""
 
-#: inc/theme-customizer.php:132 inc/theme-options-edit.php:145
+#: inc/theme-customizer.php:132 inc/theme-options-edit.php:154
 msgctxt "biz-vektor theme-customizer"
 msgid "Layout"
 msgstr ""
 
-#: inc/theme-customizer.php:140 inc/theme-options-edit.php:175
+#: inc/theme-customizer.php:140 inc/theme-options-edit.php:184
 msgctxt "biz-vektor theme-customizer"
 msgid "Heading font"
 msgstr ""
 
 #: inc/theme-customizer.php:145 inc/theme-customizer.php:156
-#: inc/theme-options-edit.php:178 inc/theme-options-edit.php:194
+#: inc/theme-options-edit.php:187 inc/theme-options-edit.php:203
 msgctxt "biz-vektor theme-customizer"
 msgid "Serif"
 msgstr ""
 
 #: inc/theme-customizer.php:146 inc/theme-customizer.php:157
-#: inc/theme-options-edit.php:178 inc/theme-options-edit.php:194
+#: inc/theme-options-edit.php:187 inc/theme-options-edit.php:203
 msgctxt "biz-vektor theme-customizer"
 msgid "Sanserif"
 msgstr ""
 
-#: inc/theme-customizer.php:151 inc/theme-options-edit.php:191
+#: inc/theme-customizer.php:151 inc/theme-options-edit.php:200
 msgctxt "biz-vektor theme-customizer"
 msgid "Global Menu font"
 msgstr ""
 
-#: inc/theme-customizer.php:167 inc/theme-options-edit.php:241
+#: inc/theme-customizer.php:167 inc/theme-options-edit.php:250
 msgctxt "biz-vektor theme-customizer"
 msgid "Contact settings"
 msgstr ""
 
-#: inc/theme-customizer.php:220 inc/theme-options-edit.php:248
+#: inc/theme-customizer.php:220 inc/theme-options-edit.php:257
 msgctxt "biz-vektor theme-customizer"
 msgid "Message"
 msgstr ""
 
-#: inc/theme-customizer.php:228 inc/theme-options-edit.php:255
+#: inc/theme-customizer.php:228 inc/theme-options-edit.php:264
 msgctxt "biz-vektor theme-customizer"
 msgid "Phone number"
 msgstr ""
 
-#: inc/theme-customizer.php:236 inc/theme-options-edit.php:262
-#: inc/theme-options-edit.php:265
+#: inc/theme-customizer.php:236 inc/theme-options-edit.php:271
+#: inc/theme-options-edit.php:274
 msgctxt "biz-vektor theme-customizer"
 msgid "Office hours"
 msgstr ""
@@ -413,29 +409,29 @@ msgid ""
 "part of the footer."
 msgstr ""
 
-#: inc/theme-customizer.php:252 inc/theme-options-edit.php:279
+#: inc/theme-customizer.php:252 inc/theme-options-edit.php:288
 msgctxt "biz-vektor theme-customizer"
 msgid "Company address"
 msgstr ""
 
-#: inc/theme-customizer.php:260 inc/theme-options-edit.php:289
+#: inc/theme-customizer.php:260 inc/theme-options-edit.php:298
 msgctxt "biz-vektor theme-customizer"
 msgid "The contact page URL"
 msgstr ""
 
-#: inc/theme-customizer.php:271 inc/theme-options-edit.php:309
+#: inc/theme-customizer.php:271 inc/theme-options-edit.php:318
 msgid "3PR area settings"
 msgstr ""
 
-#: inc/theme-customizer.php:284 inc/theme-options-edit.php:331
+#: inc/theme-customizer.php:284 inc/theme-options-edit.php:340
 msgid "Title"
 msgstr ""
 
-#: inc/theme-customizer.php:293 inc/theme-options-edit.php:333
+#: inc/theme-customizer.php:293 inc/theme-options-edit.php:342
 msgid "Description"
 msgstr ""
 
-#: inc/theme-customizer.php:300 inc/theme-options-edit.php:335
+#: inc/theme-customizer.php:300 inc/theme-options-edit.php:344
 msgid "URL"
 msgstr ""
 
@@ -454,387 +450,402 @@ msgstr ""
 msgid "%s Theme Options"
 msgstr ""
 
-#: inc/theme-options-edit.php:43
+#: inc/theme-options-edit.php:36
+msgid "Thank you for using BizVektor Global Edition!"
+msgstr ""
+
+#: inc/theme-options-edit.php:37
+msgid ""
+"For a more powerful and <strong>business ready</strong> theme you can "
+"download for FREE BizVektor Standard Edition."
+msgstr ""
+
+#: inc/theme-options-edit.php:49
 msgid "Theme customizer"
 msgstr ""
 
-#: inc/theme-options-edit.php:44
+#: inc/theme-options-edit.php:50
 msgid "Thank you for using BizVektor."
 msgstr ""
 
-#: inc/theme-options-edit.php:45
+#: inc/theme-options-edit.php:51
 #, php-format
 msgid "You can change basic design settings from %s"
 msgstr ""
 
-#: inc/theme-options-edit.php:46
+#: inc/theme-options-edit.php:52
 msgid "Here you can change social media settings."
 msgstr ""
 
-#: inc/theme-options-edit.php:50
-msgid ""
-"This \"Global Edition\" is virtually BizVektor \"Light version\". You can "
-"get more powerful function theme BizVektor (Standard) for free."
+#: inc/theme-options-edit.php:57
+msgid "BizVektor Standard Edition(Free)"
 msgstr ""
 
-#: inc/theme-options-edit.php:66
+#: inc/theme-options-edit.php:59
+#, php-format
+msgid ""
+"This \"Global Edition\" is virtually BizVektor \"Light version\". You can "
+"get more powerful function theme %s."
+msgstr ""
+
+#: inc/theme-options-edit.php:75
 msgctxt "biz-vektor theme-options-edit"
 msgid "Design settings"
 msgstr ""
 
-#: inc/theme-options-edit.php:68 inc/theme-options-edit.php:243
-#: inc/theme-options-edit.php:311
+#: inc/theme-options-edit.php:77 inc/theme-options-edit.php:252
+#: inc/theme-options-edit.php:320
 #, php-format
 msgid "You can change settings for this section also from %s"
 msgstr ""
 
-#: inc/theme-options-edit.php:73
+#: inc/theme-options-edit.php:82
 msgid "Design skin"
 msgstr ""
 
-#: inc/theme-options-edit.php:76 inc/theme-options-edit.php:104
+#: inc/theme-options-edit.php:85 inc/theme-options-edit.php:113
 msgid "Select"
 msgstr ""
 
-#: inc/theme-options-edit.php:93
+#: inc/theme-options-edit.php:102
 msgid ""
 "* If there are settings for the particular design skin, after you save your "
 "changes, you can update them from theme customizer."
 msgstr ""
 
-#: inc/theme-options-edit.php:131 inc/theme-options-edit.php:139
-#: inc/theme-options-edit.php:341 inc/theme-options-edit.php:347
+#: inc/theme-options-edit.php:140 inc/theme-options-edit.php:148
+#: inc/theme-options-edit.php:350 inc/theme-options-edit.php:356
 msgid "Select image"
 msgstr ""
 
-#: inc/theme-options-edit.php:132
+#: inc/theme-options-edit.php:141
 msgid "Recommended : less than 60px height"
 msgstr ""
 
-#: inc/theme-options-edit.php:140
+#: inc/theme-options-edit.php:149
 msgid "Recommended : 180-250px width"
 msgstr ""
 
-#: inc/theme-options-edit.php:162
+#: inc/theme-options-edit.php:171
 msgid "You can select 1-column from below: "
 msgstr ""
 
-#: inc/theme-options-edit.php:166 inc/theme-options-edit.php:444
+#: inc/theme-options-edit.php:175 inc/theme-options-edit.php:453
 msgid "Home page settings"
 msgstr ""
 
-#: inc/theme-options-edit.php:167
+#: inc/theme-options-edit.php:176
 #, php-format
 msgid "[Top page] %s"
 msgstr ""
 
-#: inc/theme-options-edit.php:169
+#: inc/theme-options-edit.php:178
 msgid "[page] Edit Page > Page Attributes > Template"
 msgstr ""
 
-#: inc/theme-options-edit.php:207
+#: inc/theme-options-edit.php:216
 msgid "Deployment of the sidebar menu"
 msgstr ""
 
-#: inc/theme-options-edit.php:209
+#: inc/theme-options-edit.php:218
 msgid ""
 "If the site hierarchy is deep, you can choose to hide this menu hierarchy "
 "other than the Page you are currently viewing."
 msgstr ""
 
-#: inc/theme-options-edit.php:211
+#: inc/theme-options-edit.php:220
 msgid "Display"
 msgstr ""
 
-#: inc/theme-options-edit.php:211
+#: inc/theme-options-edit.php:220
 msgid "Hide"
 msgstr ""
 
-#: inc/theme-options-edit.php:220
+#: inc/theme-options-edit.php:229
 msgid "This setting can not be changed from the theme customizer."
 msgstr ""
 
-#: inc/theme-options-edit.php:223
+#: inc/theme-options-edit.php:232
 msgid "google fonts"
 msgstr ""
 
-#: inc/theme-options-edit.php:226
+#: inc/theme-options-edit.php:235
 msgid "enable google font"
 msgstr ""
 
-#: inc/theme-options-edit.php:251 inc/theme-options-edit.php:258
-#: inc/theme-options-edit.php:265 inc/theme-options-edit.php:273
-#: inc/theme-options-edit.php:282 inc/theme-options-edit.php:292
+#: inc/theme-options-edit.php:260 inc/theme-options-edit.php:267
+#: inc/theme-options-edit.php:274 inc/theme-options-edit.php:282
+#: inc/theme-options-edit.php:291 inc/theme-options-edit.php:301
 msgid "ex) "
 msgstr ""
 
-#: inc/theme-options-edit.php:251
+#: inc/theme-options-edit.php:260
 msgid "Please feel free to inquire."
 msgstr ""
 
-#: inc/theme-options-edit.php:265
+#: inc/theme-options-edit.php:274
 msgid "Weekdays except holidays"
 msgstr ""
 
-#: inc/theme-options-edit.php:269
+#: inc/theme-options-edit.php:278
 msgctxt "biz-vektor theme-customizer"
 msgid ""
 "Site / Company / Store / Service name. This is displayed in the left part of "
 "the footer bottom and footer copyright section."
 msgstr ""
 
-#: inc/theme-options-edit.php:273
+#: inc/theme-options-edit.php:282
 msgid "BizVektor, Inc."
 msgstr ""
 
-#: inc/theme-options-edit.php:274
+#: inc/theme-options-edit.php:283
 msgid ""
 "* Use this feature when the site name has become too long for SEO purposes."
 msgstr ""
 
-#: inc/theme-options-edit.php:279
+#: inc/theme-options-edit.php:288
 msgid "This is displayed in the left bottom part of the footer."
 msgstr ""
 
-#: inc/theme-options-edit.php:283
+#: inc/theme-options-edit.php:292
 msgid ""
 "316, Minami Sakae Building,<br />1-22-16, Sakae, Naka-ku, Nagoya-shi,<br /"
 ">Aichi 460-0008 JAPAN<br />TEL / FAX +81-52-228-9176"
 msgstr ""
 
-#: inc/theme-options-edit.php:292
+#: inc/theme-options-edit.php:301
 msgid "or"
 msgstr ""
 
-#: inc/theme-options-edit.php:293
+#: inc/theme-options-edit.php:302
 msgid ""
 "* If you fill in the blank, contact banner will be displayed in the sidebar."
 msgstr ""
 
-#: inc/theme-options-edit.php:294
+#: inc/theme-options-edit.php:303
 msgid "If not, it does not appear."
 msgstr ""
 
-#: inc/theme-options-edit.php:318
+#: inc/theme-options-edit.php:327
 msgid "The display of the home page 3PR area."
 msgstr ""
 
-#: inc/theme-options-edit.php:320
+#: inc/theme-options-edit.php:329
 msgid "Check this box if you do not want to see the 3PR area on the home page."
 msgstr ""
 
-#: inc/theme-options-edit.php:321
+#: inc/theme-options-edit.php:330
 msgid "Do not show the top 3PR area"
 msgstr ""
 
-#: inc/theme-options-edit.php:329
+#: inc/theme-options-edit.php:338
 msgid "PR area"
 msgstr ""
 
-#: inc/theme-options-edit.php:337
+#: inc/theme-options-edit.php:346
 msgid "Image (Desktop version)"
 msgstr ""
 
-#: inc/theme-options-edit.php:342
+#: inc/theme-options-edit.php:351
 msgid "310px width is recommended."
 msgstr ""
 
-#: inc/theme-options-edit.php:343
+#: inc/theme-options-edit.php:352
 msgid "Image (Smartphone version)"
 msgstr ""
 
-#: inc/theme-options-edit.php:348
+#: inc/theme-options-edit.php:357
 msgid "120px by 120px is recommended."
 msgstr ""
 
-#: inc/theme-options-edit.php:356
+#: inc/theme-options-edit.php:365
 msgid "* If you are unsure about the image, you can leave this field blank."
 msgstr ""
 
-#: inc/theme-options-edit.php:358
+#: inc/theme-options-edit.php:367
 msgid ""
 "* You can set different image for desktop and smartphone versions of the "
 "site."
 msgstr ""
 
-#: inc/theme-options-edit.php:370
+#: inc/theme-options-edit.php:379
 #, php-format
 msgid "Settings for [ %s ]."
 msgstr ""
 
-#: inc/theme-options-edit.php:371
+#: inc/theme-options-edit.php:380
 msgid "* Does not appear if there are no posts."
 msgstr ""
 
-#: inc/theme-options-edit.php:372
+#: inc/theme-options-edit.php:381
 msgid ""
 "* If the excerpt field is not empty, the content will appear in the &quot;"
 "excerpt&quot;. Otherwise, the text will be displayed in a certain number of"
 msgstr ""
 
-#: inc/theme-options-edit.php:373
+#: inc/theme-options-edit.php:382
 msgid ""
 "<span class=\"alert\">Featured image of the article</span> is displayed."
 msgstr ""
 
-#: inc/theme-options-edit.php:374
+#: inc/theme-options-edit.php:383
 msgid ""
 "You can set the &quot;featured image&quot;, from the bottom right widget "
 "area of particular article edit screen."
 msgstr ""
 
-#: inc/theme-options-edit.php:375
+#: inc/theme-options-edit.php:384
 msgid ""
 "If there is no widget, please check &quot;Featured image&quot; at the top "
 "right of the screen from the &quot;Screen options&quot; tab."
 msgstr ""
 
-#: inc/theme-options-edit.php:382
+#: inc/theme-options-edit.php:391
 msgid "Change the title"
 msgstr ""
 
-#: inc/theme-options-edit.php:384
+#: inc/theme-options-edit.php:393
 #, php-format
 msgid "Display layout of &quot; %s &quot on the top page."
 msgstr ""
 
-#: inc/theme-options-edit.php:388 inc/theme-options-edit.php:404
+#: inc/theme-options-edit.php:397 inc/theme-options-edit.php:413
 msgid "Title only"
 msgstr ""
 
-#: inc/theme-options-edit.php:389 inc/theme-options-edit.php:405
+#: inc/theme-options-edit.php:398 inc/theme-options-edit.php:414
 msgid "With excerpt and thumbnail"
 msgstr ""
 
-#: inc/theme-options-edit.php:400
+#: inc/theme-options-edit.php:409
 #, php-format
 msgid "Display layout of &quot; %s &quot on the archive page."
 msgstr ""
 
-#: inc/theme-options-edit.php:419
+#: inc/theme-options-edit.php:428
 #, php-format
 msgid "Number of %s posts to be displayed on the home page."
 msgstr ""
 
-#: inc/theme-options-edit.php:420
+#: inc/theme-options-edit.php:429
 msgctxt "top page post count"
 msgid "posts"
 msgstr ""
 
-#: inc/theme-options-edit.php:447
+#: inc/theme-options-edit.php:456
 msgid "Main visual"
 msgstr ""
 
-#: inc/theme-options-edit.php:448
+#: inc/theme-options-edit.php:457
 msgid "You can use a slide show or a still image."
 msgstr ""
 
-#: inc/theme-options-edit.php:451
+#: inc/theme-options-edit.php:460
 msgid "Still image settings"
 msgstr ""
 
-#: inc/theme-options-edit.php:453
+#: inc/theme-options-edit.php:462
 msgid "Slide show settings"
 msgstr ""
 
-#: inc/theme-options-edit.php:458
+#: inc/theme-options-edit.php:467
 msgid "Home 3PR area"
 msgstr ""
 
-#: inc/theme-options-edit.php:461
+#: inc/theme-options-edit.php:470
 msgid "Settings for the Home page 3PR area are here"
 msgstr ""
 
-#: inc/theme-options-edit.php:466
+#: inc/theme-options-edit.php:475
 msgid "The display of the home page side bar."
 msgstr ""
 
-#: inc/theme-options-edit.php:468
+#: inc/theme-options-edit.php:477
 msgid ""
 "Check this box if you do not want to display the side bar on the home page."
 msgstr ""
 
-#: inc/theme-options-edit.php:469
+#: inc/theme-options-edit.php:478
 msgid "I want to hide the sidebar"
 msgstr ""
 
-#: inc/theme-options-edit.php:473
+#: inc/theme-options-edit.php:482
 #, php-format
 msgid "Display a number of %s posts."
 msgstr ""
 
-#: inc/theme-options-edit.php:475
+#: inc/theme-options-edit.php:484
 #, php-format
 msgid "Please set from the [ Setting the %s ] section."
 msgstr ""
 
-#: inc/theme-options-edit.php:490
+#: inc/theme-options-edit.php:499
 msgid "Slideshow Settings"
 msgstr ""
 
-#: inc/theme-options-edit.php:491
+#: inc/theme-options-edit.php:500
 msgid "Please enter the URL of the image to be used in the slideshow."
 msgstr ""
 
-#: inc/theme-options-edit.php:492
+#: inc/theme-options-edit.php:501
 msgid "The recommended size of the image is 950 x 250px."
 msgstr ""
 
-#: inc/theme-options-edit.php:494
+#: inc/theme-options-edit.php:503
 msgid "Home page Main visual"
 msgstr ""
 
-#: inc/theme-options-edit.php:495
+#: inc/theme-options-edit.php:504
 #, php-format
 msgid "%s will be displayed if the slideshow is not set."
 msgstr ""
 
-#: inc/theme-options-edit.php:496
+#: inc/theme-options-edit.php:505
 msgid ""
 "It can be only the URL of an image. However, the link is set for the image "
 "if you enter a link URL."
 msgstr ""
 
-#: inc/theme-options-edit.php:497
+#: inc/theme-options-edit.php:506
 msgid "Please type in the alternate text for the image."
 msgstr ""
 
-#: inc/theme-options-edit.php:498
+#: inc/theme-options-edit.php:507
 msgid "When filled in, will be more likely to match the search."
 msgstr ""
 
-#: inc/theme-options-edit.php:499
+#: inc/theme-options-edit.php:508
 msgid ""
 "Moreover, for visually impaired visitors using a text-to-speech device, it "
 "reads out the text."
 msgstr ""
 
-#: inc/theme-options-edit.php:510
+#: inc/theme-options-edit.php:519
 msgid "Link URL"
 msgstr ""
 
-#: inc/theme-options-edit.php:512
+#: inc/theme-options-edit.php:521
 msgid "Image URL"
 msgstr ""
 
-#: inc/theme-options-edit.php:513
+#: inc/theme-options-edit.php:522
 msgid "Select an image"
 msgstr ""
 
-#: inc/theme-options-edit.php:515
+#: inc/theme-options-edit.php:524
 msgid "Alternate text"
 msgstr ""
 
-#: inc/theme-options-edit.php:518
+#: inc/theme-options-edit.php:527
 msgctxt "Slide not displayed"
 msgid "Do not display"
 msgstr ""
 
-#: inc/theme-options-edit.php:519
+#: inc/theme-options-edit.php:528
 msgid "Open in a blank window"
 msgstr ""
 
-#: inc/theme-options-edit.php:527
+#: inc/theme-options-edit.php:536
 msgid ""
 "* The slideshow can be set to up to 5 images, but when accessing the site "
 "using a slow internet connection, because of the time it takes to display "
