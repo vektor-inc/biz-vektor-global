@@ -20,7 +20,6 @@ function is_rebuild(){
 		$options = biz_vektor_get_theme_options();
 		if ( $options['theme_style'] == 'rebuild' || $options['theme_style'] == '' ){
 			return true;
-			break;
 		} else {
 			global $biz_vektor_theme_styles;
 			biz_vektor_theme_styleSetting();
