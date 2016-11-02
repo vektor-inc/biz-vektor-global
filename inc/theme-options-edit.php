@@ -180,7 +180,7 @@ function biz_vektor_theme_options_render_page() { ?>
 	</tr>
 	<!-- Heading font -->
 	<tr>
-	<th><?php _ex('Heading font', 'biz-vektor theme-customizer', 'bizvektor-global-edition') ;?></th>
+	<th><?php _e('Heading font', 'bizvektor-global-edition') ;?></th>
 	<td>
 	<?php
 	$biz_vektor_font_titles = array('serif' => _x('Serif', 'biz-vektor theme-customizer', 'bizvektor-global-edition'),'sanserif' => _x('Sanserif', 'biz-vektor theme-customizer', 'bizvektor-global-edition'),);

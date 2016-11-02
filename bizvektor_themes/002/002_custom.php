@@ -28,7 +28,6 @@ function is_calmly(){
 		foreach ($calmlyLabels as $themeLabel) {
 			if ($options['theme_style'] == $themeLabel):
 				return true;
-				break;
 			endif;
 		}
 	}
