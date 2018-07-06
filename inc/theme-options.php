@@ -167,7 +167,7 @@ function biz_vektor_getHeadTitle() {
 	$headTitle = apply_filters( 'titleCustom', $headTitle );
 	return esc_html($headTitle);
 }
-add_filter( 'wp_title', 'biz_vektor_getHeadTitle', 10, 2 );
+add_filter( 'pre_get_document_title', 'biz_vektor_getHeadTitle', 11, 2 );
 
 /*-------------------------------------------*/
 /*	layout
@@ -641,7 +641,7 @@ function biz_vektor_get_contactBtn(){
 	$contactBtn = '<ul>';
 	$contactBtn .= '<li class="sideBnr" id="sideContact"><a href="'.$options['contact_link'].'">'."\n";
 	$contactBtn .= '<img src="'.get_template_directory_uri().'/images/'.__('bnr_contact.png', 'bizvektor-global-edition').'" alt="'.__('Contact us by e-mail', 'bizvektor-global-edition').'"></a></li>'."\n";
-	
+
 	$contactBtn .= '</ul>'."\n";
 	return $contactBtn;
 	endif;
@@ -654,7 +654,7 @@ function biz_vektor_get_name() {
 }
 
 function biz_vektor_get_default_theme_options(){
-	// default options 
+	// default options
 	$default_theme_options = array(
 		'font_title'           => 'serif',
 		'font_menu'            => 'serif',
@@ -758,7 +758,7 @@ function biz_vektor_get_default_theme_options(){
 
 
 /*-------------------------------------------*/
-/*	
+/*
 /*	@return array(options)
 /*-------------------------------------------*/
 function biz_vektor_option_validate(){
