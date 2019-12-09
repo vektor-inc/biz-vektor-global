@@ -184,44 +184,25 @@ add_action( 'widgets_init', 'biz_vektor_widgetarea_init' );
 /*-------------------------------------------*/
 /*	Custom header
 /*-------------------------------------------*/
-
-// Use custom header text
-define( 'HEADER_TEXTCOLOR', '' );
-// Kill custom header test
-define( 'NO_HEADER_TEXT', true );
-
-define( 'HEADER_IMAGE', '%s/images/headers/features.jpg' );
-define( 'HEADER_IMAGE_WIDTH', 950 );
-define( 'HEADER_IMAGE_HEIGHT', 250 );
-register_default_headers(
-	array(
-		'features'         => array(
-			'url'           => '%s/images/headers/features.jpg',
-			'thumbnail_url' => '%s/images/headers/features-thumbnail.jpg',
-			'description'   => 'Features',
-		),
-		'accelerate'       => array(
-			'url'           => '%s/images/headers/accelerate.jpg',
-			'thumbnail_url' => '%s/images/headers/accelerate-thumbnail.jpg',
-			'description'   => 'accelerate',
-		),
-		'bussines_desk_01' => array(
-			'url'           => '%s/images/headers/bussines_desk_01.jpg',
-			'thumbnail_url' => '%s/images/headers/bussines_desk_01-thumbnail.jpg',
-			'description'   => 'Bussines desk01',
-		),
-		'autumn-leaves'    => array(
-			'url'           => '%s/images/headers/autumn-leaves.jpg',
-			'thumbnail_url' => '%s/images/headers/autumn-leaves-thumbnail.jpg',
-			'description'   => 'autumn-leaves',
-		),
-		'johnny_01'        => array(
-			'url'           => '%s/images/headers/johnny_01.jpg',
-			'thumbnail_url' => '%s/images/headers/johnny_01-thumbnail.jpg',
-			'description'   => 'Johnny',
-		),
-	)
-);
+add_action( 'after_setup_theme', 'biz_vektor_setup' );
+function biz_vektor_setup() {
+	$args = array(
+		// 'default-image'          => '',
+		// 'random-default'         => false,
+		'width'         => 950,
+		'height'        => 250,
+		// 'flex-height'            => false,
+		// 'flex-width'             => false,
+		// 'default-text-color'     => '',
+		// 'header-text'            => true,
+		// 'uploads'                => true,
+		// 'wp-head-callback'       => '',
+		// 'admin-head-callback'    => '',
+		// 'admin-preview-callback' => '',
+		'default-image' => get_template_directory_uri() . '/images/headers/features.jpg',
+	);
+	add_theme_support( 'custom-header', $args );
+}
 
 /*-------------------------------------------*/
 /*	Load theme options
